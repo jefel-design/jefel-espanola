@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github/jefel-design.github.io/jefel-john-espanola",
+  "homepage": "https://github/jefel.design.github.io/jefel-john-espanola",
   "name": "vite-react-typescript-starter",
   "private": true,
   "version": "0.0.0",
@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
