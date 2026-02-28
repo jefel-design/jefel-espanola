@@ -41,7 +41,7 @@ export function Hero() {
             {/* Profile Image - Above name */}
             <div className="flex justify-start mb-6">
               <img 
-                src="/jefel.jpeg" 
+                src="jefel.jpeg" 
                 alt="Jefel John Española"
                 className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-white/20 shadow-lg"
               />
