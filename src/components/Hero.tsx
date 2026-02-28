@@ -9,7 +9,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden pb-32 md:pb-0">
+    <section id="hero" className="relative overflow-hidden">
 
       {/* Gradient Background */}
       <div
@@ -32,8 +32,8 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 min-h-[90vh] flex items-center">
-        <div className="w-full space-y-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 min-h-[80vh] flex items-center">
+        <div className="w-full space-y-6">
 
           {/* Profile Image */}
           <div className="flex justify-start mb-6">
@@ -51,7 +51,7 @@ export function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-4">
-              A UI/Graphic Designer & Web Developer from Philippines.
+              Graphic Designer & Web Developer
             </p>
           </div>
 
