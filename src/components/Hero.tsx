@@ -1,4 +1,4 @@
-import { ArrowRight, Linkedin, Mail, MapPin} from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -56,7 +56,7 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Buttons (FIXED) */}
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-0">
             
             {/* Primary Button */}
@@ -70,7 +70,7 @@ export function Hero() {
                          hover:bg-[var(--accent-hover)]
                          shadow-sm hover:shadow-md"
             >
-              View Experience
+              See Experience
               <ArrowRight size={16} />
             </button>
 
@@ -90,25 +90,7 @@ export function Hero() {
 
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-6 pt-4">
-            <a
-              href="https://www.linkedin.com/in/jefel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a
-              href="mailto:jefeljohnmaitem@gmail.com"
-              className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-              aria-label="Email"
-            >
-              <Mail size={24} />
-            </a>
-          </div>
+          {/* Social Links Section - REMOVED */}
 
         </div>
       </div>
