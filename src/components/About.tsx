@@ -27,8 +27,7 @@ export function About() {
               </p>
 
               <p>
-                Experienced in eCommerce platforms, branding, and responsive web
-                design for tech, gaming, and digital marketing industries.
+                Experienced in digital platforms, branding, and responsive web design for tech, gaming, and digital marketing industries.
               </p>
             </div>
           </div>
