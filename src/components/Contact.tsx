@@ -14,23 +14,26 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="pt-12 pb-14 bg-black">
+    <section
+      id="contact"
+      className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
+    >
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
 
-        {/* Gradient Card */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 p-8 md:p-10">
+        {/* Dark Card (FORCED BLACK) */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 md:p-10">
 
-          {/* Gradient Background */}
+          {/* Gradient Layer */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 opacity-90"
             style={{
               background:
                 'linear-gradient(45deg, #000000 0%, #000000 50%, #046ab4 75%, #b6fff6 100%)',
             }}
           />
 
-          {/* Softer Overlay (Reduced opacity) */}
-          <div className="absolute inset-0 bg-black/25 backdrop-blur-sm" />
+          {/* Soft Overlay */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
           {/* Content */}
           <div className="relative z-10 space-y-8">
@@ -39,20 +42,18 @@ export function Contact() {
               Contact
             </h2>
 
-            {/* Contact Info */}
-            <div className="flex flex-wrap gap-8 text-sm">
-              <div className="flex items-center gap-3 text-white/80">
+            <div className="flex flex-wrap gap-8 text-sm text-white/80">
+              <div className="flex items-center gap-3">
                 <Phone size={16} />
                 0909 698 4089
               </div>
 
-              <div className="flex items-center gap-3 text-white/80">
+              <div className="flex items-center gap-3">
                 <Mail size={16} />
                 jefeljohnmaitem@gmail.com
               </div>
             </div>
 
-            {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <div className="grid sm:grid-cols-2 gap-6">
@@ -64,8 +65,8 @@ export function Contact() {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-lg text-sm
-                             bg-black/40 border border-white/20
-                             text-white placeholder-white/40
+                             bg-white/10 border border-white/20
+                             text-white placeholder-white/50
                              focus:outline-none focus:border-[#046ab4]
                              transition-all duration-300"
                   required
@@ -79,8 +80,8 @@ export function Contact() {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-lg text-sm
-                             bg-black/40 border border-white/20
-                             text-white placeholder-white/40
+                             bg-white/10 border border-white/20
+                             text-white placeholder-white/50
                              focus:outline-none focus:border-[#046ab4]
                              transition-all duration-300"
                   required
@@ -95,8 +96,8 @@ export function Contact() {
                 }
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg text-sm
-                           bg-black/40 border border-white/20
-                           text-white placeholder-white/40
+                           bg-white/10 border border-white/20
+                           text-white placeholder-white/50
                            focus:outline-none focus:border-[#046ab4]
                            transition-all duration-300"
                 required
@@ -105,7 +106,7 @@ export function Contact() {
               <button
                 type="submit"
                 className="px-6 py-3 rounded-lg text-sm font-medium
-                           bg-[#0d0d0d] border border-white/20
+                           bg-white/10 border border-white/20
                            text-white transition-all duration-300
                            hover:bg-[#046ab4] hover:border-[#046ab4]"
               >

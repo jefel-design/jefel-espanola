@@ -15,11 +15,11 @@ export function Awards() {
   return (
     <section
       id="awards"
-      className="pt-12 pb-14 bg-black border-b border-white/[0.08]"
+      className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
         
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
           Awards
         </h2>
 
@@ -27,15 +27,18 @@ export function Awards() {
           {awards.map((award, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-xl border border-white/10 p-6 
-                         bg-[#0d0d0d] transition-all duration-500 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl p-6 
+                         transition-all duration-500 hover:-translate-y-1 border"
+              style={{
+                backgroundColor: 'var(--card-bg)',
+                borderColor: 'var(--card-border)',
+              }}
             >
               {/* Gradient Hover Layer */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  background:
-                    'linear-gradient(45deg, #000000 0%, #000000 55%, #046ab4 75%, #b6fff6 100%)',
+                  background: 'var(--card-hover-gradient)',
                 }}
               />
 
@@ -43,15 +46,22 @@ export function Awards() {
               <div className="relative z-10 flex items-start gap-4">
                 <Award
                   size={20}
-                  className="text-white/40 transition-colors duration-300 group-hover:text-white"
+                  style={{ color: 'var(--card-icon)' }}
+                  className="transition-colors duration-300"
                 />
 
                 <div>
-                  <h3 className="text-white font-medium text-lg">
+                  <h3
+                    className="font-medium text-lg"
+                    style={{ color: 'var(--card-text-primary)' }}
+                  >
                     {award.title}
                   </h3>
 
-                  <p className="text-sm text-white/60 mt-1">
+                  <p
+                    className="text-sm mt-1"
+                    style={{ color: 'var(--card-text-muted)' }}
+                  >
                     {award.org}
                   </p>
                 </div>

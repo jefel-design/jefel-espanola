@@ -6,13 +6,23 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/jefel.svg" />
 
-    <!-- Optional PNG fallback (recommended for older browsers) -->
-    <!-- <link rel="alternate icon" type="image/png" href="/jefel.png" /> -->
-
     <!-- Mobile viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jefel John Española</title>
+
+    <!-- Theme script to prevent flashing -->
+    <script>
+      // Check for saved theme preference or system preference
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
+        document.documentElement.classList.add('light-theme');
+      } else {
+        document.documentElement.classList.add('dark-theme');
+      }
+    </script>
   </head>
 
   <body>

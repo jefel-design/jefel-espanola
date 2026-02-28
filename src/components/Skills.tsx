@@ -14,11 +14,11 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="pt-12 pb-14 bg-black border-b border-white/[0.08]"
+      className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
         
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
           Skills
         </h2>
 
@@ -26,7 +26,7 @@ export function Skills() {
           
           {/* Technical Skills */}
           <div>
-            <h3 className="text-sm font-medium text-white/50 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-medium uppercase tracking-wider mb-4 text-[var(--text-muted)]">
               Technical
             </h3>
 
@@ -35,10 +35,20 @@ export function Skills() {
                 <span
                   key={index}
                   className="px-4 py-2 rounded-lg text-sm 
-                             bg-white/5 text-white/70 
-                             border border-white/10
-                             transition-all duration-300
-                             hover:border-[#046ab4] hover:text-[#046ab4]"
+                             border transition-all duration-300"
+                  style={{
+                    backgroundColor: 'var(--card-tag-bg)',
+                    color: 'var(--card-tag-text)',
+                    borderColor: 'var(--card-border)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--accent)';
+                    e.currentTarget.style.color = 'var(--accent)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.color = 'var(--card-tag-text)';
+                  }}
                 >
                   {skill}
                 </span>
@@ -48,7 +58,7 @@ export function Skills() {
 
           {/* Soft Skills */}
           <div>
-            <h3 className="text-sm font-medium text-white/50 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-medium uppercase tracking-wider mb-4 text-[var(--text-muted)]">
               Soft Skills
             </h3>
 
@@ -57,10 +67,20 @@ export function Skills() {
                 <span
                   key={index}
                   className="px-4 py-2 rounded-lg text-sm 
-                             bg-white/5 text-white/70 
-                             border border-white/10
-                             transition-all duration-300
-                             hover:border-[#046ab4] hover:text-[#046ab4]"
+                             border transition-all duration-300"
+                  style={{
+                    backgroundColor: 'var(--card-tag-bg)',
+                    color: 'var(--card-tag-text)',
+                    borderColor: 'var(--card-border)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--accent)';
+                    e.currentTarget.style.color = 'var(--accent)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.color = 'var(--card-tag-text)';
+                  }}
                 >
                   {skill}
                 </span>

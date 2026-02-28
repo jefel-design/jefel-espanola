@@ -29,60 +29,84 @@ const jobs = [
 
 export function Experience() {
   return (
-    <section 
-      id="experience" 
-      className="pt-12 pb-14 bg-black border-b border-white/[0.08]"
+    <section
+      id="experience"
+      className="pt-16 pb-16"
+      style={{
+        backgroundColor: 'var(--bg-primary)',
+        borderBottom: '1px solid var(--border)',
+      }}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+        {/* Section Title */}
+        <h2
+          className="text-3xl md:text-4xl font-bold tracking-tight"
+          style={{ color: 'var(--text-primary)' }}
+        >
           Experience
         </h2>
 
+        {/* Cards Grid */}
         <div className="grid gap-8 md:grid-cols-2">
           {jobs.map((job, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0d0d0d] p-6 transition-all duration-500 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
+              style={{
+                backgroundColor: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+              }}
             >
-              {/* Gradient Hover Layer */}
+              {/* Hover Gradient */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  background:
-                    'linear-gradient(45deg, #000000 0%, #000000 40%, #046ab4 75%, #b6fff6 100%)',
+                  background: 'var(--card-hover-gradient)',
                 }}
               />
 
-              {/* Content */}
               <div className="relative z-10">
+                {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <Briefcase
                       size={18}
-                      className="text-white/40 group-hover:text-white transition-colors duration-300"
+                      style={{ color: 'var(--card-icon)' }}
                     />
-                    <h3 className="text-white font-semibold text-lg">
+                    <h3
+                      className="font-semibold text-lg"
+                      style={{ color: 'var(--card-text-primary)' }}
+                    >
                       {job.company}
                     </h3>
                   </div>
 
-                  <span className="text-xs text-white/40 group-hover:text-white/70 transition-colors">
+                  <span
+                    className="text-xs"
+                    style={{ color: 'var(--card-text-muted)' }}
+                  >
                     {job.period}
                   </span>
                 </div>
 
-                <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors mb-5">
+                {/* Job Title */}
+                <p
+                  className="text-sm mb-5"
+                  style={{ color: 'var(--card-text-secondary)' }}
+                >
                   {job.title}
                 </p>
 
+                {/* Tags */}
                 <div className="flex flex-wrap gap-3">
                   {job.highlights.map((item, idx) => (
                     <span
                       key={idx}
-                      className="text-xs px-3 py-1 rounded-md
-                                 bg-white/5 text-white/50
-                                 group-hover:bg-white/10 group-hover:text-white
-                                 transition-all duration-300"
+                      className="text-xs px-3 py-1 rounded-md transition-all duration-300"
+                      style={{
+                        backgroundColor: 'var(--card-tag-bg)',
+                        color: 'var(--card-tag-text)',
+                      }}
                     >
                       {item}
                     </span>

@@ -9,19 +9,18 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden">
+    <section id="hero" className="relative overflow-hidden pb-32 md:pb-0">
 
       {/* Gradient Background */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            'linear-gradient(45deg, #000000 0%, #000000 50%, #046ab4 70%, #b6fff6 100%)',
+          background: 'var(--gradient)',
         }}
       />
 
       {/* Subtle overlay */}
-      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0 dark-theme:bg-black/10 light-theme:bg-black/5" />
 
       {/* Noise */}
       <div
@@ -36,38 +35,39 @@ export function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 min-h-[90vh] flex items-center">
         <div className="w-full space-y-8">
 
-          {/* Text Block */}
-          <div>
-            {/* Profile Image - Above name */}
-            <div className="flex justify-start mb-6">
-              <img 
-                src="jefel.jpeg" 
-                alt="Jefel John Española"
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-white/20 shadow-lg"
-              />
-            </div>
+          {/* Profile Image */}
+          <div className="flex justify-start mb-6">
+            <img 
+              src="jefel.jpeg"
+              alt="Jefel John Española"
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg"
+            />
+          </div>
 
-            <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-medium tracking-tight text-white leading-[1.1] mb-4">
+          {/* Heading */}
+          <div>
+            <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)] leading-[1.1] mb-4">
               Hi, I'm Jefel John Española
             </h1>
 
-            <p className="text-base sm:text-lg text-white/70">
+            <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-4">
               A UI/Graphic Designer & Web Developer from Philippines.
             </p>
           </div>
 
-          {/* Buttons */}
+          {/* Buttons (FIXED) */}
           <div className="flex flex-col sm:flex-row gap-4 pt-0">
             
-            {/* Primary Button - Matches About Card */}
+            {/* Primary Button */}
             <button
               onClick={() => scrollToSection('experience')}
               className="px-6 py-3 rounded-lg text-sm font-medium
                          inline-flex items-center justify-center gap-2
                          transition-all duration-300
+                         bg-[var(--accent)]
                          text-white
-                         bg-[#0d0d0d] border border-white/10
-                         hover:bg-[#046ab4] hover:border-[#046ab4]"
+                         hover:bg-[var(--accent-hover)]
+                         shadow-sm hover:shadow-md"
             >
               View Experience
               <ArrowRight size={16} />
@@ -77,9 +77,12 @@ export function Hero() {
             <button
               onClick={() => scrollToSection('contact')}
               className="px-6 py-3 rounded-lg text-sm font-medium
-                         border border-white/30 text-white
-                         hover:border-[#046ab4] hover:text-[#046ab4]
-                         transition-all duration-300"
+                         border border-[var(--border)]
+                         text-[var(--text-primary)]
+                         hover:border-[var(--accent)]
+                         hover:text-[var(--accent)]
+                         transition-all duration-300
+                         bg-transparent"
             >
               Get in touch
             </button>
@@ -87,19 +90,19 @@ export function Hero() {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-6 pt-0">
+          <div className="flex gap-6 pt-4">
             <a
               href="https://www.linkedin.com/in/jefel/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-[#046ab4] transition-all duration-300"
+              className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
               aria-label="LinkedIn Profile"
             >
               <Linkedin size={24} />
             </a>
             <a
               href="mailto:jefeljohnmaitem@gmail.com"
-              className="text-white/60 hover:text-[#046ab4] transition-all duration-300"
+              className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
               aria-label="Email"
             >
               <Mail size={24} />
