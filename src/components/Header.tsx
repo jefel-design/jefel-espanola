@@ -26,7 +26,7 @@ export function Header() {
             aria-label="Go to home"
           >
             <img
-              src="Jefel.svg"  // ← change this path
+              src="jefel.svg"  // ← change this path
               alt="JJM Logo"
               className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
             />
