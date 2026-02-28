@@ -11,7 +11,7 @@ export function About() {
           className="relative z-20 -mt-24 md:-mt-32
                      bg-[var(--bg-card)]
                      border border-[var(--border)]
-                     rounded-2xl p-8 md:p-10 shadow-2xl"
+                     rounded-2xl p-8 md:p-10 shadow-1xl"
         >
           <div className="space-y-6 max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[var(--text-primary)]">
