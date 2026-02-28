@@ -42,7 +42,7 @@ export function Contact() {
               Contact
             </h2>
 
-            <div className="flex flex-wrap gap-8 text-sm text-white/80">
+            <div className="flex font-light flex-wrap gap-8 text-sm text-white/80">
               <div className="flex items-center gap-3">
                 <Phone size={16} />
                 0909 698 4089
@@ -56,7 +56,7 @@ export function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid font-light sm:grid-cols-2 gap-6">
                 <input
                   type="text"
                   placeholder="Name"
@@ -95,7 +95,7 @@ export function Contact() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg text-sm
+                className="w-full font-light px-4 py-3 rounded-lg text-sm
                            bg-white/10 border border-white/20
                            text-white placeholder-white/50
                            focus:outline-none focus:border-[#046ab4]
@@ -105,7 +105,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="px-6 py-3 rounded-lg text-sm font-medium
+                className="px-6 font-light py-3 rounded-lg text-sm font-medium
                            bg-white/10 border border-white/20
                            text-white transition-all duration-300
                            hover:bg-[#046ab4] hover:border-[#046ab4]"

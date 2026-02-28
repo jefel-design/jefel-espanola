@@ -18,10 +18,10 @@ export function About() {
               About
             </h2>
 
-            <div className="space-y-4 text-[var(--text-secondary)]">
+            <div className="space-y-4 font-light text-[var(--text-secondary)]">
               <p>
                 Graphic & UI/Web Designer skilled in{" "}
-                <span className="text-[var(--accent)] font-medium">
+                <span className="text-[var(--accent)] font-light">
                   Adobe Suite, Figma, WordPress, and Elementor
                 </span>.
               </p>

@@ -44,7 +44,13 @@ export function Header() {
   const navItems = ['about', 'experience', 'skills', 'awards', 'contact'];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border)]">
+    <header 
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300"
+      style={{
+        backgroundColor: 'rgba(var(--bg-primary-rgb), 0.8)', // 20% transparent (80% opaque)
+        borderColor: 'var(--border)'
+      }}
+    >
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <div className="flex justify-between items-center h-16">
 
@@ -67,9 +73,9 @@ export function Header() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-sm font-medium capitalize text-[var(--text-secondary)]
-                           transition-colors duration-300 
-                           hover:text-[var(--accent)]"
+                className="text-sm font-light capitalize transition-colors duration-300
+                         hover:text-[var(--accent)]"
+                style={{ color: 'var(--text-secondary)' }}
               >
                 {item}
               </button>
@@ -78,12 +84,13 @@ export function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg
-                         border border-[var(--border)]
-                         text-[var(--text-primary)]
-                         hover:border-[var(--accent)] hover:text-[var(--accent)]
-                         transition-all duration-300
-                         flex items-center justify-center ml-2"
+              className="p-2 rounded-lg border transition-all duration-300
+                         flex items-center justify-center ml-2
+                         hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              style={{
+                borderColor: 'var(--border)',
+                color: 'var(--text-primary)'
+              }}
               aria-label="Toggle theme"
             >
               {isLight ? <Moon size={18} /> : <Sun size={18} />}
@@ -95,12 +102,13 @@ export function Header() {
 
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg
-                         border border-[var(--border)]
-                         text-[var(--text-primary)]
-                         hover:border-[var(--accent)] hover:text-[var(--accent)]
-                         transition-all duration-300
-                         flex items-center justify-center"
+              className="p-2 rounded-lg border transition-all duration-300
+                         flex items-center justify-center
+                         hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              style={{
+                borderColor: 'var(--border)',
+                color: 'var(--text-primary)'
+              }}
               aria-label="Toggle theme"
             >
               {isLight ? <Moon size={18} /> : <Sun size={18} />}
@@ -108,7 +116,8 @@ export function Header() {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+              className="p-2 transition-colors hover:text-[var(--accent)]"
+              style={{ color: 'var(--text-secondary)' }}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -118,14 +127,17 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-6 space-y-4 border-t border-[var(--border)]">
+          <nav 
+            className="md:hidden py-6 space-y-4 border-t"
+            style={{ borderColor: 'var(--border)' }}
+          >
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className="block w-full text-left text-sm font-medium capitalize 
-                           text-[var(--text-secondary)] transition-colors duration-300 
-                           hover:text-[var(--accent)]"
+                           transition-colors duration-300 hover:text-[var(--accent)]"
+                style={{ color: 'var(--text-secondary)' }}
               >
                 {item}
               </button>

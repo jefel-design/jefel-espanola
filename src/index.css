@@ -4,6 +4,14 @@
 
 @font-face {
   font-family: 'Matter';
+  src: url('/fonts/Matter-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Matter';
   src: url('/fonts/Matter-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -39,6 +47,7 @@
 :root {
   /* Dark theme (default) */
   --bg-primary: #000000;
+  --bg-primary-rgb: 5, 5, 5; /* Add this for rgba support */
   --bg-secondary: #0d0d0d;
   --bg-card: #0d0d0d;
   --text-primary: #ffffff;
@@ -70,6 +79,7 @@
 
 .light-theme {
   --bg-primary: #ffffff;
+  --bg-primary-rgb: 255, 255, 255; /* Add this for rgba support */
   --bg-secondary: #ffffff;
   --bg-card: #ffffff;
   --text-primary: #000000;

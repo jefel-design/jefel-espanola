@@ -59,7 +59,7 @@ export function Awards() {
                   </h3>
 
                   <p
-                    className="text-sm mt-1"
+                    className="text-sm font-light mt-1"
                     style={{ color: 'var(--card-text-muted)' }}
                   >
                     {award.org}

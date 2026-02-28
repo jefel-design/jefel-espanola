@@ -55,7 +55,7 @@ export function Education() {
               </div>
 
               <p
-                className="text-sm"
+                className="text-sm font-light"
                 style={{ color: 'var(--card-text-secondary)' }}
               >
                 Bachelor of Science in Information Technology

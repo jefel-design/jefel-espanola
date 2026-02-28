@@ -1,4 +1,4 @@
-import { ArrowRight, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Linkedin, Mail, MapPin} from 'lucide-react';
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -46,12 +46,13 @@ export function Hero() {
 
           {/* Heading */}
           <div>
-            <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-medium tracking-tight text-[var(--text-primary)] leading-[1.1] mb-4">
+            <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-semibold tracking-tight text-[var(--text-primary)] leading-[1.1] mb-4">
               Hi, I'm Jefel John Española
             </h1>
 
-            <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-4">
-              Graphic Designer & Web Developer
+            <p className="text-base font-light text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+              <MapPin size={16} className="text-[var(--text-muted)]" />
+              Based in Surigao del Norte, Philippines
             </p>
           </div>
 
@@ -61,7 +62,7 @@ export function Hero() {
             {/* Primary Button */}
             <button
               onClick={() => scrollToSection('experience')}
-              className="px-6 py-3 rounded-lg text-sm font-medium
+              className="px-6 py-3 rounded-lg text-sm font-light
                          inline-flex items-center justify-center gap-2
                          transition-all duration-300
                          bg-[var(--accent)]
@@ -76,7 +77,7 @@ export function Hero() {
             {/* Secondary Button */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="px-6 py-3 rounded-lg text-sm font-medium
+              className="px-6 py-3 rounded-lg text-sm font-light
                          border border-[var(--border)]
                          text-[var(--text-primary)]
                          hover:border-[var(--accent)]

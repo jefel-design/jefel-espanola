@@ -30,7 +30,7 @@ export function Skills() {
               Technical
             </h3>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex font-light flex-wrap gap-3">
               {technicalSkills.map((skill, index) => (
                 <span
                   key={index}
@@ -62,7 +62,7 @@ export function Skills() {
               Soft Skills
             </h3>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex font-light flex-wrap gap-3">
               {softSkills.map((skill, index) => (
                 <span
                   key={index}

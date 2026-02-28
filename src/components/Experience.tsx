@@ -1,4 +1,4 @@
-import { Briefcase } from 'lucide-react';
+import { Briefcase, ChevronDown, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 const jobs = [
@@ -9,6 +9,26 @@ const jobs = [
     highlights: ['WordPress/Elementor', 'UI Design', 'Branding'],
     logo: 'ark-design.png',
     type: 'Full-time',
+    projects: [
+      {
+        name: 'Product Configurator Website Redesign',
+        link: 'https://productconfigurator.nl./',
+        image: 'webproject1.png',
+        imageAlt: 'Ark Design Corporate Website'
+      },
+      {
+        name: 'Brand Identity Package',
+        link: 'https://www.linkedin.com/company/arkdesign/posts/?feedView=all',
+        image: 'arkad1.jpeg',
+        imageAlt: 'Ark Design Brand Identity'
+      },
+      {
+        name: 'ArkDesign Redesign',
+        link: 'https://www.arkdesign.nl/',
+        image: 'ark2.png',
+        imageAlt: 'Ark Design Redesign'
+      }
+    ]
   },
   {
     company: 'TNC Kaiserin',
@@ -17,6 +37,26 @@ const jobs = [
     highlights: ['Head Designer', 'Posters', 'Branding'],
     logo: 'tnc-kaiserin.png',
     type: 'Freelance',
+    projects: [
+      {
+        name: 'Roster',
+        link: 'https://www.facebook.com/photo.php?fbid=1265132472286073&set=pb.100063679975758.-2207520000&type=3',
+        image: 'poster-1.jpg',
+        imageAlt: 'TNC Event Campaign'
+      },
+      {
+        name: 'Roster Reveal',
+        link: 'https://www.facebook.com/photo.php?fbid=1228044165994904&set=pb.100063679975758.-2207520000&type=3',
+        image: 'poster-2.jpg',
+        imageAlt: 'TNC Brand Refresh'
+      },
+      {
+        name: 'MVP',
+        link: 'https://www.facebook.com/photo.php?fbid=1216178023848185&set=pb.100063679975758.-2207520000&type=3',
+        image: 'poster-3.jpg',
+        imageAlt: 'TNC Brand Refresh'
+      }
+    ]
   },
   {
     company: 'Bren Esports',
@@ -25,6 +65,20 @@ const jobs = [
     highlights: ['Player-specific Design', 'Posters', 'Branding'],
     logo: 'ap-bren.png',
     type: 'Freelance',
+    projects: [
+      {
+        name: 'Roster',
+        link: 'https://www.facebook.com/photo.php?fbid=1126063892864934&set=pb.100063840020177.-2207520000&type=3',
+        image: 'apbr1.jpg',
+        imageAlt: 'Bren Player Branding'
+      },
+      {
+        name: 'Game Day',
+        link: 'https://www.facebook.com/photo.php?fbid=1149090933895563&set=pb.100063840020177.-2207520000&type=3',
+        image: 'apbr2.jpg',
+        imageAlt: 'Bren Tournament Graphics'
+      }
+    ]
   },
   {
     company: 'Surigao Esports Collective',
@@ -33,11 +87,26 @@ const jobs = [
     highlights: ['Head Designer', 'Broadcast Visuals', 'Branding'],
     logo: 'surigao-esports.png',
     type: 'Contract',
+    projects: [
+      {
+        name: 'CEAP',
+        link: 'https://www.facebook.com/photo.php?fbid=375363668895238&set=pb.100092648244877.-2207520000&type=3',
+        image: 'ceap1.jpg',
+        imageAlt: 'SEC Broadcast Graphics'
+      },
+      {
+        name: 'Surecol 1',
+        link: 'https://www.facebook.com/photo.php?fbid=122123598602098189&set=pb.61552945697929.-2207520000&type=3',
+        image: 'surcol1.jpg',
+        imageAlt: 'SEC League Branding'
+      }
+    ]
   },
 ];
 
 function TimelineCard({ job }: { job: any }) {
   const [imgError, setImgError] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="relative pl-16 group">
@@ -46,8 +115,9 @@ function TimelineCard({ job }: { job: any }) {
         className="absolute z-10"
         style={{
           left: '16px',
-          top: '50%',
+          top: isExpanded ? '48px' : '50%',
           transform: 'translate(-50%, -50%)',
+          transition: 'top 0.3s ease',
         }}
       >
         <div className="timeline-dot" />
@@ -55,11 +125,12 @@ function TimelineCard({ job }: { job: any }) {
 
       {/* Card */}
       <div
-        className="relative overflow-hidden rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+        className="relative overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
         style={{
           backgroundColor: 'var(--card-bg)',
           border: '1px solid var(--card-border)',
         }}
+        onClick={() => setIsExpanded(!isExpanded)}
       >
         {/* Hover Gradient */}
         <div
@@ -67,7 +138,7 @@ function TimelineCard({ job }: { job: any }) {
           style={{ background: 'var(--card-hover-gradient)' }}
         />
 
-        <div className="relative z-10">
+        <div className="relative z-10 p-6">
           {/* Header Row */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -108,18 +179,25 @@ function TimelineCard({ job }: { job: any }) {
               </div>
             </div>
 
-            {/* Period */}
-            <span
-              className="text-xs"
-              style={{ color: 'var(--card-text-muted)' }}
-            >
-              {job.period}
-            </span>
+            {/* Period and Expand Icon */}
+            <div className="flex items-center gap-3">
+              <span
+                className="text-xs"
+                style={{ color: 'var(--card-text-muted)' }}
+              >
+                {job.period}
+              </span>
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                style={{ color: 'var(--card-text-muted)' }}
+              />
+            </div>
           </div>
 
           {/* Title */}
           <p
-            className="text-sm mb-5"
+            className="text-sm font-light mb-5"
             style={{ color: 'var(--card-text-secondary)' }}
           >
             {job.title}
@@ -141,6 +219,68 @@ function TimelineCard({ job }: { job: any }) {
             ))}
           </div>
         </div>
+
+        {/* Expanded Projects Section - Only Images */}
+        {isExpanded && (
+          <div
+            className="relative z-10 border-t"
+            style={{ borderColor: 'var(--card-border)' }}
+          >
+            <div className="p-6 space-y-4">
+              <h4
+                className="text-sm font-medium"
+                style={{ color: 'var(--card-text-primary)' }}
+              >
+                Project Highlights
+              </h4>
+              
+              {/* Image Grid - Side by side */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {job.projects.map((project: any, idx: number) => (
+                  <a
+                    key={idx}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block aspect-square group/project"
+                    onClick={(e) => e.stopPropagation()}
+                    title={project.name}
+                  >
+                    <div
+                      className="w-full h-full rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                      style={{
+                        border: '1px solid var(--card-border)',
+                      }}
+                    >
+                      {/* Project Image */}
+                      <div className="w-full h-full bg-gray-100 dark:bg-gray-800">
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.imageAlt || project.name}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover/project:scale-110"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://via.placeholder.com/400x400?text=Project';
+                            }}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <Briefcase size={32} className="text-gray-400" />
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Hover Overlay with External Link Icon */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/project:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ExternalLink size={24} className="text-white" />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
