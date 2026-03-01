@@ -3,20 +3,62 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/jefel.svg" />
-
-    <!-- Mobile viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Jefel Española</title>
+    <title>Jefel Española | Graphic & UI/Web Designer</title>
+    <meta
+      name="description"
+      content="Portfolio of Jefel Española — Graphic and UI/Web Designer focused on branding, UI/UX, responsive web design, and front-end development."
+    />
+    <meta
+      name="keywords"
+      content="Jefel Española, Graphic Designer, UI Designer, UX Designer, Web Designer, Front-End Developer, Portfolio"
+    />
+    <meta name="author" content="Jefel Española" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#046ab4" />
 
-    <!-- Theme script to prevent flashing -->
+    <link rel="canonical" href="https://jefel-design.github.io/jefel-espanola/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jefel Española | Graphic & UI/Web Designer" />
+    <meta
+      property="og:description"
+      content="Explore selected branding, UI/UX, and responsive web design projects by Jefel Española."
+    />
+    <meta property="og:url" content="https://jefel-design.github.io/jefel-espanola/" />
+    <meta property="og:site_name" content="Jefel Española Portfolio" />
+    <meta property="og:image" content="https://jefel-design.github.io/jefel-espanola/jefel-arts-preview.jpg" />
+    <meta property="og:image:alt" content="Project highlights by Jefel Española" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jefel Española | Graphic & UI/Web Designer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Jefel Española featuring branding, UI/UX, and web projects."
+    />
+    <meta name="twitter:image" content="https://jefel-design.github.io/jefel-espanola/jefel-arts-preview.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jefel Española",
+        "jobTitle": "Graphic and UI/Web Designer",
+        "url": "https://jefel-design.github.io/jefel-espanola/",
+        "image": "https://jefel-design.github.io/jefel-espanola/jefel.jpeg",
+        "sameAs": [
+          "https://www.linkedin.com/in/jefel/",
+          "https://github.com/jefel-design"
+        ]
+      }
+    </script>
+
     <script>
-      // Check for saved theme preference or system preference
       const savedTheme = localStorage.getItem('theme');
       const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
+
       if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
         document.documentElement.classList.add('light-theme');
       } else {
