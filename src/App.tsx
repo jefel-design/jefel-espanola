@@ -5,6 +5,7 @@ import { Education } from './components/Education';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { Awards } from './components/Awards';
+import { Chatbot } from './components/Chatbot';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -14,14 +15,15 @@ function App() {
       <Header />
       <main>
         <Hero />
-<About />
-<Experience />
-<Education />
-<Skills />
-<Awards />
-<Contact />
+        <About />
+        <Experience />
+        <Education />
+        <Skills />
+        <Awards />
+        <Contact />
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 }

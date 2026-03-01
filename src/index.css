@@ -117,3 +117,37 @@
     #046ab4 80%
   );
 }
+
+/* Chat widget scrollbar: subtle on desktop, hidden on mobile */
+.chat-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.24) transparent;
+}
+
+.chat-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+}
+
+.chat-scroll-area::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.34);
+}
+
+@media (max-width: 768px) {
+  .chat-scroll-area {
+    scrollbar-width: none;
+  }
+
+  .chat-scroll-area::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
