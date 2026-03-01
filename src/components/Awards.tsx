@@ -1,5 +1,6 @@
 import { Award } from "lucide-react";
 import { useState } from "react";
+import { RevealOnScroll } from "./RevealOnScroll";
 
 type AwardItem = {
   title: string;
@@ -125,7 +126,9 @@ export function Awards() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {awards.map((award, index) => (
-            <AwardCard key={index} award={award} />
+            <RevealOnScroll key={index} delayMs={index * 70}>
+              <AwardCard award={award} />
+            </RevealOnScroll>
           ))}
         </div>
       </div>

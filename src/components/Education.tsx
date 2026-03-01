@@ -1,5 +1,6 @@
 import { GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { RevealOnScroll } from "./RevealOnScroll";
 
 type EducationItem = {
   school: string;
@@ -121,7 +122,9 @@ export function Education() {
 
         <div className="space-y-6">
           {education.map((item, index) => (
-            <EducationCard key={index} item={item} />
+            <RevealOnScroll key={index} delayMs={index * 70}>
+              <EducationCard item={item} />
+            </RevealOnScroll>
           ))}
         </div>
       </div>

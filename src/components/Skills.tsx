@@ -16,6 +16,7 @@ import {
   SiAdobeaftereffects,
   SiAdobepremierepro,
 } from "react-icons/si";
+import { RevealOnScroll } from "./RevealOnScroll";
 
 type Skill = {
   name: string;
@@ -108,72 +109,74 @@ export function Skills() {
       className="pt-16 pb-20 bg-[var(--bg-primary)] border-b border-[var(--border)]"
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
-          Skills
-        </h2>
+        <RevealOnScroll>
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
+            Skills
+          </h2>
+        </RevealOnScroll>
 
         {/* 2x2 Balanced Grid */}
         <div className="grid md:grid-cols-2 gap-12">
           {/* Development */}
-          <div className="space-y-4">
+          <RevealOnScroll className="space-y-4" delayMs={40}>
             <SectionLabel title="Development" status="Developing" />
             <div className="flex flex-wrap gap-2">
               {development.map((skill, index) => (
                 <Badge key={index} skill={skill} />
               ))}
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Design */}
-          <div className="space-y-4">
+          <RevealOnScroll className="space-y-4" delayMs={90}>
             <SectionLabel title="Design" status="Advanced" />
             <div className="flex flex-wrap gap-2">
               {design.map((skill, index) => (
                 <Badge key={index} skill={skill} />
               ))}
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* CMS */}
-          <div className="space-y-4">
+          <RevealOnScroll className="space-y-4" delayMs={140}>
             <SectionLabel title="CMS & Website Builders" status="Proficient" />
             <div className="flex flex-wrap gap-2">
               {cms.map((skill, index) => (
                 <Badge key={index} skill={skill} />
               ))}
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Video Editing */}
-          <div className="space-y-4">
+          <RevealOnScroll className="space-y-4" delayMs={190}>
             <SectionLabel title="Video Editing" status="Proficient" />
             <div className="flex flex-wrap gap-2">
               {video.map((skill, index) => (
                 <Badge key={index} skill={skill} />
               ))}
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
 
         {/* Professional Strengths */}
-        <div className="space-y-4">
+        <RevealOnScroll className="space-y-4" delayMs={230}>
           <SectionLabel title="Professional Strengths" />
           <div className="flex flex-wrap gap-2">
             {softSkills.map((skill, index) => (
               <Badge key={index} skill={skill} />
             ))}
           </div>
-        </div>
+        </RevealOnScroll>
 
         {/* Languages */}
-        <div className="space-y-4">
+        <RevealOnScroll className="space-y-4" delayMs={260}>
           <SectionLabel title="Languages" />
           <div className="flex flex-wrap gap-2">
             {languages.map((skill, index) => (
               <Badge key={index} skill={skill} />
             ))}
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

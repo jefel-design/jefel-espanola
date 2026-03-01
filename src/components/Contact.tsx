@@ -1,5 +1,6 @@
 import { Mail, Phone } from 'lucide-react';
 import { useState } from 'react';
+import { RevealOnScroll } from './RevealOnScroll';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ export function Contact() {
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
 
         {/* Dark Card (FORCED BLACK) */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 md:p-10">
+        <RevealOnScroll className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 md:p-10">
 
           {/* Gradient Layer */}
           <div
@@ -115,7 +116,7 @@ export function Contact() {
 
             </form>
           </div>
-        </div>
+        </RevealOnScroll>
 
       </div>
     </section>

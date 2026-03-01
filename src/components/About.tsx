@@ -1,3 +1,5 @@
+import { RevealOnScroll } from "./RevealOnScroll";
+
 export function About() {
   return (
     <section
@@ -7,7 +9,7 @@ export function About() {
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
 
         {/* Floating Card */}
-        <div
+        <RevealOnScroll
           className="relative z-20 -mt-24 md:-mt-32
                      bg-[var(--bg-card)]
                      border border-[var(--border)]
@@ -28,7 +30,7 @@ export function About() {
               </p>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
 
       </div>
     </section>

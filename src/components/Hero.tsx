@@ -13,7 +13,7 @@ export function Hero() {
 
       {/* Gradient Background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hero-animated-gradient"
         style={{
           background: 'var(--gradient)',
         }}

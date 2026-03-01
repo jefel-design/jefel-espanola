@@ -1,5 +1,6 @@
 import { Briefcase, ChevronDown, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { RevealOnScroll } from "./RevealOnScroll";
 
 type Project = {
   name: string;
@@ -156,12 +157,12 @@ const jobs: Job[] = [
   },
 ];
 
-function TimelineCard({ job }: { job: Job }) {
+function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="relative pl-12 md:pl-16 group">
+    <RevealOnScroll className="relative pl-12 md:pl-16 group" delayMs={delayMs}>
       {/* Timeline Dot */}
       <div
         className="absolute z-20 transition-all duration-300"
@@ -315,7 +316,7 @@ function TimelineCard({ job }: { job: Job }) {
           </div>
         )}
       </div>
-    </div>
+    </RevealOnScroll>
   );
 }
 
@@ -329,7 +330,7 @@ export function Experience() {
         borderBottom: "1px solid var(--border)",
       }}
     >
-      <div className="max-w-5xl mx-auto px-5 md:px-8">
+      <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <h2
           className="text-3xl md:text-4xl font-medium tracking-tight mb-10"
           style={{ color: "var(--text-primary)" }}
@@ -346,7 +347,7 @@ export function Experience() {
 
           <div className="space-y-10 md:space-y-12">
             {jobs.map((job, index) => (
-              <TimelineCard key={index} job={job} />
+              <TimelineCard key={index} job={job} delayMs={index * 70} />
             ))}
           </div>
         </div>

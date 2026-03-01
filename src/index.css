@@ -151,3 +151,28 @@
     height: 0;
   }
 }
+
+/* Hero gradient animation */
+.hero-animated-gradient {
+  inset: -24%;
+  background-size: 220% 220%;
+  animation: heroGradientFlow 8s ease-in-out infinite alternate;
+  will-change: transform, background-position;
+}
+
+@keyframes heroGradientFlow {
+  0% {
+    background-position: 0% 50%;
+    transform: translate3d(-8%, -4%, 0);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: translate3d(8%, 4%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animated-gradient {
+    animation: none;
+  }
+}
