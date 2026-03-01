@@ -62,7 +62,7 @@ export function Header() {
           {/* Social Icons + Theme Toggle - Minimal version */}
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/jefel/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
@@ -73,7 +73,7 @@ export function Header() {
             </a>
 
             <a
-              href="https://github.com/yourprofile"
+              href="https://github.com/jefel-design"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
@@ -84,7 +84,7 @@ export function Header() {
             </a>
 
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:jefeljohnmaitem@gmail.com"
               className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
               style={{ color: 'var(--text-secondary)' }}
               aria-label="Email"

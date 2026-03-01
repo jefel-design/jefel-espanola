@@ -4,7 +4,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <div className="flex justify-center">
           <p className="text-[var(--text-muted)] font-light text-sm text-center">
-            © {new Date().getFullYear()} Jefel John Española
+            © {new Date().getFullYear()} Jefel Española
           </p>
         </div>
       </div>

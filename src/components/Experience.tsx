@@ -331,7 +331,7 @@ export function Experience() {
     >
       <div className="max-w-5xl mx-auto px-5 md:px-8">
         <h2
-          className="text-2xl md:text-4xl font-medium tracking-tight mb-10"
+          className="text-3xl md:text-4xl font-medium tracking-tight mb-10"
           style={{ color: "var(--text-primary)" }}
         >
           Experience

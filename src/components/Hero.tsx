@@ -47,12 +47,12 @@ export function Hero() {
           {/* Heading */}
           <div>
             <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-semibold tracking-tight text-[var(--text-primary)] leading-[1.1] mb-4">
-              Hi, I'm Jefel John Española
+              Hi, I'm Jefel Española
             </h1>
 
             <p className="text-base font-light text-[var(--text-secondary)] mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-[var(--text-muted)]" />
-              Based in Surigao del Norte, Philippines
+              Surigao del Norte, Philippines
             </p>
           </div>
 
