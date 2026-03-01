@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 export function Header() {
   const [isLight, setIsLight] = useState(false);
+  const logoSrc = `${import.meta.env.BASE_URL}${isLight ? 'jefel-dark.svg' : 'jefel.svg'}`;
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -53,7 +54,7 @@ export function Header() {
             aria-label="Go to home"
           >
             <img
-              src={isLight ? "jefel-dark.svg" : "jefel.svg"}
+              src={logoSrc}
               alt="JJM Logo"
               className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
             />
