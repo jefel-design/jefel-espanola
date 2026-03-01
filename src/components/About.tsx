@@ -20,14 +20,11 @@ export function About() {
 
             <div className="space-y-4 font-light text-[var(--text-secondary)]">
               <p>
-                Graphic & UI/Web Designer skilled in{" "}
-                <span className="text-[var(--accent)] font-light">
-                  Adobe Suite, Figma, WordPress, and Elementor
-                </span>.
+                Designer building digital experiences through branding, UI design, and modern front-end development.
               </p>
 
               <p>
-                Experienced in digital platforms, branding, and responsive web design for tech, gaming, and digital marketing industries.
+                With strong foundations in Figma and Adobe Creative Suite, I’m currently developing responsive applications using HTML, CSS, React, Tailwind, and TypeScript bridging design and code with intention.
               </p>
             </div>
           </div>
