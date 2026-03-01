@@ -1,4 +1,5 @@
 import { ArrowRight, MapPin } from 'lucide-react';
+import { MdVerified } from 'react-icons/md';
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -37,11 +38,21 @@ export function Hero() {
 
           {/* Profile Image */}
           <div className="flex justify-start mb-6">
-            <img 
-              src="jefel.jpeg"
-              alt="Jefel John Española"
-              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg"
-            />
+            <div className="relative">
+              <img
+                src="jefel.jpeg"
+                alt="Jefel John Española"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg"
+              />
+
+              <span
+                className="absolute right-[6px] bottom-[6px] md:right-[8px] md:bottom-[8px] leading-none w-5 h-5 md:w-[22px] md:h-[22px] rounded-full bg-white/95 border border-black/15 flex items-center justify-center shadow-[0_2px_6px_rgba(0,0,0,0.28)]"
+                aria-label="Verified profile"
+                title="Verified"
+              >
+                <MdVerified className="text-[#1d9bf0] text-[15px] md:text-[16px]" />
+              </span>
+            </div>
           </div>
 
           {/* Heading */}

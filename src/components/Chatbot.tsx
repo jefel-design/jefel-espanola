@@ -4,6 +4,7 @@ import { MessageCircle, Send, X } from 'lucide-react';
 type Message = {
   role: 'user' | 'assistant';
   content: string;
+  timestamp: string;
 };
 
 type ChatbotKnowledge = {
@@ -111,18 +112,17 @@ function formatList(items: string[], limit = items.length) {
   return items.slice(0, limit).join(', ');
 }
 
+function getTimestamp() {
+  return new Date().toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}
+
 function getChatResponse(question: string) {
   const q = question.toLowerCase();
   const hasAny = (keywords: string[]) => keywords.some((keyword) => q.includes(keyword));
   const sections: string[] = [];
-  const followUps: string[] = [];
-
-  const openers = [
-    'Great question.',
-    'Thanks for asking.',
-    'Happy to share.',
-  ];
-  const opener = openers[question.trim().length % openers.length];
 
   const asksGreeting = hasAny(['hi', 'hello', 'hey']);
   const asksSkills = hasAny(['skill', 'strength', 'expertise', 'capability']);
@@ -150,41 +150,34 @@ function getChatResponse(question: string) {
 
   if (asksGreeting && !asksSkills && !asksServices && !asksTools && !asksExperience && !asksProjects) {
     sections.push(
-      `Hi, thanks for reaching out. I’m Jefel, and I work across Graphic Design, UI/UX, Responsive Web Design, and Front-End Development.`,
+      `Hi, I’m Jefel. I design and build digital experiences through Graphic Design, UI/UX, Responsive Web Design, and Front-End Development.`,
     );
-    sections.push(
-      `I can help turn ideas into clean visuals and functional web experiences that feel aligned from design to implementation.`,
-    );
-    followUps.push('Are you building something new or improving an existing project?');
   }
 
   if (asksAbout) {
     sections.push(
-      `${opener} ${knowledge.about} I focus on purposeful design and functional web experiences that are easy to use and visually strong.`,
+      `${knowledge.about} I focus on purposeful design and functional web experiences that are clear, practical, and visually strong.`,
     );
-    followUps.push('What kind of project are you currently planning?');
   }
 
   if (asksSkills || asksTools) {
     sections.push(
-      `${opener} My core strengths are Graphic Design, UI/UX Design, Responsive Web Design, and Front-End Development.`,
+      `My core strengths are Graphic Design, UI/UX Design, Responsive Web Design, and Front-End Development.`,
     );
     sections.push(
-      `For design, I mainly use ${formatList(knowledge.skills.design)} and Adobe Creative Suite. For build work, I use ${formatList(
+      `I usually design in ${formatList(knowledge.skills.design)} and Adobe Creative Suite, then build with ${formatList(
         knowledge.skills.development,
-      )}, and I also handle ${formatList(knowledge.skills.cms)} projects when needed.`,
+      )}. I also handle ${formatList(knowledge.skills.cms)} builds when needed.`,
     );
-    followUps.push('Do you need design only, or design plus development support?');
   }
 
   if (asksServices) {
     sections.push(
-      `${opener} I offer brand identity work, UI/UX for websites and web apps, responsive web design, front-end development, WordPress/Elementor builds, and campaign creatives.`,
+      `I offer brand identity work, UI/UX for websites and web apps, responsive web design, front-end development, WordPress/Elementor builds, and campaign creatives.`,
     );
     sections.push(
-      `My approach is always outcome-focused, so the design not only looks good but also supports your goals and user flow.`,
+      `I keep the process practical, so the output not only looks good but also supports your goals and user flow.`,
     );
-    followUps.push('Which part do you want to prioritize first: branding, UI/UX, or development?');
   }
 
   if (asksExperience || asksProjects) {
@@ -197,77 +190,69 @@ function getChatResponse(question: string) {
       .slice(0, 6);
 
     sections.push(
-      `${opener} I’ve worked across full-time, contract, and freelance projects with ${topExperience}.`,
+      `I’ve worked across full-time, contract, and freelance projects with ${topExperience}.`,
     );
     sections.push(
       `My current focus is ${knowledge.experience[0].focus} Recent highlights include ${formatList(recentProjects)}.`,
     );
-    followUps.push('Would you like something similar for your own project?');
   }
 
   if (asksPricing) {
     sections.push(
-      `${opener} My pricing is scope-based, so it depends on the type of work, complexity, and timeline.`,
+      `My pricing is scope-based, so it depends on the type of work, complexity, and timeline.`,
     );
     sections.push(
       `I usually share a clear quotation after reviewing your goals and deliverables so you get a realistic estimate with no guesswork.`,
     );
-    followUps.push('Would you like to share your scope so I can outline a practical range?');
   }
 
   if (asksProcess) {
     sections.push(
-      `${opener} My process is simple and collaborative: discovery, design direction, implementation, then testing and handoff.`,
+      `My process is simple and collaborative: discovery, design direction, implementation, then testing and handoff.`,
     );
     sections.push(
       `I keep feedback loops active at each step so progress stays clear and decisions are made quickly.`,
     );
-    followUps.push('Do you already have brand assets and content prepared?');
   }
 
   if (asksTimeline) {
     sections.push(
-      `${opener} Timelines depend on scope, revision rounds, and how ready your content/assets are.`,
+      `Timelines depend on scope, revision rounds, and how ready your content/assets are.`,
     );
     sections.push(
       `Smaller design tasks move faster, while full website builds take longer. Once I review your scope, I can give you a practical timeline with milestones.`,
     );
-    followUps.push('Do you have a target launch date in mind?');
   }
 
   if (asksCollaboration) {
     sections.push(
-      `${opener} Yes, I’m open to freelance and project-based collaborations.`,
+      `Yes, I’m open to freelance and project-based collaborations.`,
     );
     sections.push(
       `I can support end-to-end from concept and design through responsive implementation, or jump in for a specific phase if that’s what your team needs.`,
     );
-    followUps.push('Are you looking for one-time delivery or ongoing support?');
   }
 
   if (asksContact) {
     sections.push(
-      `${opener} You can reach me directly at ${knowledge.contact.email} or ${knowledge.contact.phone}.`,
+      `You can reach me directly at ${knowledge.contact.email} or ${knowledge.contact.phone}.`,
     );
     sections.push(
       `You can also connect with me on LinkedIn (${knowledge.contact.linkedin}) or check my work on GitHub (${knowledge.contact.github}).`,
     );
-    followUps.push('Would you like to continue here, or move to email for project details?');
   }
 
   if (asksLocation) {
     sections.push(
-      `${opener} I’m based in ${knowledge.location}, and I work remotely with clients for both design and web projects.`,
+      `I’m based in ${knowledge.location}, and I work remotely with clients for both design and web projects.`,
     );
-    followUps.push('Are you collaborating remotely with your team as well?');
   }
 
   if (sections.length > 0) {
-    const followUp = followUps[0] ?? 'What kind of project are you working on right now?';
-    return `${sections.join('\n\n')}\n\n${followUp}`;
+    return sections.join('\n\n');
   }
 
-  return `I want to give you something genuinely useful, so I’ll keep this focused on design and web work. I specialize in Graphic Design, UI/UX, responsive web design, and front-end development.\n\nIf you share your goal, I can recommend the best direction for your project.\n\nWhat are you trying to build?`;
+  return `I can give you useful guidance around design and web work. I specialize in Graphic Design, UI/UX, responsive web design, and front-end development.\n\nIf you share your project goal, I can suggest the best direction and next step.`;
 }
 
 export function Chatbot() {
@@ -281,6 +266,7 @@ export function Chatbot() {
       role: 'assistant',
       content:
         "Hi, I’m Jefel Española, a Graphic and UI/Web Designer passionate about crafting purposeful design and functional web experiences.\n\nExplore my work and services, and don’t hesitate to get in touch if you’d like to learn more.",
+      timestamp: getTimestamp(),
     },
   ]);
 
@@ -290,7 +276,7 @@ export function Chatbot() {
     const trimmed = message.trim();
     if (!trimmed || isTyping) return;
 
-    const userMessage: Message = { role: 'user', content: trimmed };
+    const userMessage: Message = { role: 'user', content: trimmed, timestamp: getTimestamp() };
     const assistantReply = getChatResponse(trimmed);
     const typingDelay = Math.min(1400, Math.max(550, assistantReply.length * 9));
 
@@ -304,6 +290,7 @@ export function Chatbot() {
         {
           role: 'assistant',
           content: assistantReply,
+          timestamp: getTimestamp(),
         },
       ]);
       setIsTyping(false);
@@ -396,24 +383,27 @@ export function Chatbot() {
                     className="w-7 h-7 rounded-full object-cover border border-[var(--card-border)] shrink-0"
                   />
                 )}
-                <div
-                  className={`max-w-[88%] rounded-xl px-4 py-3 text-sm leading-relaxed ${
-                    message.role === 'user'
-                      ? 'text-white bg-[var(--accent)]'
-                      : 'text-[var(--card-text-secondary)]'
-                  }`}
-                  style={
-                    message.role === 'assistant'
-                      ? {
-                          backgroundColor: 'var(--card-tag-bg)',
-                          border: '1px solid var(--card-border)',
-                        }
-                      : undefined
-                  }
-                >
-                  {message.role === 'assistant'
-                    ? renderAssistantContent(message.content)
-                    : message.content}
+                <div className={`max-w-[88%] ${message.role === 'user' ? 'items-start' : 'items-start'} flex flex-col`}>
+                  <div
+                    className={`rounded-xl px-4 py-3 text-sm leading-relaxed ${
+                      message.role === 'user'
+                        ? 'text-white bg-[var(--accent)]'
+                        : 'text-[var(--card-text-secondary)]'
+                    }`}
+                    style={
+                      message.role === 'assistant'
+                        ? {
+                            backgroundColor: 'var(--card-tag-bg)',
+                            border: '1px solid var(--card-border)',
+                          }
+                        : undefined
+                    }
+                  >
+                    {message.role === 'assistant'
+                      ? renderAssistantContent(message.content)
+                      : message.content}
+                  </div>
+                  <p className="text-[11px] mt-1 text-[var(--card-text-muted)]">{message.timestamp}</p>
                 </div>
               </div>
             ))}
@@ -493,15 +483,26 @@ export function Chatbot() {
       )}
 
       {!isOpen && (
-        <button
-          type="button"
-          onClick={() => setIsOpen(true)}
-          className="h-14 px-5 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-xl transition-colors inline-flex items-center gap-2"
-          aria-label="Open chat assistant"
-        >
-          <MessageCircle size={18} />
-          <span className="text-sm font-light">Chat with Jefel</span>
-        </button>
+        <div className="flex items-center justify-end gap-2">
+          <a
+            href="mailto:jefeljohnmaitem@gmail.com?subject=Project%20Inquiry"
+            className="h-12 w-12 rounded-full bg-white hover:bg-white/90 text-[var(--accent)] shadow-xl transition-colors inline-flex items-center justify-center border border-black/10"
+            aria-label="Send email to Jefel"
+            title="Send Email"
+          >
+            <Send size={16} />
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="h-12 px-4 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-xl transition-colors inline-flex items-center gap-2"
+            aria-label="Open chat assistant"
+          >
+            <MessageCircle size={16} />
+            <span className="text-sm font-light">Chat with Jefel</span>
+          </button>
+        </div>
       )}
     </div>
   );

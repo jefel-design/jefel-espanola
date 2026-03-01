@@ -203,6 +203,8 @@ function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
                     <img
                       src={job.logo}
                       alt={job.company}
+                      loading="lazy"
+                      decoding="async"
                       className="w-6 h-6 object-contain"
                       onError={() => setImgError(true)}
                     />
@@ -302,6 +304,8 @@ function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
                       <img
                         src={project.image}
                         alt={project.imageAlt || project.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/project:scale-110"
                       />
 

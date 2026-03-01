@@ -17,10 +17,11 @@ import {
   SiAdobepremierepro,
 } from "react-icons/si";
 import { RevealOnScroll } from "./RevealOnScroll";
+import type { ReactNode } from "react";
 
 type Skill = {
   name: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
 };
 
 export function Skills() {

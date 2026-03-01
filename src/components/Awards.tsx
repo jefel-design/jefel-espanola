@@ -66,6 +66,8 @@ function AwardCard({ award }: { award: AwardItem }) {
                 <img
                   src={award.logo}
                   alt={award.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-6 h-6 object-contain"
                   onError={() => setImgError(true)}
                 />

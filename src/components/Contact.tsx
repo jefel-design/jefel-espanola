@@ -1,123 +1,117 @@
-import { Mail, Phone } from 'lucide-react';
-import { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 import { RevealOnScroll } from './RevealOnScroll';
 
-export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+type Highlight = {
+  title: string;
+  category: string;
+  image: string;
+  link: string;
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+const highlights: Highlight[] = [
+  {
+    title: 'Product Configurator Redesign',
+    category: 'UI/Web Design',
+    image: 'webproject1.png',
+    link: 'https://productconfigurator.nl/',
+  },
+  {
+    title: 'ArkDesign Website Redesign',
+    category: 'Web Experience',
+    image: 'ark2.png',
+    link: 'https://www.arkdesign.nl/',
+  },
+  {
+    title: 'Bren Esports Campaign Visual',
+    category: 'Esports Creative',
+    image: 'apbr2.jpg',
+    link: 'https://www.facebook.com/photo.php?fbid=1149090933895563&set=pb.100063840020177.-2207520000&type=3',
+  },
+  {
+    title: 'SEC Broadcast Visuals',
+    category: 'Brand + Event Design',
+    image: 'surcol1.jpg',
+    link: 'https://www.facebook.com/photo.php?fbid=122123598602098189&set=pb.61552945697929.-2207520000&type=3',
+  },
+  {
+    title: 'TNC Kaiserin Roster Reveal',
+    category: 'Social Campaign',
+    image: 'poster-2.jpg',
+    link: 'https://www.facebook.com/photo.php?fbid=1228044165994904&set=pb.100063679975758.-2207520000&type=3',
+  },
+  {
+    title: 'Jefel Arts Apparel Poster',
+    category: 'Poster',
+    image: 'max1.jpg',
+    link: 'https://www.facebook.com/photo?fbid=867026052813571&set=a.116471364535714',
+  },
+];
+
+export function Contact() {
+  const carouselItems = [...highlights, ...highlights];
 
   return (
     <section
       id="contact"
       className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
     >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10">
-
-        {/* Dark Card (FORCED BLACK) */}
-        <RevealOnScroll className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 md:p-10">
-
-          {/* Gradient Layer */}
-          <div
-            className="absolute inset-0 opacity-90"
-            style={{
-              background:
-                'linear-gradient(45deg, #000000 0%, #000000 50%, #046ab4 75%, #b6fff6 100%)',
-            }}
-          />
-
-          {/* Soft Overlay */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-
-          {/* Content */}
-          <div className="relative z-10 space-y-8">
-
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white">
-              Contact
-            </h2>
-
-            <div className="flex font-light flex-wrap gap-8 text-sm text-white/80">
-              <div className="flex items-center gap-3">
-                <Phone size={16} />
-                0909 698 4089
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Mail size={16} />
-                jefeljohnmaitem@gmail.com
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-
-              <div className="grid font-light sm:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-lg text-sm
-                             bg-white/10 border border-white/20
-                             text-white placeholder-white/50
-                             focus:outline-none focus:border-[#046ab4]
-                             transition-all duration-300"
-                  required
-                />
-
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-lg text-sm
-                             bg-white/10 border border-white/20
-                             text-white placeholder-white/50
-                             focus:outline-none focus:border-[#046ab4]
-                             transition-all duration-300"
-                  required
-                />
-              </div>
-
-              <textarea
-                placeholder="Message"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                rows={4}
-                className="w-full font-light px-4 py-3 rounded-lg text-sm
-                           bg-white/10 border border-white/20
-                           text-white placeholder-white/50
-                           focus:outline-none focus:border-[#046ab4]
-                           transition-all duration-300"
-                required
-              />
-
-              <button
-                type="submit"
-                className="px-6 font-light py-3 rounded-lg text-sm font-medium
-                           bg-white/10 border border-white/20
-                           text-white transition-all duration-300
-                           hover:bg-[#046ab4] hover:border-[#046ab4]"
-              >
-                Send Message
-              </button>
-
-            </form>
-          </div>
+      <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-8">
+        <RevealOnScroll className="space-y-3">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
+            Project Highlights
+          </h2>
+          <p className="text-sm md:text-base font-light text-[var(--text-secondary)] max-w-2xl">
+            A curated look at selected branding, UI/web, and campaign projects.
+          </p>
         </RevealOnScroll>
 
+        <RevealOnScroll>
+          <div className="relative">
+            <div className="project-fade-left hidden sm:block pointer-events-none absolute left-0 top-0 bottom-0 w-16 md:w-24 z-20" />
+            <div className="project-fade-right hidden sm:block pointer-events-none absolute right-0 top-0 bottom-0 w-16 md:w-24 z-20" />
+
+            <div className="project-carousel overflow-hidden">
+              <div className="project-track flex items-stretch gap-4 md:gap-5 w-max">
+                {carouselItems.map((item, index) => (
+                  <a
+                    key={`${item.title}-${index}`}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 shrink-0 w-[260px] sm:w-[300px] lg:w-[320px]"
+                    style={{
+                      borderColor: 'var(--card-border)',
+                      backgroundColor: 'var(--card-bg)',
+                    }}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                      <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ExternalLink size={18} className="text-white" />
+                      </div>
+                    </div>
+
+                    <div className="p-4 space-y-2">
+                      <p className="text-[11px] uppercase tracking-[0.14em] font-light text-[var(--text-muted)]">
+                        {item.category}
+                      </p>
+                      <p className="text-sm font-medium text-[var(--text-primary)] leading-snug">
+                        {item.title}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

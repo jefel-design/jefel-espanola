@@ -61,6 +61,8 @@ export function Education() {
               <img
                 src={item.logo}
                 alt={item.school}
+                loading="lazy"
+                decoding="async"
                 className="w-6 h-6 object-contain"
                 onError={() => setImgError(true)}
               />
