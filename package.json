@@ -1,5 +1,5 @@
 {
-  "homepage": "https://jefel-design.github.io/jefel-espanola",
+  "homepage": "https://jefel-espanola.vercel.app",
   "name": "vite-react-typescript-starter",
   "private": true,
   "version": "0.0.0",
@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy:vercel": "vercel --prod"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
