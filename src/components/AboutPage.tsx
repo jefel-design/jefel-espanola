@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { RevealOnScroll } from "./RevealOnScroll";
 import { Education } from "./Education";
@@ -16,13 +17,13 @@ export function AboutPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(220px,0.48fr)] lg:gap-14">
             <RevealOnScroll className="space-y-8">
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Back to home"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
               >
                 <ArrowLeft size={18} />
-              </a>
+              </Link>
 
               <div className="max-w-3xl space-y-5">
                 <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
@@ -44,7 +45,6 @@ export function AboutPage() {
                   implementation, shaping visuals that communicate clearly and
                   feel deliberate.
                 </p>
-
               </div>
             </RevealOnScroll>
 
@@ -56,7 +56,7 @@ export function AboutPage() {
               <div className="relative rotate-[2deg] rounded-[1.35rem] bg-[#151515] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 hover:rotate-0">
                 <div className="overflow-hidden rounded-[0.95rem] bg-black">
                   <img
-                    src="jefel.jpeg"
+                    src="/jefel.jpeg"
                     alt="Jefel Espanola portrait"
                     loading="eager"
                     className="aspect-[4/5] w-full object-cover"
@@ -78,6 +78,7 @@ export function AboutPage() {
           </div>
         </div>
       </section>
+
       <section className="pb-20 pt-8">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-12">
           <Education />
