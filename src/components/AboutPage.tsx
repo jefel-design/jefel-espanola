@@ -25,11 +25,7 @@ export function AboutPage() {
                 <ArrowLeft size={18} />
               </Link>
 
-              <div className="max-w-3xl space-y-5">
-                <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
-                  About
-                </p>
-
+              <div className="flex items-center gap-4">
                 <h2 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
                   I design digital work that feels clear, useful, and
                   intentional.
