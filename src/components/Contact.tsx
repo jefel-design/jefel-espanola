@@ -78,9 +78,8 @@ export function Contact() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block rounded-xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 shrink-0 w-[260px] sm:w-[300px] lg:w-[320px]"
+                    className="group block rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 shrink-0 w-[260px] sm:w-[300px] lg:w-[320px]"
                     style={{
-                      borderColor: 'var(--card-border)',
                       backgroundColor: 'var(--card-bg)',
                     }}
                   >

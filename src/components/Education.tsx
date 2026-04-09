@@ -10,6 +10,17 @@ type EducationItem = {
   logo?: string;
 };
 
+function extractYearRanking(year: string) {
+  const years = Array.from(year.matchAll(/\d{4}/g)).map((match) =>
+    Number(match[0]),
+  );
+
+  return {
+    latestYear: years.length ? Math.max(...years) : 0,
+    startYear: years.length ? years[0] : 0,
+  };
+}
+
 export function Education() {
   const education: EducationItem[] = [
     {
@@ -17,7 +28,7 @@ export function Education() {
       year: "2025",
       degree: "Internship / Academic Outreach",
       description:
-        "Conducted face-to-face career presentations for graduating Senior High School students across Surigao City, presenting on Graphic Design and Web Design.",
+        "Conducted face-to-face career presentations for graduating Senior High School students across Surigao City, introducing Graphic Design and Web Design pathways.",
       logo: "sti-logo.png",
     },
     {
@@ -25,111 +36,111 @@ export function Education() {
       year: "2021 – 2025",
       degree: "Bachelor of Science in Information Technology",
       description:
-        "Gained foundational experience in programming and later specialized in graphic and web design through self-directed learning and freelance client work.",
+        "Built a foundation in programming, then specialized in graphic and web design through self-directed learning and freelance client work.",
       logo: "sti-logo.png",
     },
   ];
 
-  function EducationCard({ item }: { item: EducationItem }) {
-    const [imgError, setImgError] = useState(false);
+  const sortedEducation = [...education].sort((a, b) => {
+    const left = extractYearRanking(a.year);
+    const right = extractYearRanking(b.year);
 
-    return (
-      <div
-        className="group relative overflow-hidden rounded-xl border p-6 
-                   transition-all duration-500 hover:-translate-y-1"
-        style={{
-          backgroundColor: "var(--card-bg)",
-          borderColor: "var(--card-border)",
-        }}
-      >
-        {/* Gradient Hover Layer */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: "var(--card-hover-gradient)",
-          }}
-        />
+    if (left.latestYear !== right.latestYear) {
+      return right.latestYear - left.latestYear;
+    }
 
-        {/* Content */}
-        <div className="relative z-10 flex items-start gap-4">
-          {/* Logo Container */}
-          <div
-            className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
-            style={{ backgroundColor: "var(--card-tag-bg)" }}
-          >
-            {!imgError && item.logo ? (
-              <img
-                src={item.logo}
-                alt={item.school}
-                loading="lazy"
-                decoding="async"
-                className="w-6 h-6 object-contain"
-                onError={() => setImgError(true)}
-              />
-            ) : (
-              <GraduationCap
-                size={18}
-                style={{ color: "var(--card-icon)" }}
-              />
-            )}
-          </div>
-
-          <div className="space-y-2 w-full">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3
-                className="font-medium text-lg"
-                style={{ color: "var(--card-text-primary)" }}
-              >
-                {item.school}
-              </h3>
-
-              <span
-                className="text-sm"
-                style={{ color: "var(--card-text-muted)" }}
-              >
-                {item.year}
-              </span>
-            </div>
-
-            <p
-              className="text-sm font-light"
-              style={{ color: "var(--card-text-secondary)" }}
-            >
-              {item.degree}
-            </p>
-
-            {item.description && (
-              <p
-                className="text-sm font-light leading-relaxed"
-                style={{ color: "var(--card-text-secondary)" }}
-              >
-                {item.description}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
+    return right.startYear - left.startYear;
+  });
 
   return (
-    <section
-      id="education"
-      className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
-    >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
-          Education & Training
-        </h2>
+    <div id="education" className="space-y-6">
+      <RevealOnScroll>
+        <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
+          Education
+        </p>
+      </RevealOnScroll>
 
-        <div className="space-y-6">
-          {education.map((item, index) => (
-            <RevealOnScroll key={index} delayMs={index * 70}>
-              <EducationCard item={item} />
-            </RevealOnScroll>
-          ))}
+      <div className="grid gap-5 md:grid-cols-2">
+        {sortedEducation.map((item, index) => (
+          <RevealOnScroll key={index} delayMs={index * 70}>
+            <EducationCard item={item} />
+          </RevealOnScroll>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function EducationCard({ item }: { item: EducationItem }) {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div
+      className="relative h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      style={{ backgroundColor: "var(--card-bg)" }}
+    >
+      <div className="relative z-10 p-5 md:p-6">
+        <div className="mb-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
+                style={{ backgroundColor: "var(--card-tag-bg)" }}
+              >
+                {!imgError && item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt={item.school}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-6 h-6 object-contain"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <GraduationCap size={20} style={{ color: "var(--card-icon)" }} />
+                )}
+              </div>
+
+              <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
+                <h3
+                  className="font-medium text-base md:text-lg leading-tight"
+                  style={{ color: "var(--card-text-primary)" }}
+                >
+                  {item.school}
+                </h3>
+              </div>
+            </div>
+
+            <span
+              className="text-xs md:text-sm shrink-0"
+              style={{ color: "var(--card-text-muted)" }}
+            >
+              {item.year}
+            </span>
+          </div>
+        </div>
+
+        {item.description && (
+          <p
+            className="text-sm font-light leading-relaxed"
+            style={{ color: "var(--card-text-secondary)" }}
+          >
+            {item.description}
+          </p>
+        )}
+
+        <div className="mt-5">
+          <span
+            className="inline-flex rounded-md px-3 py-1 text-[10px] uppercase tracking-[0.12em]"
+            style={{
+              backgroundColor: "var(--card-tag-bg)",
+              color: "var(--card-tag-text)",
+            }}
+          >
+            {item.degree}
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

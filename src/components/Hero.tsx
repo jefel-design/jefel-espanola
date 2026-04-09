@@ -1,27 +1,13 @@
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { MdVerified } from 'react-icons/md';
 
 export function Hero() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="hero" className="relative overflow-hidden">
-
-      {/* Gradient Background */}
-      <div
-        className="absolute inset-0 hero-animated-gradient"
-        style={{
-          background: 'var(--gradient)',
-        }}
-      />
-
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 dark-theme:bg-black/10 light-theme:bg-black/5" />
+    <section
+      id="hero"
+      className="relative overflow-hidden"
+      style={{ backgroundColor: 'var(--bg-primary)' }}
+    >
 
       {/* Noise */}
       <div
@@ -33,11 +19,11 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 min-h-[80vh] flex items-center">
-        <div className="w-full space-y-6">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 pt-36 pb-16 md:pt-40 md:pb-20">
+        <div className="w-full space-y-4">
 
           {/* Profile Image */}
-          <div className="flex justify-start mb-6">
+          <div className="flex justify-start mb-4">
             <div className="relative">
               <img
                 src="jefel.jpeg"
@@ -57,52 +43,67 @@ export function Hero() {
 
           {/* Heading */}
           <div>
-            <h1 className="text-4xl pt-4 sm:text-5xl md:text-6xl font-semibold tracking-tight text-[var(--text-primary)] leading-[1.1] mb-4">
-              Hi, I'm Jefel Española
+            <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
+              Hey, I'm Jefel Española
             </h1>
 
-            <p className="text-base font-light text-[var(--text-secondary)] mb-4 flex items-center gap-2">
+            <p className="text-base font-light text-[var(--text-secondary)] mb-2 flex items-center gap-2">
               <MapPin size={16} className="text-[var(--text-muted)]" />
               Surigao del Norte, Philippines
             </p>
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-0">
-            
-            {/* Primary Button */}
+          {/* Hero Actions */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 pt-0">
             <button
-              onClick={() => scrollToSection('experience')}
+              onClick={() => {
+                window.location.href = 'mailto:jefeljohnmaitem@gmail.com';
+              }}
               className="px-6 py-3 rounded-lg text-sm font-light
                          inline-flex items-center justify-center gap-2
                          transition-all duration-300
-                         bg-[var(--accent)]
-                         text-white
-                         hover:bg-[var(--accent-hover)]
+                         bg-[rgba(255,255,255,0.08)]
+                         text-[var(--text-primary)]
+                         hover:bg-[rgba(255,255,255,0.12)]
                          shadow-sm hover:shadow-md"
             >
-              See Experience
+              Get in touch
               <ArrowRight size={16} />
             </button>
 
-            {/* Secondary Button */}
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="px-6 py-3 rounded-lg text-sm font-light
-                         border border-[var(--border)]
-                         text-[var(--text-primary)]
-                         hover:border-[var(--accent)]
-                         hover:text-[var(--accent)]
-                         transition-all duration-300
-                         bg-transparent"
-            >
-              Get in touch
-            </button>
+            <div className="flex items-center gap-4 sm:ml-2">
+              <a
+                href="https://www.linkedin.com/in/jefel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
+                style={{ color: 'var(--text-secondary)' }}
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
 
+              <a
+                href="https://github.com/jefel-design"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
+                style={{ color: 'var(--text-secondary)' }}
+                aria-label="GitHub"
+              >
+                <Github size={20} />
+              </a>
+
+              <a
+                href="mailto:jefeljohnmaitem@gmail.com"
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent)]"
+                style={{ color: 'var(--text-secondary)' }}
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
+            </div>
           </div>
-
-          {/* Social Links Section - REMOVED */}
-
         </div>
       </div>
     </section>

@@ -130,7 +130,7 @@ const jobs: Job[] = [
     company: "Jefel Arts",
     period: "2022 – Present",
     title:
-      "Freelance Apparel Graphic Designer creating custom commission-based designs for streetwear, esports, and merchandise brands. Focused on bold, print-ready visuals and brand-driven concepts.",
+      "Custom commission-based designs for streetwear, esports, and merchandise brands.",
     highlights: ["Apparel Design", "Commission Work", "Merch Graphics"],
     logo: "jefel-arts-preview.jpg",
     type: "Freelance",
@@ -157,43 +157,61 @@ const jobs: Job[] = [
   },
 ];
 
-function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
+function extractPeriodRanking(period: string) {
+  const years = Array.from(period.matchAll(/\d{4}/g)).map((match) =>
+    Number(match[0]),
+  );
+  const latestYear = years.length ? Math.max(...years) : 0;
+  const startYear = years.length ? years[0] : 0;
+  const isCurrent = /present/i.test(period);
+
+  return { isCurrent, latestYear, startYear };
+}
+
+const sortedJobs = [...jobs].sort((a, b) => {
+  const left = extractPeriodRanking(a.period);
+  const right = extractPeriodRanking(b.period);
+
+  if (left.isCurrent !== right.isCurrent) {
+    return Number(right.isCurrent) - Number(left.isCurrent);
+  }
+
+  if (left.latestYear !== right.latestYear) {
+    return right.latestYear - left.latestYear;
+  }
+
+  return right.startYear - left.startYear;
+});
+
+function TimelineCard({
+  job,
+  delayMs = 0,
+  featured = false,
+}: {
+  job: Job;
+  delayMs?: number;
+  featured?: boolean;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imgError, setImgError] = useState(false);
 
   return (
-    <RevealOnScroll className="relative pl-12 md:pl-16 group" delayMs={delayMs}>
-      {/* Timeline Dot */}
-      <div
-        className="absolute z-20 transition-all duration-300"
-        style={{
-          left: "16px",
-          top: isExpanded ? "42px" : "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <div className="timeline-dot" />
-      </div>
-
+    <RevealOnScroll
+      className={`group h-full ${featured ? "lg:col-span-2" : ""}`}
+      delayMs={delayMs}
+    >
       {/* Card */}
       <div
-        className="relative overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
+        className="relative h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer"
         style={{
           backgroundColor: "var(--card-bg)",
-          border: "1px solid var(--card-border)",
         }}
         onClick={() => setIsExpanded((prev) => !prev)}
       >
-        {/* Hover Gradient */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{ background: "var(--card-hover-gradient)" }}
-        />
-
         <div className="relative z-10 p-5 md:p-6">
           {/* Header */}
           <div className="mb-4">
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
@@ -213,7 +231,7 @@ function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
                   )}
                 </div>
 
-                <div className="flex flex-col md:flex-row md:items-center md:gap-3">
+                <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
                   <h3
                     className="font-medium text-base md:text-lg leading-tight"
                     style={{ color: "var(--card-text-primary)" }}
@@ -275,10 +293,7 @@ function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
 
         {/* Expanded Section */}
         {isExpanded && (
-          <div
-            className="relative z-10 border-t"
-            style={{ borderColor: "var(--card-border)" }}
-          >
+          <div className="relative z-10">
             <div className="p-5 md:p-6 space-y-4">
               <h4
                 className="text-sm font-medium"
@@ -299,7 +314,6 @@ function TimelineCard({ job, delayMs = 0 }: { job: Job; delayMs?: number }) {
                   >
                     <div
                       className="relative w-full h-full rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                      style={{ border: "1px solid var(--card-border)" }}
                     >
                       <img
                         src={project.image}
@@ -328,60 +342,26 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="py-16"
+      className="pt-0 pb-16"
       style={{
         backgroundColor: "var(--bg-primary)",
         borderBottom: "1px solid var(--border)",
       }}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
-        <h2
-          className="text-3xl md:text-4xl font-medium tracking-tight mb-10"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Experience
-        </h2>
-
-        <div className="relative">
-          {/* Timeline Line */}
-          <div
-            className="absolute top-0 bottom-0 left-4 w-[2px]"
-            style={{ backgroundColor: "var(--border)" }}
-          />
-
-          <div className="space-y-10 md:space-y-12">
-            {jobs.map((job, index) => (
-              <TimelineCard key={index} job={job} delayMs={index * 70} />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {sortedJobs.map((job, index) => (
+            <TimelineCard
+              key={`${job.company}-${job.period}`}
+              job={job}
+              delayMs={index * 70}
+              featured={index === 0}
+            />
+          ))}
         </div>
       </div>
 
       <style>{`
-        @keyframes hoverGlow {
-          0% { box-shadow: 0 0 0px var(--accent); }
-          50% {
-            box-shadow:
-              0 0 8px var(--accent),
-              0 0 18px var(--accent);
-          }
-          100% { box-shadow: 0 0 0px var(--accent); }
-        }
-
-        .timeline-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 9999px;
-          background: var(--accent);
-          border: 3px solid var(--bg-primary);
-          transition: transform 0.3s ease;
-        }
-
-        .group:hover .timeline-dot {
-          animation: hoverGlow 1.5s ease-in-out infinite;
-          transform: scale(1.1);
-        }
-
         .job-type-badge {
           font-size: 10px;
           padding: 4px 8px;
@@ -389,7 +369,6 @@ export function Experience() {
           border-radius: 9999px;
           background: var(--card-tag-bg);
           color: var(--card-text-muted);
-          border: 1px solid var(--card-border);
           text-transform: uppercase;
           letter-spacing: 0.6px;
           display: inline-flex;
@@ -399,11 +378,6 @@ export function Experience() {
           font-weight: 500;
         }
 
-        .group:hover .job-type-badge {
-          background: var(--accent);
-          color: white;
-          border-color: var(--accent);
-        }
       `}</style>
     </section>
   );

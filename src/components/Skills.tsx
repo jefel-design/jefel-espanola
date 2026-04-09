@@ -1,56 +1,43 @@
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiReact,
-  SiGithub,
-  SiFigma,
-  SiAdobephotoshop,
-  SiAdobeillustrator,
-  SiAdobeindesign,
-  SiTailwindcss,
-  SiVite,
-  SiTypescript,
-  SiWordpress,
-  SiElementor,
-  SiAdobeaftereffects,
-  SiAdobepremierepro,
-} from "react-icons/si";
 import { RevealOnScroll } from "./RevealOnScroll";
-import type { ReactNode } from "react";
 
 type Skill = {
   name: string;
-  icon?: ReactNode;
+};
+
+type SkillSection = {
+  title: string;
+  status?: string;
+  description: string;
+  items: Skill[];
 };
 
 export function Skills() {
   const development: Skill[] = [
-    { name: "HTML5", icon: <SiHtml5 /> },
-    { name: "CSS3", icon: <SiCss3 /> },
-    { name: "JavaScript", icon: <SiJavascript /> },
-    { name: "React", icon: <SiReact /> },
-    { name: "GitHub", icon: <SiGithub /> },
-    { name: "Tailwind", icon: <SiTailwindcss /> },
-    { name: "Vite", icon: <SiVite /> },
-    { name: "Typescript", icon: <SiTypescript /> },
+    { name: "HTML5" },
+    { name: "CSS3" },
+    { name: "JavaScript" },
+    { name: "React" },
+    { name: "GitHub" },
+    { name: "Tailwind" },
+    { name: "Vite" },
+    { name: "Typescript" },
   ];
 
   const design: Skill[] = [
-    { name: "Figma", icon: <SiFigma /> },
-    { name: "Photoshop", icon: <SiAdobephotoshop /> },
-    { name: "Illustrator", icon: <SiAdobeillustrator /> },
-    { name: "InDesign", icon: <SiAdobeindesign /> },
+    { name: "Figma" },
+    { name: "Photoshop" },
+    { name: "Illustrator" },
+    { name: "InDesign" },
   ];
 
   const cms: Skill[] = [
-    { name: "WordPress", icon: <SiWordpress /> },
-    { name: "Elementor", icon: <SiElementor /> },
+    { name: "WordPress" },
+    { name: "Elementor" },
   ];
 
   const video: Skill[] = [
-    { name: "Adobe Premiere Pro", icon: <SiAdobepremierepro /> },
-    { name: "After Effects", icon: <SiAdobeaftereffects /> },
+    { name: "Adobe Premiere Pro" },
+    { name: "After Effects" },
   ];
 
   const softSkills: Skill[] = [
@@ -66,119 +53,110 @@ export function Skills() {
     { name: "Cebuano" },
   ];
 
-  const Badge = ({ skill }: { skill: Skill }) => (
-    <div
-      className="flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-light"
-      style={{
-        background: "rgba(255,255,255,0.05)",
-        border: "1px solid var(--card-border)",
-        color: "var(--card-text-muted)",
-      }}
-    >
-      {skill.icon && <span className="opacity-80 text-sm">{skill.icon}</span>}
-      <span>{skill.name}</span>
-    </div>
-  );
-
-  const SectionLabel = ({
-    title,
-    status,
-  }: {
-    title: string;
-    status?: string;
-  }) => (
-    <h3 className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">
-      {title}
-      {status && (
-        <span
-          className="text-[10px] px-2 py-1 rounded-full uppercase tracking-wide"
-          style={{
-            background: "var(--card-tag-bg)",
-            border: "1px solid var(--card-border)",
-            color: "var(--card-text-muted)",
-          }}
-        >
-          {status}
-        </span>
-      )}
-    </h3>
-  );
+  const sections: SkillSection[] = [
+    {
+      title: "Development",
+      status: "Developing",
+      description: "Front-end tools used to build responsive interfaces and interactive websites.",
+      items: development,
+    },
+    {
+      title: "Design",
+      status: "Advanced",
+      description: "Design software used for branding, layout, and UI exploration.",
+      items: design,
+    },
+    {
+      title: "CMS & Website Builders",
+      status: "Proficient",
+      description: "Website builders and publishing tools used for client delivery.",
+      items: cms,
+    },
+    {
+      title: "Video Editing",
+      status: "Proficient",
+      description: "Tools used for editing motion content and short-form video assets.",
+      items: video,
+    },
+    {
+      title: "Professional Strengths",
+      description: "Core strengths that support communication, execution, and creative problem solving.",
+      items: softSkills,
+    },
+    {
+      title: "Languages",
+      description: "Languages used for communication and collaboration.",
+      items: languages,
+    },
+  ];
 
   return (
-    <section
-      id="skills"
-      className="pt-16 pb-20 bg-[var(--bg-primary)] border-b border-[var(--border)]"
-    >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
-        <RevealOnScroll>
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text-primary)]">
-            Skills
-          </h2>
-        </RevealOnScroll>
+    <div id="skills" className="space-y-6">
+      <RevealOnScroll>
+        <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
+          Skills
+        </p>
+      </RevealOnScroll>
 
-        {/* 2x2 Balanced Grid */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Development */}
-          <RevealOnScroll className="space-y-4" delayMs={40}>
-            <SectionLabel title="Development" status="Developing" />
-            <div className="flex flex-wrap gap-2">
-              {development.map((skill, index) => (
-                <Badge key={index} skill={skill} />
-              ))}
+      <div className="grid gap-5 md:grid-cols-2">
+        {sections.map((section, index) => (
+          <RevealOnScroll key={section.title} delayMs={40 + index * 50}>
+            <div
+              className="relative h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              style={{ backgroundColor: "var(--card-bg)" }}
+            >
+              <div className="relative z-10 p-5 md:p-6">
+                <div className="mb-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
+                      <h3
+                        className="font-medium text-base md:text-lg leading-tight"
+                        style={{ color: "var(--card-text-primary)" }}
+                      >
+                        {section.title}
+                      </h3>
+
+                      {section.status && (
+                        <span
+                          className="mt-1 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] md:mt-0"
+                          style={{
+                            backgroundColor: "var(--card-tag-bg)",
+                            color: "var(--card-tag-text)",
+                          }}
+                        >
+                          {section.status}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <p
+                  className="text-sm font-light leading-relaxed mb-5"
+                  style={{ color: "var(--card-text-secondary)" }}
+                >
+                  {section.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {section.items.map((item) => (
+                    <span
+                      key={item.name}
+                      className="text-xs px-3 py-1 rounded-md"
+                      style={{
+                        backgroundColor: "var(--card-tag-bg)",
+                        color: "var(--card-tag-text)",
+                      }}
+                    >
+                      {item.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </RevealOnScroll>
-
-          {/* Design */}
-          <RevealOnScroll className="space-y-4" delayMs={90}>
-            <SectionLabel title="Design" status="Advanced" />
-            <div className="flex flex-wrap gap-2">
-              {design.map((skill, index) => (
-                <Badge key={index} skill={skill} />
-              ))}
-            </div>
-          </RevealOnScroll>
-
-          {/* CMS */}
-          <RevealOnScroll className="space-y-4" delayMs={140}>
-            <SectionLabel title="CMS & Website Builders" status="Proficient" />
-            <div className="flex flex-wrap gap-2">
-              {cms.map((skill, index) => (
-                <Badge key={index} skill={skill} />
-              ))}
-            </div>
-          </RevealOnScroll>
-
-          {/* Video Editing */}
-          <RevealOnScroll className="space-y-4" delayMs={190}>
-            <SectionLabel title="Video Editing" status="Proficient" />
-            <div className="flex flex-wrap gap-2">
-              {video.map((skill, index) => (
-                <Badge key={index} skill={skill} />
-              ))}
-            </div>
-          </RevealOnScroll>
-        </div>
-
-        {/* Professional Strengths */}
-        <RevealOnScroll className="space-y-4" delayMs={230}>
-          <SectionLabel title="Professional Strengths" />
-          <div className="flex flex-wrap gap-2">
-            {softSkills.map((skill, index) => (
-              <Badge key={index} skill={skill} />
-            ))}
-          </div>
-        </RevealOnScroll>
-
-        {/* Languages */}
-        <RevealOnScroll className="space-y-4" delayMs={260}>
-          <SectionLabel title="Languages" />
-          <div className="flex flex-wrap gap-2">
-            {languages.map((skill, index) => (
-              <Badge key={index} skill={skill} />
-            ))}
-          </div>
-        </RevealOnScroll>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

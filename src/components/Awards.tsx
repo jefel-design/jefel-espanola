@@ -37,68 +37,73 @@ const awards: AwardItem[] = [
   },
 ];
 
+export function Awards() {
+  return (
+    <div id="awards" className="space-y-6">
+      <RevealOnScroll>
+        <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
+          Awards & Nominations
+        </p>
+      </RevealOnScroll>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        {awards.map((award, index) => (
+          <RevealOnScroll key={index} delayMs={index * 70}>
+            <AwardCard award={award} />
+          </RevealOnScroll>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function AwardCard({ award }: { award: AwardItem }) {
   const [imgError, setImgError] = useState(false);
 
   return (
     <div
-      className="group relative overflow-hidden rounded-xl p-6 
-                 transition-all duration-500 hover:-translate-y-1 border"
-      style={{
-        backgroundColor: "var(--card-bg)",
-        borderColor: "var(--card-border)",
-      }}
+      className="relative h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      style={{ backgroundColor: "var(--card-bg)" }}
     >
-      {/* Hover Gradient */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "var(--card-hover-gradient)" }}
-      />
+      <div className="relative z-10 p-5 md:p-6">
+        <div className="mb-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
+                style={{ backgroundColor: "var(--card-tag-bg)" }}
+              >
+                {!imgError && award.logo ? (
+                  <img
+                    src={award.logo}
+                    alt={award.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-6 h-6 object-contain"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <Award size={20} style={{ color: "var(--card-icon)" }} />
+                )}
+              </div>
 
-      <div className="relative z-10 space-y-4">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-start gap-3">
-            <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
-              style={{ backgroundColor: "var(--card-tag-bg)" }}
+              <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
+                <h3
+                  className="font-medium text-base md:text-lg leading-tight"
+                  style={{ color: "var(--card-text-primary)" }}
+                >
+                  {award.title}
+                </h3>
+              </div>
+            </div>
+
+            <span
+              className="text-xs md:text-sm shrink-0"
+              style={{ color: "var(--card-text-muted)" }}
             >
-              {!imgError && award.logo ? (
-                <img
-                  src={award.logo}
-                  alt={award.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-6 h-6 object-contain"
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <Award size={18} style={{ color: "var(--card-icon)" }} />
-              )}
-            </div>
-
-            <div>
-              <h3
-                className="font-medium text-lg leading-tight"
-                style={{ color: "var(--card-text-primary)" }}
-              >
-                {award.title}
-              </h3>
-
-              <p
-                className="text-sm font-light mt-1"
-                style={{ color: "var(--card-text-muted)" }}
-              >
-                {award.org}
-              </p>
-            </div>
+              {award.year}
+            </span>
           </div>
-
-          <span
-            className="text-sm font-light shrink-0"
-            style={{ color: "var(--card-text-muted)" }}
-          >
-            {award.year}
-          </span>
         </div>
 
         <p
@@ -107,33 +112,19 @@ function AwardCard({ award }: { award: AwardItem }) {
         >
           {award.description}
         </p>
-      </div>
-    </div>
-  );
-}
 
-export function Awards() {
-  return (
-    <section
-      id="awards"
-      className="pt-12 pb-14 bg-[var(--bg-primary)] border-b border-[var(--border)]"
-    >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
-        <h2
-          className="text-3xl md:text-4xl font-medium tracking-tight"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Awards
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {awards.map((award, index) => (
-            <RevealOnScroll key={index} delayMs={index * 70}>
-              <AwardCard award={award} />
-            </RevealOnScroll>
-          ))}
+        <div className="mt-5">
+          <span
+            className="inline-flex rounded-md px-3 py-1 text-[10px] uppercase tracking-[0.12em]"
+            style={{
+              backgroundColor: "var(--card-tag-bg)",
+              color: "var(--card-tag-text)",
+            }}
+          >
+            {award.org}
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

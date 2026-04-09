@@ -1,26 +1,25 @@
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Education } from './components/Education';
+import { AboutPage } from './components/AboutPage';
 import { Experience } from './components/Experience';
-import { Skills } from './components/Skills';
-import { Awards } from './components/Awards';
 import { Chatbot } from './components/Chatbot';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 function App() {
+  const isAboutPage = window.location.pathname === '/about';
+
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Skills />
-        <Awards />
-        <Contact />
+        {isAboutPage ? (
+          <AboutPage />
+        ) : (
+          <>
+            <Hero />
+            <Experience />
+          </>
+        )}
       </main>
       <Footer />
       <Chatbot />

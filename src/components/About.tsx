@@ -1,6 +1,8 @@
 import { RevealOnScroll } from "./RevealOnScroll";
 
 export function About() {
+  const focusAreas = ["Branding", "UI Design", "Front-end"];
+
   return (
     <section
       id="about"
@@ -15,19 +17,26 @@ export function About() {
                      border border-[var(--border)]
                      rounded-2xl p-8 md:p-10 shadow-1xl"
         >
-          <div className="space-y-6 max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[var(--text-primary)]">
-              About
-            </h2>
-
-            <div className="space-y-4 font-light text-[var(--text-secondary)]">
-              <p>
-                Designer building digital experiences through branding, UI design, and modern front-end development.
+          <div className="max-w-3xl space-y-6">
+            <div className="space-y-3">
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)]">
+                About
               </p>
 
-              <p>
-                With strong foundations in Figma and Adobe Creative Suite, I’m currently developing responsive applications using HTML, CSS, React, Tailwind, and TypeScript bridging design and code with intention.
-              </p>
+              <h2 className="max-w-2xl text-2xl md:text-4xl font-medium leading-tight tracking-tight text-[var(--text-primary)]">
+                I design digital work that feels clear, useful, and intentional.
+              </h2>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {focusAreas.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[var(--border)] px-4 py-2 text-sm text-[var(--text-secondary)]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </RevealOnScroll>

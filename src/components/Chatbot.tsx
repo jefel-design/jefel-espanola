@@ -339,18 +339,17 @@ export function Chatbot() {
     <div className="fixed right-4 bottom-4 z-[60] font-light">
       {isOpen && (
         <div
-          className="w-[calc(100vw-2rem)] sm:w-[380px] md:w-[420px] rounded-2xl border overflow-hidden mb-3 shadow-2xl"
+          className="mb-3 w-[calc(100vw-2rem)] overflow-hidden rounded-2xl shadow-2xl sm:w-[380px] md:w-[420px]"
           style={{
             backgroundColor: 'var(--card-bg)',
-            borderColor: 'var(--card-border)',
           }}
         >
-          <div className="p-4 border-b flex items-center justify-between" style={{ borderColor: 'var(--card-border)' }}>
+          <div className="flex items-center justify-between p-4">
             <div className="flex items-center gap-3 text-[var(--card-text-primary)]">
               <img
                 src="jefel.jpeg"
                 alt="Jefel Española"
-                className="w-9 h-9 rounded-full object-cover border border-[var(--card-border)]"
+                className="h-9 w-9 rounded-full object-cover"
               />
               <div className="leading-tight">
                 <p className="text-sm font-light">Jefel Española</p>
@@ -380,21 +379,20 @@ export function Chatbot() {
                   <img
                     src="jefel.jpeg"
                     alt="Jefel Española"
-                    className="w-7 h-7 rounded-full object-cover border border-[var(--card-border)] shrink-0"
+                    className="h-7 w-7 shrink-0 rounded-full object-cover"
                   />
                 )}
                 <div className={`max-w-[88%] ${message.role === 'user' ? 'items-start' : 'items-start'} flex flex-col`}>
                   <div
                     className={`rounded-xl px-4 py-3 text-sm leading-relaxed ${
                       message.role === 'user'
-                        ? 'text-white bg-[var(--accent)]'
+                        ? 'bg-[rgba(255,255,255,0.08)] text-[var(--text-primary)]'
                         : 'text-[var(--card-text-secondary)]'
                     }`}
                     style={
                       message.role === 'assistant'
                         ? {
                             backgroundColor: 'var(--card-tag-bg)',
-                            border: '1px solid var(--card-border)',
                           }
                         : undefined
                     }
@@ -412,13 +410,12 @@ export function Chatbot() {
                 <img
                   src="jefel.jpeg"
                   alt="Jefel Española"
-                  className="w-7 h-7 rounded-full object-cover border border-[var(--card-border)] shrink-0"
+                  className="h-7 w-7 shrink-0 rounded-full object-cover"
                 />
                 <div
                   className="max-w-[88%] rounded-xl px-4 py-3"
                   style={{
                     backgroundColor: 'var(--card-tag-bg)',
-                    border: '1px solid var(--card-border)',
                   }}
                 >
                   <div className="flex items-center gap-1.5">
@@ -446,9 +443,8 @@ export function Chatbot() {
                   type="button"
                   onClick={() => sendMessage(prompt)}
                   disabled={isTyping}
-                  className="text-xs px-2.5 py-1.5 rounded-md border transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className="rounded-md px-2.5 py-1.5 text-xs transition-colors hover:bg-[rgba(255,255,255,0.1)] hover:text-[var(--text-primary)]"
                   style={{
-                    borderColor: 'var(--card-border)',
                     color: 'var(--card-text-muted)',
                     backgroundColor: 'var(--card-tag-bg)',
                   }}
@@ -464,15 +460,14 @@ export function Chatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about skills, projects, or contact..."
-                className="w-full rounded-lg px-4 py-2.5 text-sm bg-transparent border focus:outline-none focus:border-[var(--accent)] text-[var(--card-text-primary)] placeholder-[var(--card-text-muted)]"
-                style={{ borderColor: 'var(--card-border)' }}
+                className="w-full rounded-lg border-none bg-[var(--card-tag-bg)] px-4 py-2.5 text-sm text-[var(--card-text-primary)] placeholder-[var(--card-text-muted)] focus:outline-none"
                 disabled={isTyping}
               />
 
               <button
                 type="submit"
                 disabled={!canSend}
-                className="inline-flex items-center justify-center rounded-lg px-3.5 py-2.5 text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center rounded-lg bg-[rgba(255,255,255,0.08)] px-3.5 py-2.5 text-[var(--text-primary)] transition-colors hover:bg-[rgba(255,255,255,0.12)] disabled:cursor-not-allowed disabled:opacity-50"
                 aria-label="Send"
               >
                 <Send size={16} />
@@ -486,7 +481,7 @@ export function Chatbot() {
         <div className="flex items-center justify-end gap-2">
           <a
             href="mailto:jefeljohnmaitem@gmail.com?subject=Project%20Inquiry"
-            className="h-12 w-12 rounded-full bg-white hover:bg-white/90 text-[var(--accent)] shadow-xl transition-colors inline-flex items-center justify-center border border-black/10"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)]"
             aria-label="Send email to Jefel"
             title="Send Email"
           >
@@ -496,7 +491,7 @@ export function Chatbot() {
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="h-12 px-4 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-xl transition-colors inline-flex items-center gap-2"
+            className="inline-flex h-12 items-center gap-2 rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] px-4 text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)]"
             aria-label="Open chat assistant"
           >
             <MessageCircle size={16} />
