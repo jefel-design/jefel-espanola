@@ -1,29 +1,35 @@
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { AboutPage } from './components/AboutPage';
-import { Experience } from './components/Experience';
-import { Chatbot } from './components/Chatbot';
-import { Footer } from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import { AboutPage } from "./components/AboutPage";
+import { Experience } from "./components/Experience";
+import { Chatbot } from "./components/Chatbot";
+import { Footer } from "./components/Footer";
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Experience />
+    </>
+  );
+}
 
 function App() {
-  const isAboutPage = window.location.pathname === '/about';
-
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <Header />
-      <main>
-        {isAboutPage ? (
-          <AboutPage />
-        ) : (
-          <>
-            <Hero />
-            <Experience />
-          </>
-        )}
-      </main>
-      <Footer />
-      <Chatbot />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-black text-white font-sans">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <Chatbot />
+      </div>
+    </BrowserRouter>
   );
 }
 
