@@ -37,7 +37,7 @@ export function Header() {
           <a
             href="/about"
             className="text-sm font-light transition-colors duration-300 hover:text-[var(--accent)]"
-            style={{ color: isAboutPage ? 'var(--accent)' : 'var(--text-primary)' }}
+            style={{ color: 'var(--text-primary)' }}
           >
             About
           </a>

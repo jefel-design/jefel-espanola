@@ -336,10 +336,10 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed right-4 bottom-4 z-[60] font-light">
+    <div className="fixed right-3 bottom-3 z-[60] font-light sm:right-4 sm:bottom-4">
       {isOpen && (
         <div
-          className="mb-3 w-[calc(100vw-2rem)] overflow-hidden rounded-2xl shadow-2xl sm:w-[380px] md:w-[420px]"
+          className="mb-3 w-[calc(100vw-1.5rem)] max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-2xl shadow-2xl sm:w-[380px] sm:max-w-[380px] md:w-[420px] md:max-w-[420px]"
           style={{
             backgroundColor: 'var(--card-bg)',
           }}
@@ -481,7 +481,7 @@ export function Chatbot() {
         <div className="flex items-center justify-end gap-2">
           <a
             href="mailto:jefeljohnmaitem@gmail.com?subject=Project%20Inquiry"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)]"
+            className="hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)] sm:inline-flex"
             aria-label="Send email to Jefel"
             title="Send Email"
           >
@@ -491,11 +491,11 @@ export function Chatbot() {
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="inline-flex h-12 items-center gap-2 rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] px-4 text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)]"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.08)] text-[var(--text-primary)] shadow-xl transition-colors hover:bg-[rgba(255,255,255,0.12)] sm:w-auto sm:gap-2 sm:px-4"
             aria-label="Open chat assistant"
           >
             <MessageCircle size={16} />
-            <span className="text-sm font-light">Chat with Jefel</span>
+            <span className="hidden text-sm font-light sm:inline">Chat with Jefel</span>
           </button>
         </div>
       )}

@@ -75,7 +75,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-20 pt-8">
+      <section className="pb-32 pt-8 sm:pb-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-12">
           <Education />
           <Skills />

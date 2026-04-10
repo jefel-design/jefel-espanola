@@ -2,6 +2,9 @@ import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { MdVerified } from 'react-icons/md';
 
 export function Hero() {
+  const defaultImage = 'jefelmeow.jpg';
+  const hoverImage = 'jefel.jpeg';
+
   return (
     <section
       id="hero"
@@ -23,12 +26,18 @@ export function Hero() {
         <div className="w-full space-y-4">
 
           {/* Profile Image */}
-          <div className="flex justify-start mb-4">
-            <div className="relative">
+          <div className="flex justify-start mb-8">
+            <div className="relative group">
               <img
-                src="jefel.jpeg"
+                src={defaultImage}
                 alt="Jefel John Española"
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg transition-opacity duration-300 group-hover:opacity-0"
+              />
+
+              <img
+                src={hoverImage}
+                alt="Jefel John Española alternate portrait"
+                className="absolute inset-0 w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-3 border-[var(--border)] shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
 
               <span
@@ -43,13 +52,13 @@ export function Hero() {
 
           {/* Heading */}
           <div>
-            <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] mb-4 tracking-tight text-[var(--text-primary)] md:text-6xl">
               Hey, I'm Jefel Española
             </h1>
 
             <p className="text-base font-light text-[var(--text-secondary)] mb-2 flex items-center gap-2">
               <MapPin size={16} className="text-[var(--text-muted)]" />
-              Surigao del Norte, Philippines
+              Philippines
             </p>
           </div>
 

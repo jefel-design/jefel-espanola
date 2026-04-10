@@ -118,7 +118,7 @@ export function Skills() {
 
                       {section.status && (
                         <span
-                          className="mt-1 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] md:mt-0"
+                          className="mt-1 inline-flex w-fit self-start rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] md:mt-0"
                           style={{
                             backgroundColor: "var(--card-tag-bg)",
                             color: "var(--card-tag-text)",

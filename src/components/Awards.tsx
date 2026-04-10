@@ -42,7 +42,7 @@ export function Awards() {
     <div id="awards" className="space-y-6">
       <RevealOnScroll>
         <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
-          Awards & Nominations
+          Awards
         </p>
       </RevealOnScroll>
 
