@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { publicAsset } from '../lib/assets';
 
 export function Header() {
-  const logoSrc = `${import.meta.env.BASE_URL}jefel.svg`;
-  const isAboutPage = window.location.pathname === '/about';
+  const logoSrc = publicAsset('jefel.svg');
 
   useEffect(() => {
     document.documentElement.classList.add('dark-theme');
@@ -22,8 +23,8 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="group flex items-center"
             aria-label="Go to home"
           >
@@ -32,15 +33,15 @@ export function Header() {
               alt="JJM Logo"
               className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
             />
-          </a>
+          </Link>
 
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="text-sm font-light transition-colors duration-300 hover:text-[var(--accent)]"
             style={{ color: 'var(--text-primary)' }}
           >
             About
-          </a>
+          </Link>
 
         </div>
       </div>

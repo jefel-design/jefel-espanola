@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { MessageCircle, Send, X } from 'lucide-react';
+import { publicAsset } from '../lib/assets';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -256,6 +257,7 @@ function getChatResponse(question: string) {
 }
 
 export function Chatbot() {
+  const avatarSrc = publicAsset('Jefel.jpeg');
   const [isOpen, setIsOpen] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [input, setInput] = useState('');
@@ -347,7 +349,7 @@ export function Chatbot() {
           <div className="flex items-center justify-between p-4">
             <div className="flex items-center gap-3 text-[var(--card-text-primary)]">
               <img
-                src="jefel.jpeg"
+                src={avatarSrc}
                 alt="Jefel Española"
                 className="h-9 w-9 rounded-full object-cover"
               />
@@ -377,7 +379,7 @@ export function Chatbot() {
               >
                 {message.role === 'assistant' && (
                   <img
-                    src="jefel.jpeg"
+                    src={avatarSrc}
                     alt="Jefel Española"
                     className="h-7 w-7 shrink-0 rounded-full object-cover"
                   />
@@ -408,7 +410,7 @@ export function Chatbot() {
             {isTyping && (
               <div className="flex items-start gap-2 justify-start">
                 <img
-                  src="jefel.jpeg"
+                  src={avatarSrc}
                   alt="Jefel Española"
                   className="h-7 w-7 shrink-0 rounded-full object-cover"
                 />

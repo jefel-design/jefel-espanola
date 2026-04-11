@@ -1,9 +1,10 @@
 import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { MdVerified } from 'react-icons/md';
+import { publicAsset } from '../lib/assets';
 
 export function Hero() {
-  const defaultImage = 'jefelmeow.jpg';
-  const hoverImage = 'jefel.jpeg';
+  const defaultImage = publicAsset('jefelmeow.jpg');
+  const hoverImage = publicAsset('Jefel.jpeg');
 
   return (
     <section
