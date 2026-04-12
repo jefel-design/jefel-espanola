@@ -66,19 +66,19 @@ export function ExperienceDetailPage() {
         backgroundColor: "var(--bg-primary)",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 pt-28 pb-16 md:pt-32 md:pb-24">
+      <div className="max-w-5xl mx-auto px-6 lg:px-10 pt-24 pb-14 md:pt-32 md:pb-24">
         <Link
           to="/#experience"
-          className="mb-10 inline-flex items-center gap-2 text-sm font-light transition-colors duration-300 hover:text-[var(--text-primary)]"
+          className="mb-8 inline-flex items-center gap-2 text-sm font-light transition-colors duration-300 hover:text-[var(--text-primary)] md:mb-10"
           style={{ color: "var(--text-secondary)" }}
         >
           <ArrowLeft size={16} />
           Back to experience
         </Link>
 
-        <div className="grid gap-12 pb-14 md:gap-14 lg:grid-cols-[minmax(0,1.6fr)_minmax(280px,0.9fr)]">
+        <div className="grid gap-6 pb-6 md:gap-14 md:pb-14 lg:grid-cols-[minmax(0,1.6fr)_minmax(280px,0.9fr)]">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-5 flex items-center gap-3 md:mb-6">
               <div
                 className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl"
                 style={{ backgroundColor: "var(--card-tag-bg)" }}
@@ -106,7 +106,7 @@ export function ExperienceDetailPage() {
             </h1>
 
             <p
-              className="mt-8 max-w-2xl text-sm font-light leading-relaxed md:text-[0.95rem]"
+              className="mt-6 max-w-2xl text-sm font-light leading-relaxed md:mt-8 md:text-[0.95rem]"
               style={{ color: "var(--text-secondary)" }}
             >
               {experience.summary}
@@ -114,10 +114,7 @@ export function ExperienceDetailPage() {
           </div>
 
           <aside
-            className="rounded-2xl p-5 md:p-6"
-            style={{
-              backgroundColor: "rgba(255,255,255,0.02)",
-            }}
+            className="w-full"
           >
             <MetadataItem label="Role" value={experience.role} />
             <MetadataItem label="Timeframe" value={experience.timeframe} />
@@ -126,7 +123,7 @@ export function ExperienceDetailPage() {
           </aside>
         </div>
 
-        <div className="pt-14">
+        <div className="pt-4 md:pt-14">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {experience.projects.map((project) => (
               <button
