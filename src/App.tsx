@@ -1,8 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AboutPage } from "./components/AboutPage";
 import { Experience } from "./components/Experience";
+import { ExperienceDetailPage } from "./components/ExperienceDetailPage";
 import { Footer } from "./components/Footer";
 
 function HomePage() {
@@ -14,15 +16,36 @@ function HomePage() {
   );
 }
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const target = document.querySelector(location.hash);
+
+      if (target) {
+        target.scrollIntoView();
+        return;
+      }
+    }
+
+    window.scrollTo(0, 0);
+  }, [location.hash, location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-black text-white font-sans">
         <Header />
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/experience/:slug" element={<ExperienceDetailPage />} />
           </Routes>
         </main>
         <Footer />
