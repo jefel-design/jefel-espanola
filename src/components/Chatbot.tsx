@@ -257,7 +257,7 @@ function getChatResponse(question: string) {
 }
 
 export function Chatbot() {
-  const avatarSrc = publicAsset('Jefel.jpeg');
+  const avatarSrc = publicAsset('jefel.jpeg');
   const [isOpen, setIsOpen] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [input, setInput] = useState('');

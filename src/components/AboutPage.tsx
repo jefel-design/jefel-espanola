@@ -53,7 +53,7 @@ export function AboutPage() {
               <div className="relative rotate-[2deg] rounded-[1.35rem] bg-[#151515] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 hover:rotate-0">
                 <div className="overflow-hidden rounded-[0.95rem] bg-black">
                   <img
-                    src={publicAsset('Jefel.jpeg')}
+                    src={publicAsset('jefel.jpeg')}
                     alt="Jefel Espanola portrait"
                     loading="eager"
                     className="aspect-[4/5] w-full object-cover"

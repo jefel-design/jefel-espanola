@@ -4,7 +4,7 @@ import { publicAsset } from '../lib/assets';
 
 export function Hero() {
   const defaultImage = publicAsset('jefelmeow.jpg');
-  const hoverImage = publicAsset('Jefel.jpeg');
+  const hoverImage = publicAsset('jefel.jpeg');
 
   return (
     <section
