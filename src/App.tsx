@@ -3,7 +3,6 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AboutPage } from "./components/AboutPage";
 import { Experience } from "./components/Experience";
-import { Chatbot } from "./components/Chatbot";
 import { Footer } from "./components/Footer";
 
 function HomePage() {
@@ -27,7 +26,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <Chatbot />
       </div>
     </BrowserRouter>
   );
