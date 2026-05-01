@@ -4,7 +4,6 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AboutPage } from "./components/AboutPage";
 import { Experience } from "./components/Experience";
-import { ExperienceDetailPage } from "./components/ExperienceDetailPage";
 import { Footer } from "./components/Footer";
 
 function HomePage() {
@@ -45,7 +44,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/experience/:slug" element={<ExperienceDetailPage />} />
           </Routes>
         </main>
         <Footer />

@@ -1,5 +1,4 @@
 import { Briefcase } from "lucide-react";
-import { Link } from "react-router-dom";
 import { experienceEntries, type ExperienceEntry } from "../data/experience";
 import { publicAsset } from "../lib/assets";
 import { RevealOnScroll } from "./RevealOnScroll";
@@ -25,9 +24,8 @@ function TimelineCard({
       className={`group h-full ${featured ? "lg:col-span-2" : ""}`}
       delayMs={delayMs}
     >
-      <Link
-        to={`/experience/${job.slug}`}
-        className="relative flex h-full flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+      <div
+        className="relative flex h-full flex-col overflow-hidden rounded-2xl"
         style={{
           backgroundColor: "var(--card-bg)",
         }}
@@ -99,7 +97,7 @@ function TimelineCard({
             ))}
           </div>
         </div>
-      </Link>
+      </div>
     </RevealOnScroll>
   );
 }
