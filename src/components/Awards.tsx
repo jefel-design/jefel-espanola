@@ -1,6 +1,5 @@
 import { Award } from "lucide-react";
 import { useState } from "react";
-import { RevealOnScroll } from "./RevealOnScroll";
 
 type AwardItem = {
   title: string;
@@ -39,75 +38,76 @@ const awards: AwardItem[] = [
 
 export function Awards() {
   return (
-    <div id="awards" className="space-y-6">
-      <RevealOnScroll>
-        <p className="text-xs font-medium uppercase tracking-[0.24em] text-[var(--text-muted)] md:text-sm">
-          Awards
-        </p>
-      </RevealOnScroll>
-
-      <div className="grid gap-5 md:grid-cols-2">
-        {awards.map((award, index) => (
-          <RevealOnScroll key={index} delayMs={index * 70}>
-            <AwardCard award={award} />
-          </RevealOnScroll>
-        ))}
+    <section
+      id="awards"
+      className="pt-0 pb-0"
+      style={{ backgroundColor: "var(--bg-primary)" }}
+    >
+      <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {awards.map((award) => (
+            <AwardCard key={`${award.title}-${award.year}`} award={award} />
+          ))}
+        </div>
       </div>
-    </div>
+
+      <div
+        aria-hidden="true"
+        className="-mt-px h-px w-full"
+        style={{ backgroundColor: "rgba(37, 37, 37, 0.54)" }}
+      />
+    </section>
   );
 }
 
 function AwardCard({ award }: { award: AwardItem }) {
   const [imgError, setImgError] = useState(false);
+  const showLogo = award.logo && !imgError;
 
   return (
     <div
-      className="relative h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      className="relative h-full overflow-hidden border border-[var(--grid-line)]"
       style={{ backgroundColor: "var(--card-bg)" }}
     >
       <div className="relative z-10 p-5 md:p-6">
-        <div className="mb-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden shrink-0"
-                style={{ backgroundColor: "var(--card-tag-bg)" }}
-              >
-                {!imgError && award.logo ? (
-                  <img
-                    src={award.logo}
-                    alt={award.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-6 h-6 object-contain"
-                    onError={() => setImgError(true)}
-                  />
-                ) : (
-                  <Award size={20} style={{ color: "var(--card-icon)" }} />
-                )}
-              </div>
-
-              <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
-                <h3
-                  className="font-medium text-base md:text-lg leading-tight"
-                  style={{ color: "var(--card-text-primary)" }}
-                >
-                  {award.title}
-                </h3>
-              </div>
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div
+              className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg"
+              style={{ backgroundColor: "var(--card-tag-bg)" }}
+            >
+              {showLogo ? (
+                <img
+                  src={award.logo}
+                  alt={award.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-6 w-6 object-contain"
+                  onError={() => setImgError(true)}
+                />
+              ) : (
+                <Award size={20} style={{ color: "var(--card-icon)" }} />
+              )}
             </div>
 
-            <span
-              className="text-xs md:text-sm shrink-0"
-              style={{ color: "var(--card-text-muted)" }}
+            <h3
+              className="font-body text-[18px] font-normal leading-7"
+              style={{ color: "var(--card-text-primary)" }}
             >
-              {award.year}
-            </span>
+              {award.title}
+            </h3>
           </div>
+
+          <span
+            className="shrink-0 font-body text-[14px]"
+            style={{ color: "var(--card-text-muted)" }}
+          >
+            {award.year}
+          </span>
         </div>
 
         <p
-          className="text-sm font-light leading-relaxed"
+          className="font-body text-[16px] font-normal leading-7"
           style={{ color: "var(--card-text-secondary)" }}
         >
           {award.description}
@@ -115,7 +115,7 @@ function AwardCard({ award }: { award: AwardItem }) {
 
         <div className="mt-5">
           <span
-            className="inline-flex rounded-md px-3 py-1 text-[10px] uppercase tracking-[0.12em]"
+            className="inline-flex border border-[var(--grid-line)] px-3 py-1 font-body text-[14px]"
             style={{
               backgroundColor: "var(--card-tag-bg)",
               color: "var(--card-tag-text)",

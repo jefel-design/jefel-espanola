@@ -1,9 +1,16 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { publicAsset } from '../lib/assets';
+import { Link, useLocation } from 'react-router-dom';
+
+const navItems = [
+  { label: 'Experience', href: '/experience' },
+  { label: 'Education', href: '/education' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Awards', href: '/awards' },
+  { label: 'Contact', href: 'mailto:jefeljohnmaitem@gmail.com' },
+];
 
 export function Header() {
-  const logoSrc = publicAsset('jefel.svg');
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.classList.add('dark-theme');
@@ -11,38 +18,49 @@ export function Header() {
     localStorage.setItem('theme', 'dark');
   }, []);
 
+  if (location.pathname === '/') {
+    return null;
+  }
+
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300"
+      className="sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300"
       style={{
         backgroundColor: 'var(--header-bg)',
-        borderColor: 'var(--border)'
+        borderColor: 'var(--grid-line)'
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10">
-        <div className="flex justify-between items-center h-16">
-
-          {/* Logo */}
+      <div className="mx-auto max-w-5xl border-x border-[var(--grid-line)] px-5 sm:px-8 lg:px-10">
+        <div className="flex min-h-16 flex-col justify-center gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-0">
           <Link
             to="/"
-            className="group flex items-center"
+            className="font-heading text-[20px] font-normal text-[var(--text-primary)] transition-colors duration-300 hover:text-white"
             aria-label="Go to home"
           >
-            <img
-              src={logoSrc}
-              alt="JJM Logo"
-              className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-80"
-            />
+            Jefel Maitem
           </Link>
 
-          <Link
-            to="/about"
-            className="text-sm font-light transition-colors duration-300 hover:text-[var(--accent)]"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            About
-          </Link>
-
+          <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end">
+            {navItems.map((item) => (
+              item.href.startsWith('mailto:') ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="font-heading text-[20px] text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="font-heading text-[20px] text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+          </nav>
         </div>
       </div>
     </header>

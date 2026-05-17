@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Matter"', 'sans-serif'],
+        sans: ['"Geist"', '"Giest"', 'sans-serif'],
+        body: ['"Geist"', '"Giest"', 'sans-serif'],
+        heading: ['"Geist Mono"', '"Giest Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        mono: ['"Geist Mono"', '"Giest Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },
   },

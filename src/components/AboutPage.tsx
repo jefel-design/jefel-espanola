@@ -50,7 +50,7 @@ export function AboutPage() {
               delayMs={120}
             >
               <div className="absolute inset-x-10 bottom-0 h-24 rounded-full bg-black/50 blur-2xl" />
-              <div className="relative rotate-[2deg] rounded-[1.35rem] bg-[#151515] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 hover:rotate-0">
+              <div className="relative rotate-[2deg] rounded-[1.35rem] bg-[var(--card-bg)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 hover:rotate-0">
                 <div className="overflow-hidden rounded-[0.95rem] bg-black">
                   <img
                     src={publicAsset('jefel.jpeg')}

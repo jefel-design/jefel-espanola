@@ -1,15 +1,12 @@
 import { Briefcase } from "lucide-react";
 import { experienceEntries, type ExperienceEntry } from "../data/experience";
 import { publicAsset } from "../lib/assets";
-import { RevealOnScroll } from "./RevealOnScroll";
 
 function TimelineCard({
   job,
-  delayMs = 0,
   featured = false,
 }: {
   job: ExperienceEntry;
-  delayMs?: number;
   featured?: boolean;
 }) {
   const logoSrc = job.logo ? publicAsset(job.logo) : null;
@@ -20,15 +17,10 @@ function TimelineCard({
       : [];
 
   return (
-    <RevealOnScroll
-      className={`group h-full ${featured ? "lg:col-span-2" : ""}`}
-      delayMs={delayMs}
-    >
+    <div className={`group h-full ${featured ? "lg:col-span-2" : ""}`}>
       <div
-        className="relative flex h-full flex-col overflow-hidden rounded-2xl"
-        style={{
-          backgroundColor: "var(--card-bg)",
-        }}
+        className="relative flex h-full flex-col overflow-hidden border border-[var(--grid-line)] transition-colors"
+        style={{ backgroundColor: "var(--card-bg)" }}
       >
         <div className="relative z-10 flex h-full flex-col p-5 md:p-6">
           <div className="mb-5 flex items-start justify-between gap-4">
@@ -53,30 +45,27 @@ function TimelineCard({
               <div>
                 <div className="mb-1 flex flex-wrap items-center gap-2">
                   <h3
-                    className="text-base font-medium leading-tight md:text-lg"
+                    className="font-body text-[18px] font-normal leading-7"
                     style={{ color: "var(--card-text-primary)" }}
                   >
                     {job.company}
                   </h3>
+
                   <span className="job-type-badge">{job.engagement}</span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
-                  <p
-                    className="text-sm font-light"
-                    style={{ color: "var(--card-text-muted)" }}
-                  >
-                    {job.timeframe}
-                  </p>
-                </div>
-
+                <p
+                  className="font-body text-[14px] font-light"
+                  style={{ color: "var(--card-text-muted)" }}
+                >
+                  {job.timeframe}
+                </p>
               </div>
             </div>
-
           </div>
 
           <p
-            className="mb-5 text-sm font-light leading-relaxed"
+            className="mb-5 font-body text-[16px] font-normal leading-7"
             style={{ color: "var(--card-text-secondary)" }}
           >
             {job.cardSummary}
@@ -86,7 +75,7 @@ function TimelineCard({
             {(cardRoleLabels.length ? cardRoleLabels : job.tools).map((item) => (
               <span
                 key={item}
-                className="rounded-md px-3 py-1 text-xs"
+                className="border border-[var(--grid-line)] px-3 py-1 font-body text-[14px]"
                 style={{
                   backgroundColor: "var(--card-tag-bg)",
                   color: "var(--card-tag-text)",
@@ -98,7 +87,7 @@ function TimelineCard({
           </div>
         </div>
       </div>
-    </RevealOnScroll>
+    </div>
   );
 }
 
@@ -106,11 +95,8 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="pt-0 pb-16"
-      style={{
-        backgroundColor: "var(--bg-primary)",
-        borderBottom: "1px solid var(--border)",
-      }}
+      className="pt-0 pb-0"
+      style={{ backgroundColor: "var(--bg-primary)" }}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -118,12 +104,17 @@ export function Experience() {
             <TimelineCard
               key={job.slug}
               job={job}
-              delayMs={index * 70}
               featured={index === 0}
             />
           ))}
         </div>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="-mt-px h-px w-full"
+        style={{ backgroundColor: "rgba(37, 37, 37, 0.54)" }}
+      />
 
       <style>{`
         .job-type-badge {

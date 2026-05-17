@@ -1,18 +1,15 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AboutPage } from "./components/AboutPage";
-import { Experience } from "./components/Experience";
-import { Footer } from "./components/Footer";
+import { Awards } from "./components/Awards";
+import { Education } from "./components/Education";
+import { ExperiencePage } from "./components/ExperiencePage";
+import { SectionPage } from "./components/SectionPage";
+import { Skills } from "./components/Skills";
 
 function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Experience />
-    </>
-  );
+  return <Hero />;
 }
 
 function ScrollToTop() {
@@ -38,15 +35,50 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-black text-white font-sans">
-        <Header />
+      <div className="portfolio-shell min-h-screen font-sans">
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route
+              path="/education"
+              element={
+                <SectionPage
+                  index="02"
+                  title="Education"
+                  description="Academic foundation in information technology, web design, and design communication."
+                >
+                  <Education />
+                </SectionPage>
+              }
+            />
+            <Route
+              path="/skills"
+              element={
+                <SectionPage
+                  index="03"
+                  title="Skills"
+                  description="Tools and strengths used to design, build, and ship responsive digital experiences."
+                >
+                  <Skills />
+                </SectionPage>
+              }
+            />
+            <Route
+              path="/awards"
+              element={
+                <SectionPage
+                  index="04"
+                  title="Awards"
+                  description="Recognition for product thinking, visual design, and student-led technology work."
+                >
+                  <Awards />
+                </SectionPage>
+              }
+            />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </BrowserRouter>
   );
