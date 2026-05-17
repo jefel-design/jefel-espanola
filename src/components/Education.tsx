@@ -57,7 +57,7 @@ export function Education() {
       className="pt-0 pb-0"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10">
+      <div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {sortedEducation.map((item) => (
             <EducationCard key={`${item.school}-${item.year}`} item={item} />

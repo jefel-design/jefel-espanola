@@ -19,7 +19,7 @@ function TimelineCard({
   return (
     <div className={`group h-full ${featured ? "lg:col-span-2" : ""}`}>
       <div
-        className="relative flex h-full flex-col overflow-hidden border border-[var(--grid-line)] transition-colors"
+        className="relative flex h-full flex-col overflow-hidden border border-[var(--grid-line)]"
         style={{ backgroundColor: "var(--card-bg)" }}
       >
         <div className="relative z-10 flex h-full flex-col p-5 md:p-6">
@@ -96,9 +96,8 @@ export function Experience() {
     <section
       id="experience"
       className="pt-0 pb-0"
-      style={{ backgroundColor: "var(--bg-primary)" }}
-    >
-      <div className="max-w-5xl mx-auto px-6 lg:px-10">
+      style={{ backgroundColor: "var(--bg-primary)" }}>
+      <div className="mx-auto max-w-5xl px-12 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {experienceEntries.map((job, index) => (
             <TimelineCard
