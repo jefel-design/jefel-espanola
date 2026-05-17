@@ -91,13 +91,13 @@ function TimelineCard({
   );
 }
 
-export function Experience() {
+export function ExperienceSection() {
   return (
     <section
       id="experience"
       className="pt-0 pb-0"
       style={{ backgroundColor: "var(--bg-primary)" }}>
-      <div className="mx-auto max-w-5xl px-12 sm:px-6 lg:px-10">
+      <div className="slide-fade-up slide-fade-up-delay-2 mx-auto max-w-5xl px-12 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {experienceEntries.map((job, index) => (
             <TimelineCard
@@ -109,11 +109,7 @@ export function Experience() {
         </div>
       </div>
 
-      <div
-        aria-hidden="true"
-        className="-mt-px h-px w-full"
-        style={{ backgroundColor: "rgba(37, 37, 37, 0.54)" }}
-      />
+      <div aria-hidden="true" className="section-content-divider" />
 
       <style>{`
         .job-type-badge {

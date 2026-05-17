@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { Hero } from "./components/Hero";
 import { AboutPage } from "./components/AboutPage";
-import { Awards } from "./components/Awards";
-import { Education } from "./components/Education";
+import { AwardsSection } from "./components/AwardsSection";
+import { EducationSection } from "./components/EducationSection";
 import { ExperiencePage } from "./components/ExperiencePage";
-import { SectionPage } from "./components/SectionPage";
-import { Skills } from "./components/Skills";
+import { HomeHero } from "./components/HomeHero";
+import { SectionPageLayout } from "./components/SectionPageLayout";
+import { SkillsSection } from "./components/SkillsSection";
 
 function HomePage() {
-  return <Hero />;
+  return <HomeHero />;
 }
 
 function ScrollToTop() {
@@ -43,37 +43,37 @@ function App() {
             <Route
               path="/education"
               element={
-                <SectionPage
+                <SectionPageLayout
                   index="02"
                   title="Education"
                   description="Academic foundation in information technology, web design, and design communication."
                 >
-                  <Education />
-                </SectionPage>
+                  <EducationSection />
+                </SectionPageLayout>
               }
             />
             <Route
               path="/skills"
               element={
-                <SectionPage
+                <SectionPageLayout
                   index="03"
                   title="Skills"
                   description="Tools and strengths used to design, build, and ship responsive digital experiences."
                 >
-                  <Skills />
-                </SectionPage>
+                  <SkillsSection />
+                </SectionPageLayout>
               }
             />
             <Route
               path="/awards"
               element={
-                <SectionPage
+                <SectionPageLayout
                   index="04"
                   title="Awards"
                   description="Recognition for product thinking, visual design, and student-led technology work."
                 >
-                  <Awards />
-                </SectionPage>
+                  <AwardsSection />
+                </SectionPageLayout>
               }
             />
             <Route path="/about" element={<AboutPage />} />

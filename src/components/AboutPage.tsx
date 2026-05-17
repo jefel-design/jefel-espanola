@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { RevealOnScroll } from "./RevealOnScroll";
-import { Education } from "./Education";
-import { Skills } from "./Skills";
-import { Awards } from "./Awards";
+import { AwardsSection } from "./AwardsSection";
+import { EducationSection } from "./EducationSection";
+import { SkillsSection } from "./SkillsSection";
 import { publicAsset } from "../lib/assets";
 
 export function AboutPage() {
@@ -78,9 +78,9 @@ export function AboutPage() {
 
       <section className="pb-32 pt-8 sm:pb-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-12">
-          <Education />
-          <Skills />
-          <Awards />
+          <EducationSection />
+          <SkillsSection />
+          <AwardsSection />
         </div>
       </section>
     </div>

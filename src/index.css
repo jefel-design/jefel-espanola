@@ -53,10 +53,10 @@ body,
 /* Theme Variables */
 :root {
   /* Dark theme (default) */
-  --bg-primary: #0F0F0F;
-  --bg-primary-rgb: 15, 15, 15; /* Add this for rgba support */
-  --bg-secondary: #0F0F0F;
-  --bg-card: #131313;
+  --bg-primary: #050505;
+  --bg-primary-rgb: 5, 5, 5; /* Add this for rgba support */
+  --bg-secondary: #050505;
+  --bg-card: #090909;
   --text-primary: #FFFFFF;
   --text-secondary: #797979;
   --text-muted: #797979;
@@ -64,11 +64,14 @@ body,
   --accent: #046ab4;
   --accent-hover: #0580d4;
   --border: rgba(255, 255, 255, 0.1);
-  --grid-line: rgba(24, 24, 24, 1);
+  --grid-line: #0F0F0F;
+  --section-divider: #0F0F0F;
+  --section-footer-text: #090909;
+  --section-footer-stroke: var(--grid-line);
   --border-hover: #046ab4;
   
   /* Card specific colors - stay dark in both themes */
-  --card-bg: #131313;
+  --card-bg: #090909;
   --card-border: #252525;
   --card-icon: rgba(255, 255, 255, 0.4);
   --card-text-primary: #FFFFFF;
@@ -97,6 +100,9 @@ body,
   --accent-hover: #0580d4;
   --border: rgba(0, 0, 0, 0.1);
   --grid-line: rgba(0, 0, 0, 0.09);
+  --section-divider: rgba(0, 0, 0, 0.09);
+  --section-footer-text: rgba(0, 0, 0, 0.04);
+  --section-footer-stroke: rgba(0, 0, 0, 0.09);
   --border-hover: #046ab4;
 
   /* ✅ Light Cards */
@@ -122,6 +128,36 @@ body {
 ::selection {
   background: rgba(255, 255, 255, 0.18);
   color: var(--text-primary);
+}
+
+.slide-fade-up {
+  animation: slideFadeUp 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slide-fade-up-delay-1 {
+  animation-delay: 90ms;
+}
+
+.slide-fade-up-delay-2 {
+  animation-delay: 180ms;
+}
+
+.slide-fade-up-delay-3 {
+  animation-delay: 270ms;
+}
+
+@keyframes slideFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: brightness(0.72);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1);
+  }
 }
 
 .portfolio-shell {
@@ -214,6 +250,19 @@ body {
   top: 360px;
 }
 
+.section-content-divider {
+  height: 1px;
+  width: 100%;
+  margin-top: -1px;
+  background: var(--section-divider);
+}
+
+.section-footer-email {
+  color: var(--section-footer-text);
+  overflow-wrap: anywhere;
+  -webkit-text-stroke: 1px var(--section-footer-stroke);
+}
+
 .figma-hline-intro {
   top: calc(50% - 255px);
 }
@@ -243,8 +292,16 @@ body {
 .figma-home-intro {
   height: 228px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 30px);
+  justify-content: flex-start;
+}
+
+.figma-home-photo {
+  height: 80px;
+  width: 80px;
+  flex: 0 0 auto;
+  border-radius: 2px;
 }
 
 .figma-home-nav {
@@ -264,10 +321,32 @@ body {
   line-height: 1;
 }
 
+@media (min-width: 641px) and (max-width: 1180px) {
+  .figma-home .figma-vline-left {
+    left: clamp(56px, 6vw, 72px);
+  }
+
+  .figma-home .figma-vline-right {
+    left: calc(100% - clamp(56px, 6vw, 72px));
+  }
+
+  .figma-home-content {
+    padding-inline: clamp(72px, 8vw, 96px);
+  }
+}
+
 @media (max-width: 640px) {
   .figma-home {
     min-height: 100svh;
     overflow: hidden;
+  }
+
+  .section-footer-email {
+    color: var(--text-faint);
+    font-size: clamp(30px, 9vw, 42px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    -webkit-text-stroke: 0.6px #171717;
   }
 
   .figma-vline-left {
@@ -290,6 +369,15 @@ body {
 
   .figma-home-intro {
     height: 190px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .figma-home-photo {
+    height: 62px;
+    width: 62px;
   }
 
   .figma-home-nav {
@@ -503,6 +591,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .slide-fade-up {
+    animation: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+
   .project-track {
     animation: none;
   }

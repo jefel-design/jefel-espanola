@@ -2,19 +2,19 @@ import { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-type SectionPageProps = {
+type SectionPageLayoutProps = {
   index: string;
   title: string;
   description: string;
   children: ReactNode;
 };
 
-export function SectionPage({
+export function SectionPageLayout({
   index,
   title,
   description,
   children,
-}: SectionPageProps) {
+}: SectionPageLayoutProps) {
   return (
     <div className="section-page-grid min-h-screen bg-[var(--bg-primary)]">
       <div aria-hidden="true" className="figma-vline figma-vline-left" />
@@ -27,12 +27,12 @@ export function SectionPage({
           <Link
             to="/"
             aria-label="Back home"
-            className="inline-flex items-center justify-center text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+            className="slide-fade-up inline-flex items-center justify-center text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
           >
             <ArrowLeft size={18} strokeWidth={1.75} />
           </Link>
 
-          <div className="mt-12 max-w-2xl">
+          <div className="slide-fade-up slide-fade-up-delay-1 mt-12 max-w-2xl">
             <p className="font-heading text-xs text-[var(--text-faint)]">
               {index}
             </p>
@@ -51,8 +51,10 @@ export function SectionPage({
       {children}
 
       <footer className="bg-[var(--bg-primary)]">
-        <div className="mx-auto max-w-5xl px-12 pb-8 pt-16 sm:px-6 lg:px-10">
-          <div className="max-w-full break-words font-body text-[clamp(28px,8vw,82px)] font-normal leading-none tracking-[-0.06em] text-[#131313]">
+        <div className="mx-auto max-w-5xl px-12 py-16 sm:px-6 lg:px-10">
+          <div
+            className="section-footer-email slide-fade-up slide-fade-up-delay-3 max-w-full break-words font-body text-[clamp(28px,8vw,82px)] font-normal leading-none tracking-[-0.06em]"
+          >
             jefeljohnmaitem@gmail.com
           </div>
         </div>

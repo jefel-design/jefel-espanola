@@ -39,7 +39,7 @@ function extractYearRanking(year: string) {
   };
 }
 
-export function Education() {
+export function EducationSection() {
   const sortedEducation = [...education].sort((a, b) => {
     const left = extractYearRanking(a.year);
     const right = extractYearRanking(b.year);
@@ -57,7 +57,7 @@ export function Education() {
       className="pt-0 pb-0"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
-      <div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-10">
+      <div className="slide-fade-up slide-fade-up-delay-2 max-w-5xl mx-auto px-12 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {sortedEducation.map((item) => (
             <EducationCard key={`${item.school}-${item.year}`} item={item} />
@@ -65,11 +65,7 @@ export function Education() {
         </div>
       </div>
 
-      <div
-        aria-hidden="true"
-        className="-mt-px h-px w-full"
-        style={{ backgroundColor: "rgba(37, 37, 37, 0.54)" }}
-      />
+      <div aria-hidden="true" className="section-content-divider" />
     </section>
   );
 }

@@ -1,14 +1,14 @@
-import { Experience } from "./Experience";
-import { SectionPage } from "./SectionPage";
+import { ExperienceSection } from "./ExperienceSection";
+import { SectionPageLayout } from "./SectionPageLayout";
 
 export function ExperiencePage() {
   return (
-    <SectionPage
+    <SectionPageLayout
       index="01"
       title="Experience"
       description="Recent roles across interface design, front-end work, branding, websites, and creative works."
     >
-      <Experience />
-    </SectionPage>
+      <ExperienceSection />
+    </SectionPageLayout>
   );
 }
