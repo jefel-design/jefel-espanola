@@ -35,8 +35,7 @@ export function HomeHero() {
             </h1>
 
             <p className="mt-5 max-w-xl font-body text-[16px] leading-6 text-[var(--text-muted)] md:leading-none">
-              Graphic and UI/Web Designer creating clear brand visuals,
-              responsive websites, UI experiences, and esports graphics.
+              I design stuff.
             </p>
           </div>
         </div>
