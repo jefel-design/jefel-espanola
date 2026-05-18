@@ -242,10 +242,6 @@ body {
   background: var(--grid-line);
 }
 
-.section-page-hline-top {
-  top: 0;
-}
-
 .section-page-hline-bottom {
   top: 360px;
 }

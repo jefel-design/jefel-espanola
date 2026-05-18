@@ -19,7 +19,6 @@ export function SectionPageLayout({
     <div className="section-page-grid min-h-screen bg-[var(--bg-primary)]">
       <div aria-hidden="true" className="figma-vline figma-vline-left" />
       <div aria-hidden="true" className="figma-vline figma-vline-right" />
-      <div aria-hidden="true" className="section-page-hline section-page-hline-top" />
       <div aria-hidden="true" className="section-page-hline section-page-hline-bottom" />
 
       <section className="relative min-h-[360px] pb-0 pt-24">
