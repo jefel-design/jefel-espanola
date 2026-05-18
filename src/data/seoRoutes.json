@@ -1,0 +1,38 @@
+{
+  "siteUrl": "https://jefel-espanola.vercel.app",
+  "siteName": "Jefel Española Portfolio",
+  "defaultImage": "https://jefel-espanola.vercel.app/jefel-arts-preview.jpg",
+  "defaultImageAlt": "Selected graphic design and UI web design work by Jefel Española",
+  "routes": [
+    {
+      "path": "/",
+      "title": "Jefel Española | Graphic & UI/Web Designer",
+      "description": "Graphic and UI/Web Designer in the Philippines creating branding, responsive websites, UI interfaces, esports graphics, and front-end portfolio work."
+    },
+    {
+      "path": "/about",
+      "title": "About Jefel Española | Graphic & UI/Web Designer",
+      "description": "Learn about Jefel Española, a graphic and UI/Web designer working across visual identity, responsive websites, and front-end implementation."
+    },
+    {
+      "path": "/experience",
+      "title": "Experience | Jefel Española",
+      "description": "Recent graphic design, UI/Web design, branding, WordPress, and front-end roles by Jefel Española for agencies, esports teams, and freelance clients."
+    },
+    {
+      "path": "/education",
+      "title": "Education | Jefel Española",
+      "description": "Academic background for Jefel Española across information technology, web design, UI/UX, and design communication."
+    },
+    {
+      "path": "/skills",
+      "title": "Skills | Jefel Española",
+      "description": "Design, development, CMS, video editing, and professional skills used by Jefel Española to create responsive digital experiences."
+    },
+    {
+      "path": "/awards",
+      "title": "Awards | Jefel Española",
+      "description": "Recognition for Jefel Española in product thinking, capstone work, visual design, and student-led technology competitions."
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import { AwardsSection } from "./components/AwardsSection";
 import { EducationSection } from "./components/EducationSection";
 import { ExperiencePage } from "./components/ExperiencePage";
 import { HomeHero } from "./components/HomeHero";
+import { RouteSeo } from "./components/RouteSeo";
 import { SectionPageLayout } from "./components/SectionPageLayout";
 import { SkillsSection } from "./components/SkillsSection";
 
@@ -34,6 +35,7 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
+      <RouteSeo />
       <ScrollToTop />
       <div className="portfolio-shell min-h-screen font-sans">
         <main>

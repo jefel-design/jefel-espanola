@@ -342,11 +342,10 @@ body {
   }
 
   .section-footer-email {
-    color: var(--text-faint);
     font-size: clamp(30px, 9vw, 42px);
     letter-spacing: -0.03em;
     line-height: 1.05;
-    -webkit-text-stroke: 0.6px #171717;
+    -webkit-text-stroke-width: 0.6px;
   }
 
   .figma-vline-left {

@@ -27,10 +27,10 @@ export function AboutPage() {
               </Link>
 
               <div className="flex items-center gap-4">
-                <h2 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
+                <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
                   I design digital work that feels clear, useful, and
                   intentional.
-                </h2>
+                </h1>
               </div>
 
               <div className="max-w-3xl space-y-4">
