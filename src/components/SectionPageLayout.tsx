@@ -16,7 +16,7 @@ export function SectionPageLayout({
   children,
 }: SectionPageLayoutProps) {
   return (
-    <div className="section-page-grid min-h-screen bg-[var(--bg-primary)]">
+    <div className="section-page-grid min-h-screen">
       <div aria-hidden="true" className="figma-vline figma-vline-left" />
       <div aria-hidden="true" className="figma-vline figma-vline-right" />
       <div aria-hidden="true" className="section-page-hline section-page-hline-bottom" />
@@ -26,21 +26,21 @@ export function SectionPageLayout({
           <Link
             to="/"
             aria-label="Back home"
-            className="slide-fade-up inline-flex items-center justify-center text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+            className="section-back-link slide-fade-up"
           >
             <ArrowLeft size={18} strokeWidth={1.75} />
           </Link>
 
           <div className="slide-fade-up slide-fade-up-delay-1 mt-12 max-w-2xl">
-            <p className="font-heading text-xs text-[var(--text-faint)]">
+            <p className="section-page-index">
               {index}
             </p>
 
-            <h1 className="mt-4 font-heading text-[20px] font-normal leading-7 text-[var(--text-primary)]">
+            <h1 className="section-page-title">
               {title}
             </h1>
 
-            <p className="mt-5 font-body text-[16px] leading-7 text-[var(--text-muted)]">
+            <p className="section-page-description">
               {description}
             </p>
           </div>
@@ -49,7 +49,7 @@ export function SectionPageLayout({
 
       {children}
 
-      <footer className="bg-[var(--bg-primary)]">
+      <footer className="section-page-footer">
         <div className="mx-auto max-w-5xl px-12 py-16 sm:px-6 lg:px-10">
           <div
             className="section-footer-email slide-fade-up slide-fade-up-delay-3 max-w-full break-words font-body text-[clamp(28px,8vw,82px)] font-normal leading-none tracking-[-0.06em]"

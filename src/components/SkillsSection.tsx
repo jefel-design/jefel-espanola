@@ -72,11 +72,10 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="pt-0 pb-0"
-      style={{ backgroundColor: "var(--bg-primary)" }}
+      className="content-section"
     >
-      <div className="slide-fade-up slide-fade-up-delay-2 max-w-5xl mx-auto px-12 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="section-container slide-fade-up slide-fade-up-delay-2">
+        <div className="card-grid">
           {sections.map((section) => (
             <SkillCard key={section.title} section={section} />
           ))}
@@ -90,38 +89,23 @@ export function SkillsSection() {
 
 function SkillCard({ section }: { section: SkillSection }) {
   return (
-    <div
-      className="relative h-full overflow-hidden border border-[var(--grid-line)]"
-      style={{ backgroundColor: "var(--card-bg)" }}
-    >
-      <div className="relative z-10 p-5 md:p-6">
+    <div className="portfolio-card">
+      <div className="portfolio-card-content">
         <div className="mb-4 flex items-center justify-between gap-4">
-          <div className="flex flex-col justify-center md:flex-row md:items-center md:gap-3">
-            <h3
-              className="font-body text-[18px] font-normal leading-7"
-              style={{ color: "var(--card-text-primary)" }}
-            >
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="portfolio-card-title">
               {section.title}
             </h3>
 
             {section.status && (
-              <span
-                className="mt-1 inline-flex w-fit self-start border border-[var(--grid-line)] px-3 py-1 font-body text-[14px] md:mt-0"
-                style={{
-                  backgroundColor: "var(--card-tag-bg)",
-                  color: "var(--card-tag-text)",
-                }}
-              >
+              <span className="status-pill">
                 {section.status}
               </span>
             )}
           </div>
         </div>
 
-        <p
-          className="mb-5 font-body text-[16px] font-normal leading-7"
-          style={{ color: "var(--card-text-secondary)" }}
-        >
+        <p className="portfolio-card-copy mb-5">
           {section.description}
         </p>
 
@@ -129,11 +113,7 @@ function SkillCard({ section }: { section: SkillSection }) {
           {section.items.map((item) => (
             <span
               key={item.name}
-              className="border border-[var(--grid-line)] px-3 py-1 font-body text-[14px]"
-              style={{
-                backgroundColor: "var(--card-tag-bg)",
-                color: "var(--card-tag-text)",
-              }}
+              className="portfolio-tag"
             >
               {item.name}
             </span>

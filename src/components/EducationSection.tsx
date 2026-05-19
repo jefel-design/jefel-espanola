@@ -1,5 +1,6 @@
 import { GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { publicAsset } from "../lib/assets";
 
 type EducationItem = {
   school: string;
@@ -54,11 +55,10 @@ export function EducationSection() {
   return (
     <section
       id="education"
-      className="pt-0 pb-0"
-      style={{ backgroundColor: "var(--bg-primary)" }}
+      className="content-section"
     >
-      <div className="slide-fade-up slide-fade-up-delay-2 max-w-5xl mx-auto px-12 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="section-container slide-fade-up slide-fade-up-delay-2">
+        <div className="card-grid">
           {sortedEducation.map((item) => (
             <EducationCard key={`${item.school}-${item.year}`} item={item} />
           ))}
@@ -72,23 +72,17 @@ export function EducationSection() {
 
 function EducationCard({ item }: { item: EducationItem }) {
   const [imgError, setImgError] = useState(false);
-  const showLogo = item.logo && !imgError;
+  const logoSrc = item.logo && !imgError ? publicAsset(item.logo) : null;
 
   return (
-    <div
-      className="relative h-full overflow-hidden border border-[var(--grid-line)] transition-colors"
-      style={{ backgroundColor: "var(--card-bg)" }}
-    >
-      <div className="relative z-10 p-5 md:p-6">
+    <div className="portfolio-card transition-colors">
+      <div className="portfolio-card-content">
         <div className="mb-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg"
-              style={{ backgroundColor: "var(--card-tag-bg)" }}
-            >
-              {showLogo ? (
+            <div className="portfolio-icon-frame">
+              {logoSrc ? (
                 <img
-                  src={item.logo}
+                  src={logoSrc}
                   alt={item.school}
                   loading="lazy"
                   decoding="async"
@@ -98,44 +92,29 @@ function EducationCard({ item }: { item: EducationItem }) {
               ) : (
                 <GraduationCap
                   size={20}
-                  style={{ color: "var(--card-icon)" }}
+                  className="portfolio-card-icon"
                 />
               )}
             </div>
 
-            <h3
-              className="font-body text-[18px] font-normal leading-7"
-              style={{ color: "var(--card-text-primary)" }}
-            >
+            <h3 className="portfolio-card-title">
               {item.school}
             </h3>
           </div>
 
-          <span
-            className="shrink-0 font-body text-[14px]"
-            style={{ color: "var(--card-text-muted)" }}
-          >
+          <span className="portfolio-card-meta shrink-0">
             {item.year}
           </span>
         </div>
 
         {item.description && (
-          <p
-            className="font-body text-[16px] font-normal leading-7"
-            style={{ color: "var(--card-text-secondary)" }}
-          >
+          <p className="portfolio-card-copy">
             {item.description}
           </p>
         )}
 
         <div className="mt-5">
-          <span
-            className="inline-flex border border-[var(--grid-line)] px-3 py-1 font-body text-[14px]"
-            style={{
-              backgroundColor: "var(--card-tag-bg)",
-              color: "var(--card-tag-text)",
-            }}
-          >
+          <span className="portfolio-tag">
             {item.degree}
           </span>
         </div>

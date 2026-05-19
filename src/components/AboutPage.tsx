@@ -8,11 +8,11 @@ import { publicAsset } from "../lib/assets";
 
 export function AboutPage() {
   return (
-    <div id="about" className="bg-[var(--bg-primary)] pt-28">
+    <div id="about" className="about-page">
       <section className="relative overflow-hidden pb-14">
         <div className="pointer-events-none absolute inset-0 opacity-90">
-          <div className="absolute left-0 top-10 h-72 w-72 rounded-full bg-[var(--accent)]/8 blur-3xl" />
-          <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
+          <div className="about-accent-blob" />
+          <div className="about-light-blob" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
@@ -21,23 +21,20 @@ export function AboutPage() {
               <Link
                 to="/"
                 aria-label="Back to home"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+                className="about-back-link"
               >
                 <ArrowLeft size={18} />
               </Link>
 
               <div className="flex items-center gap-4">
-                <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-tight text-[var(--text-primary)] md:text-6xl">
+                <h1 className="about-title">
                   I design digital work that feels clear, useful, and
                   intentional.
                 </h1>
               </div>
 
               <div className="max-w-3xl space-y-4">
-                <p
-                  className="text-sm font-light leading-relaxed mb-5 md:text-base"
-                  style={{ color: "var(--card-text-secondary)" }}
-                >
+                <p className="about-copy mb-5 text-sm font-light leading-relaxed md:text-base">
                   I work across graphic design, UI/web design, and front-end
                   implementation, shaping visuals that communicate clearly and
                   feel deliberate.
@@ -50,10 +47,10 @@ export function AboutPage() {
               delayMs={120}
             >
               <div className="absolute inset-x-10 bottom-0 h-24 rounded-full bg-black/50 blur-2xl" />
-              <div className="relative rotate-[2deg] rounded-[1.35rem] bg-[var(--card-bg)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 hover:rotate-0">
+              <div className="about-photo-card">
                 <div className="overflow-hidden rounded-[0.95rem] bg-black">
                   <img
-                    src={publicAsset('jefel.jpeg')}
+                    src={publicAsset("jefel.jpeg")}
                     alt="Jefel Espanola portrait"
                     loading="eager"
                     className="aspect-[4/5] w-full object-cover"
@@ -62,10 +59,10 @@ export function AboutPage() {
 
                 <div className="px-2 pb-1 pt-4">
                   <div>
-                    <p className="text-sm font-medium text-[var(--text-primary)]">
+                    <p className="about-person-name">
                       Jefel Espanola
                     </p>
-                    <p className="text-xs text-[var(--text-muted)] sm:text-sm">
+                    <p className="about-person-role">
                       Graphic Designer and UI/Web Designer
                     </p>
                   </div>

@@ -1,14 +1,22 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 type RevealOnScrollProps = {
   children: ReactNode;
   className?: string;
-  delayMs?: number;
+  delayMs?: 0 | 120;
 };
 
 export function RevealOnScroll({ children, className, delayMs = 0 }: RevealOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
   const nodeRef = useRef<HTMLDivElement | null>(null);
+  const revealClassName = [
+    "reveal-on-scroll",
+    delayMs === 120 ? "reveal-on-scroll--delay-120" : "",
+    isVisible ? "is-visible" : "",
+    className ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   useEffect(() => {
     const target = nodeRef.current;
@@ -37,14 +45,7 @@ export function RevealOnScroll({ children, className, delayMs = 0 }: RevealOnScr
   return (
     <div
       ref={nodeRef}
-      className={className}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0px)' : 'translateY(26px)',
-        filter: isVisible ? 'brightness(1)' : 'brightness(0.45)',
-        transition: 'opacity 700ms ease, transform 700ms ease, filter 700ms ease',
-        transitionDelay: `${delayMs}ms`,
-      }}
+      className={revealClassName}
     >
       {children}
     </div>

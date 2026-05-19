@@ -24,17 +24,17 @@ export function HomeHero() {
           <img
             src={publicAsset("jefel.jpeg")}
             alt="Jefel Espanola portrait"
-            className="figma-home-photo object-cover opacity-90 ring-1 ring-[var(--grid-line)] transition-opacity duration-300 hover:opacity-100"
+            className="figma-home-photo"
             loading="eager"
             decoding="async"
           />
 
           <div>
-            <h1 className="font-heading text-[20px] font-normal leading-none text-[var(--text-primary)]">
+            <h1 className="figma-home-title">
               Hey, It's Jefel.
             </h1>
 
-            <p className="mt-5 max-w-xl font-body text-[16px] leading-6 text-[var(--text-muted)] md:leading-none">
+            <p className="figma-home-copy">
               I design stuff.
             </p>
           </div>
@@ -48,22 +48,22 @@ export function HomeHero() {
             <Link
               key={link.href}
               to={link.href}
-              className="group relative inline-flex items-center pr-5 font-body text-[16px] leading-none text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text-primary)]"
+              className="figma-home-nav-link"
             >
               {link.label}
               <ArrowUpRight
                 aria-hidden="true"
-                className="absolute right-0 top-1/2 h-3.5 w-3.5 -translate-y-1/2 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="figma-home-nav-icon"
                 strokeWidth={2}
               />
             </Link>
           ))}
         </nav>
 
-        <div className="figma-home-contact slide-fade-up slide-fade-up-delay-2 font-body text-[16px] leading-none text-[var(--text-primary)]">
+        <div className="figma-home-contact slide-fade-up slide-fade-up-delay-2">
           <a
             href="mailto:jefeljohnmaitem@gmail.com"
-            className="text-[16px] transition-colors duration-300 hover:text-[var(--text-muted)]"
+            className="figma-home-cta"
           >
             Get in touch
           </a>
