@@ -50,11 +50,10 @@ body,
   font-family: 'Geist', 'Giest', sans-serif;
 }
 
-/* Theme Variables */
 :root {
-  /* Dark theme (default) */
+  color-scheme: dark;
   --bg-primary: #050505;
-  --bg-primary-rgb: 5, 5, 5; /* Add this for rgba support */
+  --bg-primary-rgb: 5, 5, 5;
   --bg-secondary: #050505;
   --bg-card: #090909;
   --text-primary: #FFFFFF;
@@ -70,7 +69,6 @@ body,
   --section-footer-stroke: var(--grid-line);
   --border-hover: #046ab4;
   
-  /* Card specific colors - stay dark in both themes */
   --card-bg: #090909;
   --card-border: #252525;
   --card-icon: rgba(255, 255, 255, 0.4);
@@ -85,39 +83,6 @@ body,
   --header-bg: rgba(5, 5, 5, 0.82);
   --font-heading: 'Geist Mono', 'Giest Mono', ui-monospace, SFMono-Regular, monospace;
   --font-body: 'Geist', 'Giest', sans-serif;
-}
-
-.light-theme {
-  --bg-primary: #ffffff;
-  --bg-primary-rgb: 255, 255, 255; /* Add this for rgba support */
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
-  --text-primary: #000000;
-  --text-secondary: rgba(0, 0, 0, 0.7);
-  --text-muted: rgba(0, 0, 0, 0.5);
-  --text-faint: rgba(0, 0, 0, 0.32);
-  --accent: #046ab4;
-  --accent-hover: #0580d4;
-  --border: rgba(0, 0, 0, 0.1);
-  --grid-line: rgba(0, 0, 0, 0.09);
-  --section-divider: rgba(0, 0, 0, 0.09);
-  --section-footer-text: rgba(0, 0, 0, 0.04);
-  --section-footer-stroke: rgba(0, 0, 0, 0.09);
-  --border-hover: #046ab4;
-
-  /* ✅ Light Cards */
-  --card-bg: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.08);
-  --card-icon: rgba(0, 0, 0, 0.5);
-  --card-text-primary: #000000;
-  --card-text-secondary: rgba(0, 0, 0, 0.7);
-  --card-text-muted: rgba(0, 0, 0, 0.5);
-  --card-tag-bg: rgba(0, 0, 0, 0.05);
-  --card-tag-text: rgba(0, 0, 0, 0.6);
-  --card-tag-hover-bg: rgba(0, 0, 0, 0.1);
-  --card-tag-hover-text: #000000;
-
-  --header-bg: rgba(255, 255, 255, 0.8);
 }
 
 body {

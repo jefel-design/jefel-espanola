@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Jefel Española" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#046ab4" />
+    <meta name="theme-color" content="#050505" />
 
     <link rel="canonical" href="https://jefel-espanola.vercel.app/" />
 
@@ -96,14 +96,7 @@
     </script>
 
     <script>
-      const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
-        document.documentElement.classList.add('light-theme');
-      } else {
-        document.documentElement.classList.add('dark-theme');
-      }
+      document.documentElement.classList.add('dark-theme');
     </script>
   </head>
 
