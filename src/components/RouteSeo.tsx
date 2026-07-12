@@ -86,7 +86,7 @@ export function RouteSeo() {
           jobTitle: "Graphic and UI/Web Designer",
           url: `${siteUrl}/`,
           image: `${siteUrl}/jefel.jpeg`,
-          email: "mailto:jefeljohnmaitem@gmail.com",
+          email: "mailto:jefel.maitem@gmail.com",
           knowsAbout: [
             "Graphic design",
             "UI design",

@@ -54,7 +54,7 @@ export function SectionPageLayout({
           <div
             className="section-footer-email slide-fade-up slide-fade-up-delay-3 max-w-full break-words font-body text-[clamp(28px,8vw,82px)] font-normal leading-none tracking-[-0.06em]"
           >
-            jefeljohnmaitem@gmail.com
+            jefel.maitem@gmail.com
           </div>
         </div>
       </footer>

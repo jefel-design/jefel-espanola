@@ -62,7 +62,7 @@ export function HomeHero() {
 
         <div className="figma-home-contact slide-fade-up slide-fade-up-delay-2">
           <a
-            href="mailto:jefeljohnmaitem@gmail.com"
+            href="mailto:jefel.maitem@gmail.com"
             className="figma-home-cta"
           >
             Get in touch
