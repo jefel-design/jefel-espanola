@@ -75,7 +75,7 @@ function EducationCard({ item }: { item: EducationItem }) {
   const logoSrc = item.logo && !imgError ? publicAsset(item.logo) : null;
 
   return (
-    <div className="portfolio-card transition-colors">
+    <div className="portfolio-card">
       <div className="portfolio-card-content">
         <div className="mb-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">

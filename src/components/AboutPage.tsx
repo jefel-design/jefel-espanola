@@ -5,6 +5,7 @@ import { AwardsSection } from "./AwardsSection";
 import { EducationSection } from "./EducationSection";
 import { SkillsSection } from "./SkillsSection";
 import { publicAsset } from "../lib/assets";
+import { ModeToggle } from "./mode-toggle";
 
 export function AboutPage() {
   return (
@@ -15,23 +16,25 @@ export function AboutPage() {
           <div className="about-light-blob" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        <div className="page-container">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(220px,0.48fr)] lg:gap-14">
             <RevealOnScroll className="space-y-8">
-              <Link
-                to="/"
-                aria-label="Back to home"
-                className="about-back-link"
-              >
-                <ArrowLeft size={18} />
-              </Link>
+              <div className="flex items-center justify-between">
+                <Link
+                  to="/"
+                  aria-label="Back to home"
+                  className="about-back-link"
+                >
+                  <ArrowLeft size={18} />
+                </Link>
 
-              <div className="flex items-center gap-4">
-                <h1 className="about-title">
-                  I design digital work that feels clear, useful, and
-                  intentional.
-                </h1>
+                <ModeToggle />
               </div>
+
+              <h1 className="about-title">
+                I design digital work that feels clear, useful, and
+                intentional.
+              </h1>
 
               <div className="max-w-3xl space-y-4">
                 <p className="about-copy mb-5 text-sm font-light leading-relaxed md:text-base">
@@ -58,14 +61,12 @@ export function AboutPage() {
                 </div>
 
                 <div className="px-2 pb-1 pt-4">
-                  <div>
-                    <p className="about-person-name">
-                      Jefel Espanola
-                    </p>
-                    <p className="about-person-role">
-                      Graphic Designer and UI/Web Designer
-                    </p>
-                  </div>
+                  <p className="about-person-name">
+                    Jefel Espanola
+                  </p>
+                  <p className="about-person-role">
+                    Graphic Designer and UI/Web Designer
+                  </p>
                 </div>
               </div>
             </RevealOnScroll>
@@ -73,8 +74,8 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-32 pt-8 sm:pb-20">
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 space-y-12">
+      <section className="about-detail-section">
+        <div className="page-container about-section-list space-y-12">
           <EducationSection />
           <SkillsSection />
           <AwardsSection />

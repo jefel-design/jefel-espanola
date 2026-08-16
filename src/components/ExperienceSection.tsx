@@ -17,7 +17,7 @@ function TimelineCard({
       : [];
 
   return (
-    <div className={`group h-full ${featured ? "lg:col-span-2" : ""}`}>
+    <div className={`h-full ${featured ? "lg:col-span-2" : ""}`}>
       <div className="portfolio-card portfolio-card--column">
         <div className="portfolio-card-content flex h-full flex-col">
           <div className="mb-5 flex items-start justify-between gap-4">

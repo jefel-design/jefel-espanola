@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Geist"', '"Giest"', 'sans-serif'],
-        body: ['"Geist"', '"Giest"', 'sans-serif'],
-        heading: ['"Geist Mono"', '"Giest Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        mono: ['"Geist Mono"', '"Giest Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        sans: ['"Geist"', 'sans-serif'],
+        body: ['"Geist"', 'sans-serif'],
+        heading: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },
   },

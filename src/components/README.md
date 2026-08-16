@@ -1,6 +1,9 @@
 # Components Guide
 
-- `HomeHero.tsx`: homepage intro, homepage nav links, and "Get in touch" link.
+- `HomeHero.tsx`: homepage intro, typing animation, navigation, and contact link.
+- `HeroNote.tsx`: accessible `NOTE / 01` disclosure and contact action.
+- `mode-toggle.tsx`: shared light/dark theme control.
+- `theme-provider.tsx` and `theme-context.ts`: persistent theme state.
 - `SectionPageLayout.tsx`: shared layout for Experience, Education, Skills, and Awards pages.
 - `ExperiencePage.tsx`: Experience page title, index, and description.
 - `RouteSeo.tsx`: route-aware browser metadata updates from `src/data/seoRoutes.json`.

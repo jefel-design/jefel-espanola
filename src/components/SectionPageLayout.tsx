@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ModeToggle } from "./mode-toggle";
 
 type SectionPageLayoutProps = {
   index: string;
@@ -19,19 +20,22 @@ export function SectionPageLayout({
     <div className="section-page-grid min-h-screen">
       <div aria-hidden="true" className="figma-vline figma-vline-left" />
       <div aria-hidden="true" className="figma-vline figma-vline-right" />
-      <div aria-hidden="true" className="section-page-hline section-page-hline-bottom" />
 
-      <section className="relative min-h-[360px] pb-0 pt-24">
-        <div className="mx-auto max-w-5xl px-12 sm:px-6 lg:px-10">
-          <Link
-            to="/"
-            aria-label="Back home"
-            className="section-back-link slide-fade-up"
-          >
-            <ArrowLeft size={18} strokeWidth={1.75} />
-          </Link>
+      <section className="section-page-hero">
+        <div className="page-container">
+          <div className="flex items-center justify-between">
+            <Link
+              to="/"
+              aria-label="Back home"
+              className="section-back-link slide-fade-up"
+            >
+              <ArrowLeft size={18} strokeWidth={1.75} />
+            </Link>
 
-          <div className="slide-fade-up slide-fade-up-delay-1 mt-12 max-w-2xl">
+            <ModeToggle className="slide-fade-up" />
+          </div>
+
+          <div className="section-page-heading slide-fade-up slide-fade-up-delay-1">
             <p className="section-page-index">
               {index}
             </p>
@@ -50,7 +54,7 @@ export function SectionPageLayout({
       {children}
 
       <footer className="section-page-footer">
-        <div className="mx-auto max-w-5xl px-12 py-16 sm:px-6 lg:px-10">
+        <div className="page-container section-page-footer-inner">
           <div
             className="section-footer-email slide-fade-up slide-fade-up-delay-3 max-w-full break-words font-body text-[clamp(28px,8vw,82px)] font-normal leading-none tracking-[-0.06em]"
           >
