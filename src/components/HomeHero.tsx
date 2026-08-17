@@ -103,11 +103,14 @@ export function HomeHero() {
 
           <div className="figma-home-intro slide-fade-up">
             <img
-              src={publicAsset("jefel.jpeg")}
-              alt="Jefel Espanola portrait"
+              src={publicAsset("jefel-640.jpg")}
+              alt="Portrait of Jefel Española"
+              width={640}
+              height={639}
               className="figma-home-photo"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
 
             <div>

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jefel-espanola.vercel.app/</loc>
+    <loc>https://jefelespanola.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jefel-espanola.vercel.app/about</loc>
+    <loc>https://jefelespanola.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jefel-espanola.vercel.app/experience</loc>
+    <loc>https://jefelespanola.com/experience</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jefel-espanola.vercel.app/education</loc>
+    <loc>https://jefelespanola.com/education</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jefel-espanola.vercel.app/skills</loc>
+    <loc>https://jefelespanola.com/skills</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jefel-espanola.vercel.app/awards</loc>
+    <loc>https://jefelespanola.com/awards</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -77,6 +77,8 @@ export function ExperienceSection() {
     <section
       id="experience"
       className="content-section">
+      <h2 className="sr-only">Professional experience</h2>
+
       <div className="section-container slide-fade-up slide-fade-up-delay-2">
         <div className="card-grid">
           {experienceEntries.map((job, index) => (

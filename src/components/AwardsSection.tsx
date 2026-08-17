@@ -43,6 +43,8 @@ export function AwardsSection() {
       id="awards"
       className="content-section"
     >
+      <h2 className="sr-only">Awards and recognition</h2>
+
       <div className="section-container slide-fade-up slide-fade-up-delay-2">
         <div className="card-grid">
           {awards.map((award) => (

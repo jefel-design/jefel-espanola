@@ -53,16 +53,19 @@ export function AboutPage() {
               <div className="about-photo-card">
                 <div className="overflow-hidden rounded-[0.95rem] bg-black">
                   <img
-                    src={publicAsset("jefel.jpeg")}
-                    alt="Jefel Espanola portrait"
+                    src={publicAsset("jefel-640.jpg")}
+                    alt="Portrait of Jefel Española"
+                    width={640}
+                    height={639}
                     loading="eager"
+                    decoding="async"
                     className="aspect-[4/5] w-full object-cover"
                   />
                 </div>
 
                 <div className="px-2 pb-1 pt-4">
                   <p className="about-person-name">
-                    Jefel Espanola
+                    Jefel Española
                   </p>
                   <p className="about-person-role">
                     Graphic Designer and UI/Web Designer

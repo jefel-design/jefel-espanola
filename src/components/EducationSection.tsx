@@ -57,6 +57,8 @@ export function EducationSection() {
       id="education"
       className="content-section"
     >
+      <h2 className="sr-only">Education details</h2>
+
       <div className="section-container slide-fade-up slide-fade-up-delay-2">
         <div className="card-grid">
           {sortedEducation.map((item) => (

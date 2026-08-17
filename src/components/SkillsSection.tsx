@@ -74,6 +74,8 @@ export function SkillsSection() {
       id="skills"
       className="content-section"
     >
+      <h2 className="sr-only">Design and development skills</h2>
+
       <div className="section-container slide-fade-up slide-fade-up-delay-2">
         <div className="card-grid">
           {sections.map((section) => (

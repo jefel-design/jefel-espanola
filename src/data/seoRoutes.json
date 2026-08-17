@@ -1,38 +1,38 @@
 {
-  "siteUrl": "https://jefel-espanola.vercel.app",
+  "siteUrl": "https://jefelespanola.com",
   "siteName": "Jefel Española Portfolio",
-  "defaultImage": "https://jefel-espanola.vercel.app/jefel-arts-preview.jpg",
+  "defaultImage": "https://jefelespanola.com/jefel-arts-preview.jpg",
   "defaultImageAlt": "Selected graphic design and UI web design work by Jefel Española",
   "routes": [
     {
       "path": "/",
-      "title": "Jefel Española | Graphic & UI/Web Designer",
-      "description": "Graphic and UI/Web Designer in the Philippines creating branding, responsive websites, UI interfaces, esports graphics, and front-end portfolio work."
+      "title": "Jefel Española — Graphic & UI/Web Designer",
+      "description": "Explore the portfolio of Jefel Española, a Graphic and UI/Web Designer working across WordPress development, social media management, and video editing."
     },
     {
       "path": "/about",
-      "title": "About Jefel Española | Graphic & UI/Web Designer",
-      "description": "Learn about Jefel Española, a graphic and UI/Web designer working across visual identity, responsive websites, and front-end implementation."
+      "title": "About — Jefel Española",
+      "description": "Learn how Jefel Española approaches clear, intentional graphic design, UI/web design, and front-end implementation."
     },
     {
       "path": "/experience",
-      "title": "Experience | Jefel Española",
-      "description": "Recent graphic design, UI/Web design, branding, WordPress, and front-end roles by Jefel Española for agencies, esports teams, and freelance clients."
+      "title": "Experience — Jefel Española",
+      "description": "Explore Jefel Española’s professional experience in graphic design, UI/web design, WordPress development, branding, and social media."
     },
     {
       "path": "/education",
-      "title": "Education | Jefel Española",
-      "description": "Academic background for Jefel Española across information technology, web design, UI/UX, and design communication."
+      "title": "Education — Jefel Española",
+      "description": "Review Jefel Española’s education in information technology and academic work introducing graphic and web design pathways."
     },
     {
       "path": "/skills",
-      "title": "Skills | Jefel Española",
-      "description": "Design, development, CMS, video editing, and professional skills used by Jefel Española to create responsive digital experiences."
+      "title": "Skills — Jefel Española",
+      "description": "Explore Jefel Española’s skills in graphic and UI/web design, front-end development, WordPress, video editing, and creative tools."
     },
     {
       "path": "/awards",
-      "title": "Awards | Jefel Española",
-      "description": "Recognition for Jefel Española in product thinking, capstone work, visual design, and student-led technology competitions."
+      "title": "Awards — Jefel Española",
+      "description": "View Jefel Española’s awards for capstone development, startup pitching, and regional logo design."
     }
   ]
 }

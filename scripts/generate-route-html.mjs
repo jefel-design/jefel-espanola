@@ -75,8 +75,8 @@ function schemaForRoute(route) {
         name: "Jefel Española",
         jobTitle: "Graphic and UI/Web Designer",
         url: `${siteUrl}/`,
-        image: `${siteUrl}/jefel.jpeg`,
-        email: "mailto:jefel.maitem@gmail.com",
+        image: `${siteUrl}/jefel-640.jpg`,
+        email: "jefel.maitem@gmail.com",
         knowsAbout: [
           "Graphic design",
           "UI design",
@@ -84,6 +84,8 @@ function schemaForRoute(route) {
           "Branding",
           "Front-end development",
           "WordPress",
+          "Social media management",
+          "Video editing",
           "Esports graphics",
         ],
         sameAs: [
@@ -96,6 +98,7 @@ function schemaForRoute(route) {
         "@id": `${siteUrl}/#website`,
         name: siteName,
         url: `${siteUrl}/`,
+        inLanguage: "en",
         publisher: {
           "@id": `${siteUrl}/#person`,
         },
@@ -106,6 +109,7 @@ function schemaForRoute(route) {
         name: route.title,
         description: route.description,
         url: canonicalUrl,
+        inLanguage: "en",
         isPartOf: {
           "@id": `${siteUrl}/#website`,
         },
@@ -115,6 +119,8 @@ function schemaForRoute(route) {
         primaryImageOfPage: {
           "@type": "ImageObject",
           url: image,
+          width: 1400,
+          height: 1400,
           caption: imageAlt,
         },
       },
@@ -140,7 +146,7 @@ function withRouteMetadata(template, route) {
 
   let html = template.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(route.title)}</title>`);
   html = setMeta(html, "name", "description", route.description);
-  html = setMeta(html, "name", "robots", "index, follow");
+  html = setMeta(html, "name", "robots", "index, follow, max-image-preview:large");
   html = setCanonical(html, canonicalUrl);
   html = setMeta(html, "property", "og:type", "website");
   html = setMeta(html, "property", "og:title", route.title);
@@ -148,6 +154,9 @@ function withRouteMetadata(template, route) {
   html = setMeta(html, "property", "og:url", canonicalUrl);
   html = setMeta(html, "property", "og:site_name", siteName);
   html = setMeta(html, "property", "og:image", image);
+  html = setMeta(html, "property", "og:image:type", "image/jpeg");
+  html = setMeta(html, "property", "og:image:width", "1400");
+  html = setMeta(html, "property", "og:image:height", "1400");
   html = setMeta(html, "property", "og:image:alt", imageAlt);
   html = setMeta(html, "name", "twitter:card", "summary_large_image");
   html = setMeta(html, "name", "twitter:title", route.title);

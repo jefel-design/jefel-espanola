@@ -60,7 +60,7 @@ export function RouteSeo() {
     upsertCanonical(canonicalUrl);
 
     upsertMeta("name", "description", seo.description);
-    upsertMeta("name", "robots", "index, follow");
+    upsertMeta("name", "robots", "index, follow, max-image-preview:large");
 
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:title", seo.title);
@@ -68,6 +68,9 @@ export function RouteSeo() {
     upsertMeta("property", "og:url", canonicalUrl);
     upsertMeta("property", "og:site_name", siteName);
     upsertMeta("property", "og:image", image);
+    upsertMeta("property", "og:image:type", "image/jpeg");
+    upsertMeta("property", "og:image:width", "1400");
+    upsertMeta("property", "og:image:height", "1400");
     upsertMeta("property", "og:image:alt", imageAlt);
 
     upsertMeta("name", "twitter:card", "summary_large_image");
@@ -85,8 +88,8 @@ export function RouteSeo() {
           name: "Jefel Española",
           jobTitle: "Graphic and UI/Web Designer",
           url: `${siteUrl}/`,
-          image: `${siteUrl}/jefel.jpeg`,
-          email: "mailto:jefel.maitem@gmail.com",
+          image: `${siteUrl}/jefel-640.jpg`,
+          email: "jefel.maitem@gmail.com",
           knowsAbout: [
             "Graphic design",
             "UI design",
@@ -94,6 +97,8 @@ export function RouteSeo() {
             "Branding",
             "Front-end development",
             "WordPress",
+            "Social media management",
+            "Video editing",
             "Esports graphics",
           ],
           sameAs: [
@@ -106,6 +111,7 @@ export function RouteSeo() {
           "@id": `${siteUrl}/#website`,
           name: siteName,
           url: `${siteUrl}/`,
+          inLanguage: "en",
           publisher: {
             "@id": `${siteUrl}/#person`,
           },
@@ -116,6 +122,7 @@ export function RouteSeo() {
           name: seo.title,
           description: seo.description,
           url: canonicalUrl,
+          inLanguage: "en",
           isPartOf: {
             "@id": `${siteUrl}/#website`,
           },
@@ -125,6 +132,8 @@ export function RouteSeo() {
           primaryImageOfPage: {
             "@type": "ImageObject",
             url: image,
+            width: 1400,
+            height: 1400,
             caption: imageAlt,
           },
         },
