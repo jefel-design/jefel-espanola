@@ -1,6 +1,6 @@
 import {
   type ReactNode,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from "react";
@@ -18,7 +18,7 @@ type ThemeProviderProps = {
 
 export function ThemeProvider({
   children,
-  defaultTheme = "dark",
+  defaultTheme = "light",
   storageKey = "jefel-ui-theme",
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(() => {
@@ -32,7 +32,7 @@ export function ThemeProvider({
     }
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");

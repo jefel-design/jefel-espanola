@@ -1,20 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fafaf9" />
+
     <script>
       try {
         const savedTheme = localStorage.getItem('jefel-ui-theme');
-        const theme = savedTheme === 'light' ? 'light' : 'dark';
+        const theme = savedTheme === 'dark' ? 'dark' : 'light';
         document.documentElement.classList.add(theme);
         document.documentElement.style.colorScheme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', theme === 'dark' ? '#050505' : '#fafaf9');
       } catch {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add('light');
+        document.documentElement.style.colorScheme = 'light';
       }
     </script>
-    <meta charset="UTF-8" />
 
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%jefel.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jefel Española | Graphic & UI/Web Designer</title>
     <meta
@@ -23,8 +29,6 @@
     />
     <meta name="author" content="Jefel Española" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#050505" />
-
     <link rel="canonical" href="https://jefel-espanola.vercel.app/" />
 
     <meta property="og:type" content="website" />
