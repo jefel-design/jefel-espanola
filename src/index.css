@@ -18,17 +18,22 @@
   --card-tag-bg: transparent;
   --theme-toggle-bg: #ffffff;
   --theme-toggle-shadow: none;
+  --shine-text-color: #737373;
+  --shine-text-base: rgba(23, 23, 23, 0.48);
+  --shine-text-highlight: #ffffff;
   --selection-bg: rgba(23, 23, 23, 0.12);
   --about-accent-glow: rgba(4, 106, 180, 0.06);
   --about-ambient-glow: rgba(23, 23, 23, 0.035);
   --about-card-shadow: 0 18px 48px rgba(23, 23, 23, 0.12);
 
-  --font-heading: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-  --font-body: 'Geist', sans-serif;
+  --font-heading: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
   --text-compact: 0.8125rem;
   --text-sm: 0.875rem;
+  --font-size-paragraph: 0.9375rem;
+  --font-size-heading: 1rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
@@ -65,6 +70,9 @@
   --card-icon: rgba(255, 255, 255, 0.4);
   --theme-toggle-bg: #111111;
   --theme-toggle-shadow: 0 6px 18px rgba(0, 0, 0, 0.48);
+  --shine-text-color: #ffffff;
+  --shine-text-base: rgba(255, 255, 255, 0.55);
+  --shine-text-highlight: #ffffff;
   --selection-bg: rgba(255, 255, 255, 0.18);
   --about-accent-glow: rgba(4, 106, 180, 0.08);
   --about-ambient-glow: rgba(255, 255, 255, 0.05);
@@ -75,6 +83,18 @@ html,
 body,
 #root {
   font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-heading);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
 }
 
 body {
@@ -224,10 +244,11 @@ body {
 .section-back-link,
 .about-back-link {
   display: inline-flex;
-  width: 2.5rem;
+  width: auto;
   height: 2.5rem;
   align-items: center;
   justify-content: flex-start;
+  gap: 0.5rem;
   border-radius: var(--radius-pill);
   color: var(--text-muted);
   transition: color var(--duration-normal) var(--ease-standard);
@@ -238,17 +259,8 @@ body {
   color: var(--text-primary);
 }
 
-.section-page-index {
-  color: var(--text-faint);
-  font-family: var(--font-heading);
-  font-size: var(--text-xs);
-}
-
 .section-page-title {
-  margin-top: 1rem;
   color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
   font-weight: 400;
   line-height: 1.75rem;
 }
@@ -256,8 +268,6 @@ body {
 .section-page-description {
   margin-top: 1.25rem;
   color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
   line-height: 1.75rem;
 }
 
@@ -266,7 +276,17 @@ body {
 }
 
 .section-page-footer-inner {
-  padding-block: var(--space-section);
+  container-type: inline-size;
+  padding-block: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.section-footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-element);
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  flex-wrap: wrap;
 }
 
 .section-content-divider {
@@ -343,23 +363,17 @@ body {
 
 .portfolio-card-title {
   color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
   font-weight: 400;
   line-height: 1.75rem;
 }
 
 .portfolio-card-meta {
   color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
   font-weight: 300;
 }
 
 .portfolio-card-copy {
   color: var(--text-secondary);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
   font-weight: 400;
   line-height: 1.75rem;
 }
@@ -376,8 +390,10 @@ body {
 }
 
 .section-footer-email {
+  width: 100%;
   color: var(--section-footer-text);
-  overflow-wrap: anywhere;
+  font-size: clamp(1rem, 9.8cqw, 6rem);
+  white-space: nowrap;
   -webkit-text-stroke: 1px var(--section-footer-stroke);
 }
 
@@ -476,8 +492,8 @@ body {
 
 .theme-toggle-button {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-pill);
   border: 0;
   background: var(--theme-toggle-bg);
@@ -501,13 +517,13 @@ body {
   right: 0;
   display: flex;
   align-items: center;
-  gap: clamp(20px, 6vw, 24px);
+  gap: clamp(10px, 2vw, 12px);
 }
 
 .hero-note-trigger {
   appearance: none;
   display: inline-flex;
-  min-height: 40px;
+  min-height: 36px;
   align-items: center;
   border: 0;
   padding: 0;
@@ -549,8 +565,6 @@ body {
 
 .hero-note-title {
   color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
   font-weight: 400;
   line-height: 1.3;
 }
@@ -651,8 +665,6 @@ body {
 
 .figma-home-title {
   color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
   font-weight: 400;
   line-height: 1;
 }
@@ -661,8 +673,6 @@ body {
   max-width: 36rem;
   margin-top: var(--space-element);
   color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
   line-height: 1.5rem;
 }
 
@@ -687,11 +697,91 @@ body {
 .figma-home-contact {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--space-element);
+  flex-wrap: wrap;
   padding-block: clamp(3rem, 10vw, 3.5rem);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1;
+}
+
+.figma-home-contact-note {
+  margin-left: auto;
+  font-size: var(--text-sm);
+  text-align: right;
+}
+
+.shining-text {
+  color: var(--shine-text-color);
+  background: repeating-linear-gradient(
+    100deg,
+    var(--shine-text-base) 0%,
+    var(--shine-text-base) 25%,
+    var(--shine-text-highlight) 50%,
+    var(--shine-text-base) 75%,
+    var(--shine-text-base) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 5s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes textShine {
+  from {
+    background-position: 0 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  font-weight: 400;
+  transition: color var(--duration-normal) var(--ease-standard);
+}
+
+.linkedin-logo {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background: var(--text-muted);
+  color: #ffffff;
+}
+
+.linkedin-logo-mark {
+  width: 0.625rem;
+  height: 0.6875rem;
+}
+
+.linkedin-link:hover {
+  color: var(--text-primary);
+}
+
+.hero-linkedin-link {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.hero-linkedin-link:hover {
+  background: transparent;
+  color: var(--text-primary);
 }
 
 .figma-home-nav-link {
@@ -776,7 +866,6 @@ body {
 .about-title {
   max-width: 48rem;
   color: var(--text-primary);
-  font-size: clamp(2.25rem, 6.5vw, 3.75rem);
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.08;
@@ -802,20 +891,16 @@ body {
 
 .about-person-name {
   color: var(--text-primary);
-  font-size: var(--text-sm);
   font-weight: 500;
 }
 
 .about-person-role {
   color: var(--text-muted);
-  font-size: var(--text-xs);
 }
 
 @media (max-width: 640px) {
   .section-footer-email {
-    font-size: clamp(30px, 9vw, 42px);
     letter-spacing: -0.03em;
-    line-height: 1.05;
     -webkit-text-stroke-width: 0.6px;
   }
 }
@@ -858,9 +943,6 @@ body {
     padding-block: clamp(3rem, 6vw, 3.25rem);
   }
 
-  .about-person-role {
-    font-size: var(--text-sm);
-  }
 }
 
 @media (min-width: 1024px) {
@@ -926,6 +1008,12 @@ body {
   .theme-toggle-icon,
   .hero-note-panel {
     animation: none;
+  }
+
+  .shining-text {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
   }
 
   .about-photo-card {

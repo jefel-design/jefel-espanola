@@ -26,6 +26,7 @@ export function AboutPage() {
                   className="about-back-link"
                 >
                   <ArrowLeft size={18} />
+                  <span>Back</span>
                 </Link>
 
                 <ModeToggle />
@@ -37,7 +38,7 @@ export function AboutPage() {
               </h1>
 
               <div className="max-w-3xl space-y-4">
-                <p className="about-copy mb-5 text-sm font-light leading-relaxed md:text-base">
+                <p className="about-copy mb-5 font-light leading-relaxed">
                   I work across graphic design, UI/web design, and front-end
                   implementation, shaping visuals that communicate clearly and
                   feel deliberate.

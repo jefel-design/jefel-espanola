@@ -5,10 +5,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Geist"', 'sans-serif'],
-        body: ['"Geist"', 'sans-serif'],
-        heading: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        sans: ['"Inter"', '"Inter Fallback"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        body: ['"Inter"', '"Inter Fallback"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        heading: ['"Inter"', '"Inter Fallback"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        mono: ['"Inter"', '"Inter Fallback"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
       },
     },
   },

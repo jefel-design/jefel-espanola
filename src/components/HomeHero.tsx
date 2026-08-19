@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { publicAsset } from "../lib/assets";
 import { HeroNote } from "./HeroNote";
+import { LinkedinIconLink } from "./LinkedinLink";
 import { ModeToggle } from "./mode-toggle";
 
 const rolePhrases = [
@@ -98,6 +99,7 @@ export function HomeHero() {
         <div className="figma-home-introduction">
           <div className="figma-home-utilities slide-fade-up slide-fade-up-delay-1">
             <HeroNote />
+            <LinkedinIconLink />
             <ModeToggle />
           </div>
 
@@ -160,6 +162,9 @@ export function HomeHero() {
           >
             Get in touch
           </a>
+          <span className="figma-home-contact-note shining-text">
+            Let’s create what’s possible.
+          </span>
         </div>
       </div>
     </section>

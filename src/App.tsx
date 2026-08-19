@@ -46,7 +46,6 @@ function App() {
               path="/education"
               element={
                 <SectionPageLayout
-                  index="02"
                   title="Education"
                   description="Academic foundation in information technology, web design, and design communication."
                 >
@@ -58,7 +57,6 @@ function App() {
               path="/skills"
               element={
                 <SectionPageLayout
-                  index="03"
                   title="Skills"
                   description="Tools and strengths used to design, build, and ship responsive digital experiences."
                 >
@@ -70,7 +68,6 @@ function App() {
               path="/awards"
               element={
                 <SectionPageLayout
-                  index="04"
                   title="Awards"
                   description="Recognition for product thinking, visual design, and student-led technology work."
                 >
