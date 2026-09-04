@@ -1,6 +1,8 @@
 import { Award } from "lucide-react";
 import { useState } from "react";
 import { publicAsset } from "../lib/assets";
+import { RevealOnScroll } from "./RevealOnScroll";
+import { SectionHeading } from "./SectionHeading";
 
 type AwardItem = {
   title: string;
@@ -20,8 +22,8 @@ const awards: AwardItem[] = [
     logo: "sti-logo.png",
   },
   {
-    title: "DOST Caraga Startup Pitch Fest",
-    org: "Challenge 4: Champion",
+    title: "Challenge 4: Champion",
+    org: "DOST Caraga Startup Pitch Fest",
     year: "2025",
     description:
       "Contributed to the proposal and design of Sentra, a government transparency platform created as a solution to a challenge presented by DOST. The platform enhances public access to information by centralizing data on government projects, services, and public fund utilization.",
@@ -38,22 +40,47 @@ const awards: AwardItem[] = [
 ];
 
 export function AwardsSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [primaryAward, ...additionalAwards] = awards;
+
   return (
     <section
       id="awards"
       className="content-section"
     >
-      <h2 className="sr-only">Awards and recognition</h2>
+      <div className="section-container">
+        <RevealOnScroll>
+          <SectionHeading
+            title="Awards"
+            isExpanded={isExpanded}
+            controls="awards-additional-content"
+            onToggle={() => setIsExpanded((current) => !current)}
+          />
+        </RevealOnScroll>
 
-      <div className="section-container slide-fade-up slide-fade-up-delay-2">
-        <div className="card-grid">
-          {awards.map((award) => (
-            <AwardCard key={`${award.title}-${award.year}`} award={award} />
-          ))}
+        <RevealOnScroll delayMs={120}>
+          <div className="section-card-list">
+            <AwardCard award={primaryAward} />
+          </div>
+        </RevealOnScroll>
+
+        <div
+          id="awards-additional-content"
+          className={`expandable-panel ${isExpanded ? "is-visible" : ""}`}
+          aria-hidden={!isExpanded}
+        >
+          <div className="expandable-panel-inner">
+            <div className="section-card-list">
+              {additionalAwards.map((award) => (
+                <AwardCard
+                  key={`${award.title}-${award.year}`}
+                  award={award}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div aria-hidden="true" className="section-content-divider" />
     </section>
   );
 }
@@ -65,13 +92,13 @@ function AwardCard({ award }: { award: AwardItem }) {
   return (
     <div className="portfolio-card">
       <div className="portfolio-card-content">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="entry-card-header">
+          <div className="entry-card-identity">
             <div className="portfolio-icon-frame">
               {logoSrc ? (
                 <img
                   src={logoSrc}
-                  alt={award.title}
+                  alt={`${award.org} logo`}
                   loading="lazy"
                   decoding="async"
                   className="h-6 w-6 object-contain"
@@ -82,25 +109,22 @@ function AwardCard({ award }: { award: AwardItem }) {
               )}
             </div>
 
-            <h3 className="portfolio-card-title">
-              {award.title}
-            </h3>
+            <div className="entry-card-heading-copy">
+              <h3 className="portfolio-card-title">{award.org}</h3>
+              <p className="entry-card-subtitle content-headline">
+                {award.title}
+              </p>
+            </div>
           </div>
 
-          <span className="portfolio-card-meta shrink-0">
+          <span className="portfolio-card-meta entry-card-meta">
             {award.year}
           </span>
         </div>
 
-        <p className="portfolio-card-copy">
+        <p className="portfolio-card-copy entry-card-copy">
           {award.description}
         </p>
-
-        <div className="mt-5">
-          <span className="portfolio-tag">
-            {award.org}
-          </span>
-        </div>
       </div>
     </div>
   );

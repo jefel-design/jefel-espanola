@@ -1,97 +1,85 @@
 import { Briefcase } from "lucide-react";
+import { useState } from "react";
 import { experienceEntries, type ExperienceEntry } from "../data/experience";
 import { publicAsset } from "../lib/assets";
+import { RevealOnScroll } from "./RevealOnScroll";
+import { SectionHeading } from "./SectionHeading";
 
-function TimelineCard({
-  job,
-  featured = false,
-}: {
-  job: ExperienceEntry;
-  featured?: boolean;
-}) {
+function ExperienceCard({ job }: { job: ExperienceEntry }) {
   const logoSrc = job.logo ? publicAsset(job.logo) : null;
-  const cardRoleLabels = Array.isArray(job.cardRoleLabel)
-    ? job.cardRoleLabel
-    : job.cardRoleLabel
-      ? [job.cardRoleLabel]
-      : [];
 
   return (
-    <div className={`h-full ${featured ? "lg:col-span-2" : ""}`}>
-      <div className="portfolio-card portfolio-card--column">
-        <div className="portfolio-card-content flex h-full flex-col">
-          <div className="mb-5 flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="portfolio-icon-frame portfolio-icon-frame--large">
-                {logoSrc ? (
-                  <img
-                    src={logoSrc}
-                    alt={job.company}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-7 w-7 object-contain"
-                  />
-                ) : (
-                  <Briefcase size={20} className="portfolio-card-icon" />
-                )}
-              </div>
-
-              <div>
-                <div className="mb-1 flex flex-wrap items-center gap-2">
-                  <h3 className="portfolio-card-title">
-                    {job.company}
-                  </h3>
-
-                  <span className="status-pill">{job.engagement}</span>
-                </div>
-
-                <p className="portfolio-card-meta">
-                  {job.timeframe}
-                </p>
-              </div>
-            </div>
+    <article className="portfolio-card">
+      <div className="portfolio-card-content">
+        <div className="experience-card-header">
+          <div className="portfolio-icon-frame experience-card-logo">
+            {logoSrc ? (
+              <img
+                src={logoSrc}
+                alt={job.company}
+                loading="lazy"
+                decoding="async"
+                className="h-6 w-6 object-contain"
+              />
+            ) : (
+              <Briefcase size={18} className="portfolio-card-icon" />
+            )}
           </div>
 
-          <p className="portfolio-card-copy mb-5">
-            {job.cardSummary}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {(cardRoleLabels.length ? cardRoleLabels : job.tools).map((item) => (
-              <span
-                key={item}
-                className="portfolio-tag"
-              >
-                {item}
-              </span>
-            ))}
+          <div className="experience-card-heading">
+            <h3 className="portfolio-card-title">{job.company}</h3>
+            <p className="entry-card-subtitle">{job.title}</p>
           </div>
+
+          <p className="experience-card-date">{job.timeframe}</p>
         </div>
+
+        <ul className="portfolio-card-copy experience-responsibilities">
+          {job.responsibilities.map((responsibility) => (
+            <li key={responsibility}>{responsibility}</li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </article>
   );
 }
 
 export function ExperienceSection() {
-  return (
-    <section
-      id="experience"
-      className="content-section">
-      <h2 className="sr-only">Professional experience</h2>
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [primaryExperience, ...additionalExperiences] = experienceEntries;
 
-      <div className="section-container slide-fade-up slide-fade-up-delay-2">
-        <div className="card-grid">
-          {experienceEntries.map((job, index) => (
-            <TimelineCard
-              key={job.slug}
-              job={job}
-              featured={index === 0}
-            />
-          ))}
+  return (
+    <section id="experience" className="content-section">
+      <div className="section-container">
+        <RevealOnScroll>
+          <SectionHeading
+            title="Experience"
+            isExpanded={isExpanded}
+            controls="experience-additional-content"
+            onToggle={() => setIsExpanded((current) => !current)}
+          />
+        </RevealOnScroll>
+
+        <RevealOnScroll delayMs={120}>
+          <div className="section-card-list">
+            <ExperienceCard job={primaryExperience} />
+          </div>
+        </RevealOnScroll>
+
+        <div
+          id="experience-additional-content"
+          className={`expandable-panel ${isExpanded ? "is-visible" : ""}`}
+          aria-hidden={!isExpanded}
+        >
+          <div className="expandable-panel-inner">
+            <div className="section-card-list">
+              {additionalExperiences.map((job) => (
+                <ExperienceCard key={job.slug} job={job} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div aria-hidden="true" className="section-content-divider" />
     </section>
   );
 }

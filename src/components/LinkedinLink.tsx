@@ -17,25 +17,6 @@ function LinkedinLogo() {
   );
 }
 
-export function LinkedinLink() {
-  return (
-    <Button
-      asChild
-      variant="ghost"
-      className="linkedin-link h-auto p-0 font-normal hover:bg-transparent"
-    >
-      <a
-        href="https://www.linkedin.com/in/jefel/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <LinkedinLogo />
-        Linkedin
-      </a>
-    </Button>
-  );
-}
-
 export function LinkedinIconLink() {
   return (
     <Button

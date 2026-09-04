@@ -53,9 +53,11 @@ export function HeroNote() {
         ref={triggerRef}
         type="button"
         className="hero-note-trigger"
+        aria-label="Open work note"
         aria-expanded={isOpen}
         aria-haspopup="dialog"
         aria-controls={isOpen ? titleId : undefined}
+        title="Open work note"
         onClick={() => setIsOpen((currentValue) => !currentValue)}
       >
         NOTE / 01

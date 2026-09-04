@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import { publicAsset } from "../lib/assets";
 import { HeroNote } from "./HeroNote";
 import { LinkedinIconLink } from "./LinkedinLink";
@@ -12,13 +10,6 @@ const rolePhrases = [
   "A UI/Web Designer.",
   "A WordPress Developer.",
   "A Video Editor.",
-];
-
-const navLinks = [
-  { label: "Experience", href: "/experience" },
-  { label: "Education", href: "/education" },
-  { label: "Skills", href: "/skills" },
-  { label: "Awards", href: "/awards" },
 ];
 
 function useTypingAnimation(phrases: string[]) {
@@ -87,40 +78,33 @@ export function HomeHero() {
   const typedPhrase = useTypingAnimation(rolePhrases);
 
   return (
-    <section id="hero" className="figma-home">
-      <div aria-hidden="true" className="figma-vline figma-vline-left" />
-      <div aria-hidden="true" className="figma-vline figma-vline-right" />
-      <div aria-hidden="true" className="figma-hline figma-hline-intro" />
-      <div aria-hidden="true" className="figma-hline figma-hline-nav" />
-      <div aria-hidden="true" className="figma-hline figma-hline-contact" />
-      <div aria-hidden="true" className="figma-hline figma-hline-end" />
-
+    <section id="intro" className="figma-home">
       <div className="figma-home-content">
         <div className="figma-home-introduction">
-          <div className="figma-home-utilities slide-fade-up slide-fade-up-delay-1">
+          <div className="figma-home-utilities intro-enter intro-enter--role">
             <HeroNote />
             <LinkedinIconLink />
             <ModeToggle />
           </div>
 
-          <div className="figma-home-intro slide-fade-up">
+          <div className="figma-home-intro">
             <img
               src={publicAsset("jefel-640.jpg")}
               alt="Portrait of Jefel Española"
               width={640}
               height={639}
-              className="figma-home-photo"
+              className="figma-home-photo intro-enter"
               loading="eager"
               decoding="async"
               fetchPriority="high"
             />
 
             <div>
-              <h1 className="figma-home-title">
+              <h1 className="figma-home-title intro-enter">
                 Hey, It's Jefel.
               </h1>
 
-              <p className="figma-home-copy figma-home-copy-animated">
+              <p className="figma-home-copy figma-home-copy-animated intro-enter intro-enter--role">
                 <span aria-hidden="true">
                   <span className="figma-home-typed-text">
                     {typedPhrase}
@@ -135,36 +119,17 @@ export function HomeHero() {
           </div>
         </div>
 
-        <nav
-          aria-label="Homepage sections"
-          className="figma-home-nav slide-fade-up slide-fade-up-delay-1"
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="figma-home-nav-link"
-            >
-              {link.label}
-              <ArrowUpRight
-                aria-hidden="true"
-                className="figma-home-nav-icon"
-                strokeWidth={2}
-              />
-            </Link>
-          ))}
-        </nav>
-
-        <div className="figma-home-contact slide-fade-up slide-fade-up-delay-2">
-          <a
-            href="mailto:jefel.maitem@gmail.com"
-            className="figma-home-cta"
-          >
-            Get in touch
-          </a>
-          <span className="figma-home-contact-note shining-text">
-            Let’s create what’s possible.
-          </span>
+        <div className="figma-home-about intro-enter intro-enter--about">
+          <p className="figma-home-about-copy">
+            <span>
+              I design digital work that feels clear, useful, and intentional.
+            </span>
+            <span>
+              I work across graphic design, UI/web design, and front-end
+              implementation, shaping visuals that communicate clearly and
+              make people feel something.
+            </span>
+          </p>
         </div>
       </div>
     </section>

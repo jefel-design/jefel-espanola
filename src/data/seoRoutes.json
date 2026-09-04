@@ -7,32 +7,98 @@
     {
       "path": "/",
       "title": "Jefel Española — Graphic & UI/Web Designer",
-      "description": "Explore the portfolio of Jefel Española, a Graphic and UI/Web Designer working across WordPress development, social media management, and video editing."
+      "description": "Explore the experience, selected work, education, skills, and awards of Jefel Española, a Graphic and UI/Web Designer."
     },
     {
-      "path": "/about",
-      "title": "About — Jefel Española",
-      "description": "Learn how Jefel Española approaches clear, intentional graphic design, UI/web design, and front-end implementation."
+      "path": "/projects/product-configurator-website-redesign",
+      "title": "Product Configurator Website Redesign — Jefel Española",
+      "description": "A responsive product configurator website redesign focused on structure, clarity, and conversion.",
+      "image": "https://jefelespanola.com/webproject1.png",
+      "imageAlt": "Product Configurator website redesign"
     },
     {
-      "path": "/experience",
-      "title": "Experience — Jefel Española",
-      "description": "Explore Jefel Española’s professional experience in graphic design, UI/web design, WordPress development, branding, and social media."
+      "path": "/projects/ark-social-media-graphics",
+      "title": "Ark Social Media Graphics — Jefel Española",
+      "description": "Brand collateral and social media graphics created for Ark Design digital touchpoints.",
+      "image": "https://jefelespanola.com/arkad1.jpeg",
+      "imageAlt": "Ark Design social media graphics"
     },
     {
-      "path": "/education",
-      "title": "Education — Jefel Española",
-      "description": "Review Jefel Española’s education in information technology and academic work introducing graphic and web design pathways."
+      "path": "/projects/ark-design-redesign",
+      "title": "ArkDesign Redesign — Jefel Española",
+      "description": "A website redesign balancing modern presentation with a premium studio feel.",
+      "image": "https://jefelespanola.com/ark2.png",
+      "imageAlt": "Ark Design website redesign"
     },
     {
-      "path": "/skills",
-      "title": "Skills — Jefel Española",
-      "description": "Explore Jefel Española’s skills in graphic and UI/web design, front-end development, WordPress, video editing, and creative tools."
+      "path": "/projects/tnc-kaiserin-roster",
+      "title": "TNC Kaiserin Roster — Jefel Española",
+      "description": "A roster announcement creative highlighting lineup identity and event energy.",
+      "image": "https://jefelespanola.com/poster-1.jpg",
+      "imageAlt": "TNC Kaiserin roster campaign"
     },
     {
-      "path": "/awards",
-      "title": "Awards — Jefel Española",
-      "description": "View Jefel Española’s awards for capstone development, startup pitching, and regional logo design."
+      "path": "/projects/tnc-kaiserin-roster-reveal",
+      "title": "TNC Kaiserin Roster Reveal — Jefel Española",
+      "description": "Roster reveal campaign visuals created for social rollout and audience engagement.",
+      "image": "https://jefelespanola.com/poster-2.jpg",
+      "imageAlt": "TNC Kaiserin roster reveal graphics"
+    },
+    {
+      "path": "/projects/tnc-kaiserin-mvp",
+      "title": "TNC Kaiserin MVP — Jefel Española",
+      "description": "A player spotlight visual designed with a bold editorial style.",
+      "image": "https://jefelespanola.com/poster-3.jpg",
+      "imageAlt": "TNC Kaiserin MVP feature poster"
+    },
+    {
+      "path": "/projects/bren-esports-roster",
+      "title": "Bren Esports Roster — Jefel Española",
+      "description": "A team announcement visual designed around player branding and competitive presence.",
+      "image": "https://jefelespanola.com/apbr1.jpg",
+      "imageAlt": "Bren Esports roster graphic"
+    },
+    {
+      "path": "/projects/bren-esports-game-day",
+      "title": "Bren Esports Game Day — Jefel Española",
+      "description": "A match-day creative built for urgency, readability, and mobile-first viewing.",
+      "image": "https://jefelespanola.com/apbr2.jpg",
+      "imageAlt": "Bren Esports game day graphic"
+    },
+    {
+      "path": "/projects/surigao-esports-ceap",
+      "title": "Surigao Esports CEAP — Jefel Española",
+      "description": "A broadcast graphics package created for tournament presentation and promotion.",
+      "image": "https://jefelespanola.com/ceap1.jpg",
+      "imageAlt": "Surigao Esports Collective broadcast graphics"
+    },
+    {
+      "path": "/projects/surigao-esports-surecol-1",
+      "title": "Surigao Esports Surecol 1 — Jefel Española",
+      "description": "League identity work combining event energy with clear branded storytelling.",
+      "image": "https://jefelespanola.com/surcol1.jpg",
+      "imageAlt": "Surigao Esports Collective league branding"
+    },
+    {
+      "path": "/projects/max-poster",
+      "title": "Max Poster — Jefel Española",
+      "description": "A commission poster built with a streetwear-inspired graphic approach.",
+      "image": "https://jefelespanola.com/max1.jpg",
+      "imageAlt": "Jefel Arts Max poster design"
+    },
+    {
+      "path": "/projects/ant-poster",
+      "title": "Ant Poster — Jefel Española",
+      "description": "A merchandise-driven promotional visual with bold typographic treatment.",
+      "image": "https://jefelespanola.com/ant1.jpg",
+      "imageAlt": "Jefel Arts Ant poster design"
+    },
+    {
+      "path": "/projects/yg-jersey-design",
+      "title": "YG Jersey Design — Jefel Española",
+      "description": "A commission piece focused on impact, mood, and collectible design energy.",
+      "image": "https://jefelespanola.com/yg1.jpg",
+      "imageAlt": "Jefel Arts YG jersey design"
     }
   ]
 }

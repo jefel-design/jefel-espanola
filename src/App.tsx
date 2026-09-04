@@ -1,17 +1,14 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AboutPage } from "./components/AboutPage";
-import { AwardsSection } from "./components/AwardsSection";
-import { EducationSection } from "./components/EducationSection";
-import { ExperiencePage } from "./components/ExperiencePage";
-import { HomeHero } from "./components/HomeHero";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { HomePage } from "./components/HomePage";
+import { ProjectPage } from "./components/ProjectPage";
 import { RouteSeo } from "./components/RouteSeo";
-import { SectionPageLayout } from "./components/SectionPageLayout";
-import { SkillsSection } from "./components/SkillsSection";
-
-function HomePage() {
-  return <HomeHero />;
-}
 
 function ScrollToTop() {
   const location = useLocation();
@@ -41,41 +38,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route
-              path="/education"
-              element={
-                <SectionPageLayout
-                  title="Education"
-                  description="Academic foundation in information technology, web design, and design communication."
-                >
-                  <EducationSection />
-                </SectionPageLayout>
-              }
-            />
-            <Route
-              path="/skills"
-              element={
-                <SectionPageLayout
-                  title="Skills"
-                  description="Tools and strengths used to design, build, and ship responsive digital experiences."
-                >
-                  <SkillsSection />
-                </SectionPageLayout>
-              }
-            />
-            <Route
-              path="/awards"
-              element={
-                <SectionPageLayout
-                  title="Awards"
-                  description="Recognition for product thinking, visual design, and student-led technology work."
-                >
-                  <AwardsSection />
-                </SectionPageLayout>
-              }
-            />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects/:projectSlug" element={<ProjectPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-labelledby="title">
+  <title id="title">Adobe InDesign</title>
+  <path fill="#49021f" d="M0 0h28v28H0z"/>
+  <path fill="#ff3366" d="M5.4 5.5h3.2v16.8H5.4z"/>
+  <path fill="#ff3366" fill-rule="evenodd" d="M19.5 4.5h3.1v17.8h-2.8l-.2-1.5c-.8 1.2-2 1.8-3.6 1.8-3.4 0-5.6-2.7-5.6-6.5 0-4.1 2.4-6.8 5.8-6.8 1.4 0 2.5.5 3.3 1.4V4.5Zm0 11.5c0-2.4-1.1-4-2.9-4-1.9 0-3 1.6-3 4s1.1 4 3 4c1.8 0 2.9-1.6 2.9-4Z"/>
+</svg>

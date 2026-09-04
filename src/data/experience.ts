@@ -1,4 +1,5 @@
 export type ExperienceProject = {
+  slug: string;
   name: string;
   link: string;
   image: string;
@@ -12,12 +13,9 @@ export type ExperienceEntry = {
   company: string;
   title: string;
   summary: string;
-  cardSummary: string;
-  cardRoleLabel?: string | string[];
+  responsibilities: string[];
   role: string;
   timeframe: string;
-  location: string;
-  engagement: string;
   tools: string[];
   logo?: string;
   projects: ExperienceProject[];
@@ -30,22 +28,21 @@ const experiences: ExperienceEntry[] = [
     title: "Graphic & UI/Web Designer",
     summary:
       "Designing responsive websites, digital campaigns, and brand systems with a focus on clarity, usability, and polished visual presentation.",
-    cardSummary:
-      "Graphic & UI/Web Designer at Ark Design B.V., building responsive WordPress websites, creating digital ads and branding, and designing user-focused web and software interfaces.",
-    cardRoleLabel: [
-      "Graphic Designer",
-      "UI/WEB Design",
-      "Wordpress Developer",
-      "SMM",
+    responsibilities: [
+      "Design responsive WordPress websites",
+      "Create UI/UX for websites and software",
+      "Produce social media content and digital ads",
+      "Develop branding and visual identities",
+      "Build and maintain websites using WordPress",
+      "Manage social media content and creatives",
     ],
     role: "Graphic Designer, UI/WEB Design, WordPress Developer, SMM",
     timeframe: "2024 – Present",
-    location: "Netherlands - Remote",
-    engagement: "Full-time",
     tools: ["WordPress", "Elementor", "UI Design", "Branding"],
     logo: "ark-design.png",
     projects: [
       {
+        slug: "product-configurator-website-redesign",
         name: "Product Configurator Website Redesign",
         link: "https://productconfigurator.nl/",
         image: "webproject1.png",
@@ -54,6 +51,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Responsive website refresh focused on structure, clarity, and conversion.",
       },
       {
+        slug: "ark-social-media-graphics",
         name: "Social Media Graphics",
         link: "https://www.linkedin.com/company/arkdesign/posts/?feedView=all",
         image: "arkad1.jpeg",
@@ -62,6 +60,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Brand collateral and visual identity work for digital and client-facing touchpoints.",
       },
       {
+        slug: "ark-design-redesign",
         name: "ArkDesign Redesign",
         link: "https://www.arkdesign.nl/",
         image: "ark2.png",
@@ -77,17 +76,18 @@ const experiences: ExperienceEntry[] = [
     title: "Head Designer",
     summary:
       "Led visual design for esports campaigns, promotional assets, and branded content built to energize the audience and strengthen team identity.",
-    cardSummary:
-      "Led graphic design projects, created promotional materials, and supported branding initiatives.",
-    cardRoleLabel: "Graphic Designer",
+    responsibilities: [
+      "Lead graphic design projects",
+      "Create promotional materials",
+      "Support branding initiatives",
+    ],
     role: "Graphic Designer",
     timeframe: "March 2024 - June 2024",
-    location: "Philippines",
-    engagement: "Freelance",
     tools: ["Campaign Design", "Posters", "Branding", "Social Graphics"],
     logo: "tnc-kaiserin.png",
     projects: [
       {
+        slug: "tnc-kaiserin-roster",
         name: "Roster",
         link: "https://www.facebook.com/photo.php?fbid=1265132472286073&set=pb.100063679975758.-2207520000&type=3",
         image: "poster-1.jpg",
@@ -96,6 +96,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Announcement creative highlighting lineup identity and event energy.",
       },
       {
+        slug: "tnc-kaiserin-roster-reveal",
         name: "Roster Reveal",
         link: "https://www.facebook.com/photo.php?fbid=1228044165994904&set=pb.100063679975758.-2207520000&type=3",
         image: "poster-2.jpg",
@@ -104,6 +105,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Reveal campaign visuals created for social rollout and audience engagement.",
       },
       {
+        slug: "tnc-kaiserin-mvp",
         name: "MVP",
         link: "https://www.facebook.com/photo.php?fbid=1216178023848185&set=pb.100063679975758.-2207520000&type=3",
         image: "poster-3.jpg",
@@ -119,17 +121,17 @@ const experiences: ExperienceEntry[] = [
     title: "Player-specific Graphic Designer",
     summary:
       "Created branded player content and promotional visuals tailored to a professional esports identity, with fast-turnaround execution for social media moments.",
-    cardSummary:
-      "Player-specific Graphic Designer for Bren Esports, creating branded content and visuals for professional player Shizou.",
-    cardRoleLabel: "Graphic Designer",
+    responsibilities: [
+      "Create branded content for professional player Shizou",
+      "Design player-specific visuals for Bren Esports",
+    ],
     role: "Graphic Designer",
     timeframe: "Feb 2024 - April 2024",
-    location: "Philippines",
-    engagement: "Freelance",
     tools: ["Player Branding", "Posters", "Social Graphics"],
     logo: "ap-bren.png",
     projects: [
       {
+        slug: "bren-esports-roster",
         name: "Roster",
         link: "https://www.facebook.com/photo.php?fbid=1126063892864934&set=pb.100063840020177.-2207520000&type=3",
         image: "apbr1.jpg",
@@ -138,6 +140,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Team announcement visual designed around player branding and competitive presence.",
       },
       {
+        slug: "bren-esports-game-day",
         name: "Game Day",
         link: "https://www.facebook.com/photo.php?fbid=1149090933895563&set=pb.100063840020177.-2207520000&type=3",
         image: "apbr2.jpg",
@@ -153,17 +156,18 @@ const experiences: ExperienceEntry[] = [
     title: "Head Designer",
     summary:
       "Directed visual design across broadcasts, social content, and event promotions to give the organization a stronger and more cohesive competitive identity.",
-    cardSummary:
-      "Led design for broadcast graphics, social media content, promotional posters, and brand assets.",
-    cardRoleLabel: "Graphic Designer",
+    responsibilities: [
+      "Lead design for broadcast graphics",
+      "Create social media content and promotional posters",
+      "Develop brand assets for the organization",
+    ],
     role: "Graphic Designer",
     timeframe: "2023 – 2024",
-    location: "Philippines",
-    engagement: "Contract",
     tools: ["Broadcast Visuals", "League Branding", "Posters", "Social Graphics"],
     logo: "surigao-esports.png",
     projects: [
       {
+        slug: "surigao-esports-ceap",
         name: "CEAP",
         link: "https://www.facebook.com/photo.php?fbid=375363668895238&set=pb.100092648244877.-2207520000&type=3",
         image: "ceap1.jpg",
@@ -172,6 +176,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Broadcast-facing graphics package created for tournament presentation and promotion.",
       },
       {
+        slug: "surigao-esports-surecol-1",
         name: "Surecol 1",
         link: "https://www.facebook.com/photo.php?fbid=122123598602098189&set=pb.61552945697929.-2207520000&type=3",
         image: "surcol1.jpg",
@@ -187,17 +192,18 @@ const experiences: ExperienceEntry[] = [
     title: "Freelance Visual Designer",
     summary:
       "Producing custom commission work for streetwear, esports, and merchandise brands through expressive visuals, apparel graphics, and campaign-led design pieces.",
-    cardSummary:
-      "Custom commission-based designs for streetwear, esports, and merchandise brands.",
-    cardRoleLabel: "Graphic Designer",
+    responsibilities: [
+      "Create custom commission-based designs",
+      "Design graphics for streetwear and merchandise brands",
+      "Produce creative assets for esports brands",
+    ],
     role: "Graphic Designer",
     timeframe: "2022 – Present",
-    location: "Philippines",
-    engagement: "Freelance",
     tools: ["Apparel Design", "Commission Work", "Merch Graphics", "Posters"],
     logo: "jefel-arts-preview.jpg",
     projects: [
       {
+        slug: "max-poster",
         name: "Max Poster",
         link: "https://www.facebook.com/photo?fbid=867026052813571&set=a.116471364535714",
         image: "max1.jpg",
@@ -206,6 +212,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Commission poster built with a streetwear-inspired graphic approach.",
       },
       {
+        slug: "ant-poster",
         name: "Ant Poster",
         link: "https://www.facebook.com/photo?fbid=871515925697917&set=a.116471364535714",
         image: "ant1.jpg",
@@ -214,6 +221,7 @@ const experiences: ExperienceEntry[] = [
         summary: "Merch-driven promotional visual combining apparel cues and bold typographic treatment.",
       },
       {
+        slug: "yg-jersey-design",
         name: "YG",
         link: "https://www.facebook.com/photo/?fbid=719676287548549&set=pcb.719676417548536",
         image: "yg1.jpg",
@@ -251,6 +259,26 @@ export const experienceEntries = [...experiences].sort((a, b) => {
   return right.startYear - left.startYear;
 });
 
-export function getExperienceBySlug(slug: string) {
-  return experienceEntries.find((experience) => experience.slug === slug);
+export type PortfolioProject = ExperienceProject & {
+  client: string;
+  clientSlug: string;
+  role: string;
+  timeframe: string;
+  tools: string[];
+};
+
+export const portfolioProjects: PortfolioProject[] = experienceEntries.flatMap(
+  (experience) =>
+    experience.projects.map((project) => ({
+      ...project,
+      client: experience.company,
+      clientSlug: experience.slug,
+      role: experience.role,
+      timeframe: experience.timeframe,
+      tools: experience.tools,
+    })),
+);
+
+export function getProjectBySlug(slug: string) {
+  return portfolioProjects.find((project) => project.slug === slug);
 }
