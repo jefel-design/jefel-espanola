@@ -6,10 +6,6 @@ export function ContactSection() {
     <footer id="contact" className="content-section contact-section">
       <div className="page-container contact-section-inner">
         <RevealOnScroll className="contact-reveal">
-          <a href="mailto:jefel.maitem@gmail.com" className="contact-email">
-            jefel.maitem@gmail.com
-          </a>
-
           <p className="contact-message">
             <span className="shining-text">Let’s create what’s possible.</span>
           </p>

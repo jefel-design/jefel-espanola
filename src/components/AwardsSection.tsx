@@ -1,6 +1,7 @@
 import { Award } from "lucide-react";
 import { useState } from "react";
 import { publicAsset } from "../lib/assets";
+import { ResumeEntry } from "./ResumeEntry";
 import { RevealOnScroll } from "./RevealOnScroll";
 import { SectionHeading } from "./SectionHeading";
 
@@ -60,7 +61,7 @@ export function AwardsSection() {
 
         <RevealOnScroll delayMs={120}>
           <div className="section-card-list">
-            <AwardCard award={primaryAward} />
+            <AwardEntry award={primaryAward} />
           </div>
         </RevealOnScroll>
 
@@ -72,7 +73,7 @@ export function AwardsSection() {
           <div className="expandable-panel-inner">
             <div className="section-card-list">
               {additionalAwards.map((award) => (
-                <AwardCard
+                <AwardEntry
                   key={`${award.title}-${award.year}`}
                   award={award}
                 />
@@ -85,47 +86,29 @@ export function AwardsSection() {
   );
 }
 
-function AwardCard({ award }: { award: AwardItem }) {
+function AwardEntry({ award }: { award: AwardItem }) {
   const [imgError, setImgError] = useState(false);
   const logoSrc = award.logo && !imgError ? publicAsset(award.logo) : null;
 
   return (
-    <div className="portfolio-card">
-      <div className="portfolio-card-content">
-        <div className="entry-card-header">
-          <div className="entry-card-identity">
-            <div className="portfolio-icon-frame">
-              {logoSrc ? (
-                <img
-                  src={logoSrc}
-                  alt={`${award.org} logo`}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-6 w-6 object-contain"
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <Award size={20} className="portfolio-card-icon" />
-              )}
-            </div>
-
-            <div className="entry-card-heading-copy">
-              <h3 className="portfolio-card-title">{award.org}</h3>
-              <p className="entry-card-subtitle content-headline">
-                {award.title}
-              </p>
-            </div>
-          </div>
-
-          <span className="portfolio-card-meta entry-card-meta">
-            {award.year}
-          </span>
-        </div>
-
-        <p className="portfolio-card-copy entry-card-copy">
-          {award.description}
-        </p>
-      </div>
-    </div>
+    <ResumeEntry
+      title={award.org}
+      subtitle={award.title}
+      date={award.year}
+      details={[award.description]}
+      logo={
+        logoSrc ? (
+          <img
+            src={logoSrc}
+            alt={`${award.org} logo`}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <Award size={20} aria-hidden="true" />
+        )
+      }
+    />
   );
 }

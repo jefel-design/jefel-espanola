@@ -1,6 +1,7 @@
 import { GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { publicAsset } from "../lib/assets";
+import { ResumeEntry } from "./ResumeEntry";
 import { RevealOnScroll } from "./RevealOnScroll";
 import { SectionHeading } from "./SectionHeading";
 
@@ -61,7 +62,7 @@ export function EducationSection() {
 
         <RevealOnScroll delayMs={120}>
           <div className="section-card-list">
-            <EducationCard item={primaryEducation} />
+            <EducationEntry item={primaryEducation} />
           </div>
         </RevealOnScroll>
 
@@ -74,7 +75,7 @@ export function EducationSection() {
             <div className="expandable-panel-inner">
               <div className="section-card-list">
                 {additionalEducation.map((item) => (
-                  <EducationCard
+                  <EducationEntry
                     key={`${item.school}-${item.year}-${item.degree}`}
                     item={item}
                   />
@@ -88,50 +89,29 @@ export function EducationSection() {
   );
 }
 
-function EducationCard({ item }: { item: EducationItem }) {
+function EducationEntry({ item }: { item: EducationItem }) {
   const [imgError, setImgError] = useState(false);
   const logoSrc = item.logo && !imgError ? publicAsset(item.logo) : null;
 
   return (
-    <div className="portfolio-card">
-      <div className="portfolio-card-content">
-        <div className="entry-card-header">
-          <div className="entry-card-identity">
-            <div className="portfolio-icon-frame">
-              {logoSrc ? (
-                <img
-                  src={logoSrc}
-                  alt={item.school}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-6 w-6 object-contain"
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <GraduationCap
-                  size={20}
-                  className="portfolio-card-icon"
-                />
-              )}
-            </div>
-
-            <div className="entry-card-heading-copy">
-              <h3 className="portfolio-card-title">{item.school}</h3>
-              <p className="entry-card-subtitle">{item.degree}</p>
-            </div>
-          </div>
-
-          <span className="portfolio-card-meta entry-card-meta">
-            {item.year}
-          </span>
-        </div>
-
-        {item.description && (
-          <p className="portfolio-card-copy entry-card-copy">
-            {item.description}
-          </p>
-        )}
-      </div>
-    </div>
+    <ResumeEntry
+      title={item.school}
+      subtitle={item.degree}
+      date={item.year}
+      details={item.description ? [item.description] : []}
+      logo={
+        logoSrc ? (
+          <img
+            src={logoSrc}
+            alt={item.school}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <GraduationCap size={20} aria-hidden="true" />
+        )
+      }
+    />
   );
 }
