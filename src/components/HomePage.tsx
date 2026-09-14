@@ -1,6 +1,4 @@
-import { AwardsSection } from "./AwardsSection";
 import { ContactSection } from "./ContactSection";
-import { EducationSection } from "./EducationSection";
 import { ExperienceSection } from "./ExperienceSection";
 import { HomeHero } from "./HomeHero";
 import { SkillsSection } from "./SkillsSection";
@@ -11,8 +9,7 @@ export function HomePage() {
       <HomeHero />
       <ExperienceSection />
       <SkillsSection />
-      <EducationSection />
-      <AwardsSection />
+      {/* Education and Awards are temporarily hidden; their components are kept for later. */}
       <ContactSection />
     </div>
   );

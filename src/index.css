@@ -24,7 +24,7 @@
   --font-primary: "Geist", "Geist Sans", Arial, sans-serif;
   --font-size-control: 14px;
   --font-size-content: 15px;
-  --font-size-title: 16px;
+  --font-size-title: var(--font-size-content);
 
   --content-width: 636px;
   --page-gutter: 1rem;
@@ -418,10 +418,6 @@ body {
   height: 0.75rem;
 }
 
-#skills .section-toggle {
-  font-size: var(--font-size-content);
-}
-
 .skill-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -661,8 +657,8 @@ body {
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   column-gap: var(--space-element);
-  row-gap: var(--page-rhythm);
-  margin-bottom: var(--page-rhythm);
+  row-gap: var(--space-element);
+  margin-bottom: 32px;
 }
 
 .theme-toggle-button {
@@ -697,113 +693,70 @@ body {
   white-space: nowrap;
 }
 
-.hero-note-trigger {
-  appearance: none;
-  display: inline-flex;
-  width: auto;
-  min-height: 36px;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-family: var(--font-primary);
-  font-size: var(--font-size-control);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  opacity: 0.72;
-  transition: opacity var(--duration-fast) var(--ease-standard);
-}
-
-.hero-note-trigger:hover {
-  opacity: 1;
-}
-
-.hero-note-panel {
-  position: absolute;
-  z-index: 20;
-  top: calc(100% + 16px);
-  right: 0;
-  width: min(360px, calc(100vw - var(--page-gutter) - var(--page-gutter)));
-  border: 1px solid var(--ui-border);
-  padding: 20px;
-  background: var(--card-bg);
-  color: var(--text-primary);
-  white-space: normal;
-  animation: heroNoteIn var(--duration-fast) var(--ease-enter) both;
-}
-
-.hero-note-panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.hero-note-title {
-  color: var(--text-primary);
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-.hero-note-close {
-  display: inline-flex;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-.hero-note-close:hover {
-  color: var(--text-primary);
-}
-
-.hero-note-copy {
+.project-row-list {
   display: grid;
   gap: 12px;
-  margin-top: 18px;
-  color: var(--text-secondary);
-  font-family: var(--font-primary);
-  font-size: var(--font-size-content);
-  line-height: 1.55;
+  list-style: none;
 }
 
-.hero-note-contact {
+.project-row-list--additional {
+  margin-top: 12px;
+}
+
+.project-row {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.project-row-date {
+  color: var(--text-muted);
+  font-size: var(--font-size-control);
+  line-height: 1.5rem;
+}
+
+.project-row-leader {
+  display: none;
+}
+
+.project-row-link {
   display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 20px;
+  width: fit-content;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.375rem;
   color: var(--text-primary);
-  font-family: var(--font-primary);
   font-size: var(--font-size-content);
-  line-height: 1;
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  line-height: 1.5rem;
 }
 
-.hero-note-contact:hover {
-  opacity: 0.65;
+.project-row-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-@keyframes heroNoteIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
+.project-row-client {
+  color: var(--text-muted);
+  font-size: var(--font-size-control);
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.project-row-name {
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--duration-fast) var(--ease-standard);
+}
+
+.project-row-link:hover .project-row-name,
+.project-row-link:focus-visible .project-row-name {
+  text-decoration-color: var(--text-primary);
+}
+
+.project-row-link svg {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: 4px;
 }
 
 @keyframes themeIconIn {
@@ -875,7 +828,7 @@ body {
 
 .figma-home-copy {
   max-width: 36rem;
-  margin-top: var(--space-element);
+  margin-top: 0.5rem;
   color: var(--text-muted);
   line-height: 1.5rem;
 }
@@ -892,14 +845,14 @@ body {
 
 .figma-home-about {
   display: grid;
-  gap: var(--page-rhythm);
+  gap: 0.75rem;
   color: var(--text-muted);
   line-height: 1.5rem;
 }
 
 .figma-home-about-copy {
   display: grid;
-  gap: var(--page-rhythm);
+  gap: 0.5rem;
 }
 
 .shining-text {
@@ -931,23 +884,6 @@ body {
   }
 }
 
-.footer-contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3125rem;
-  color: var(--text-muted);
-  font-size: var(--font-size-content);
-  font-weight: 400;
-  transition: color var(--duration-normal) var(--ease-standard);
-}
-
-.footer-contact-icon {
-  width: 1rem;
-  height: 1rem;
-  flex: 0 0 auto;
-  color: currentColor;
-}
-
 .linkedin-logo {
   display: inline-flex;
   width: 1rem;
@@ -962,10 +898,6 @@ body {
 .linkedin-logo-mark {
   width: 0.625rem;
   height: 0.6875rem;
-}
-
-.footer-contact-link:hover {
-  color: var(--text-primary);
 }
 
 .hero-linkedin-link {
@@ -1002,12 +934,6 @@ body {
 
 .contact-message {
   color: var(--text-muted);
-}
-
-.contact-social {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--page-rhythm);
 }
 
 .project-page {
@@ -1113,7 +1039,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     gap: clamp(1.125rem, 2.6vw, 1.875rem);
-    margin-bottom: var(--page-rhythm);
+    margin-bottom: 32px;
   }
 
   .figma-home-utilities {
@@ -1137,7 +1063,6 @@ body {
   }
 
   .figma-home-copy {
-    margin-top: 1.25rem;
     line-height: 1;
   }
 
@@ -1158,6 +1083,30 @@ body {
   .resume-entry-date {
     flex: 0 0 auto;
     white-space: nowrap;
+  }
+
+  .project-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .project-row-date {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .project-row-leader {
+    display: block;
+    flex: 1 0 24px;
+    border-bottom: 1px dotted var(--text-muted);
+    opacity: 0.45;
+  }
+
+  .project-row-link {
+    flex: 0 1 auto;
+    max-width: 60%;
+    text-align: right;
   }
 
   .skill-row {
@@ -1200,8 +1149,7 @@ body {
     transform: none;
   }
 
-  .theme-toggle-icon,
-  .hero-note-panel {
+  .theme-toggle-icon {
     animation: none;
   }
 

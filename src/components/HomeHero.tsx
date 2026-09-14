@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { Mail } from "lucide-react";
 import { publicAsset } from "../lib/assets";
-import { HeroNote } from "./HeroNote";
 import { LinkedinIconLink } from "./LinkedinLink";
 import { ModeToggle } from "./mode-toggle";
+import { Button } from "./ui/button";
 
 const rolePhrases = [
   "A Graphic Designer.",
@@ -82,7 +83,6 @@ export function HomeHero() {
       <div className="figma-home-content">
         <div className="figma-home-introduction">
           <div className="figma-home-utilities intro-enter intro-enter--role">
-            <HeroNote />
             <LinkedinIconLink />
             <ModeToggle />
           </div>
@@ -130,6 +130,18 @@ export function HomeHero() {
               make people feel something.
             </span>
           </p>
+
+          <Button asChild className="h-auto justify-self-start gap-1.5 px-3 py-1">
+            <a href="mailto:jefel.maitem@gmail.com">
+              <Mail
+                aria-hidden="true"
+                size={15}
+                strokeWidth={1.75}
+                className="shrink-0"
+              />
+              <span>Let’s chat</span>
+            </a>
+          </Button>
         </div>
       </div>
     </section>
