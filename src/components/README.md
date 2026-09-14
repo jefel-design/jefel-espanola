@@ -1,6 +1,6 @@
 # Components Guide
 
-- `HomePage.tsx`: one-page composition for the primary portfolio content.
+- `HomePage.tsx`: one-page composition inside the shared `.one-page-portfolio` container, which controls page width, outer padding, and gaps between sections. The content is vertically centered when it fits the viewport and grows naturally when expanded.
 - `HomeHero.tsx`: homepage intro, typing animation, utility controls, and short about copy.
 - `ProjectsSection.tsx`: compact project rows with dates, dotted leaders, case-study links, and a See more control.
 - `mode-toggle.tsx`: shared light/dark theme control.
