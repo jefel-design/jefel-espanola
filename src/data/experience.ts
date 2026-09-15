@@ -13,12 +13,12 @@ export type ExperienceEntry = {
   company: string;
   title: string;
   summary: string;
-  responsibilities: string[];
+  responsibilities: readonly string[];
   role: string;
   timeframe: string;
-  tools: string[];
+  tools: readonly string[];
   logo?: string;
-  projects: ExperienceProject[];
+  projects: readonly ExperienceProject[];
 };
 
 const experiences: ExperienceEntry[] = [
@@ -238,7 +238,7 @@ function extractPeriodRanking(period: string) {
     Number(match[0]),
   );
   const latestYear = years.length ? Math.max(...years) : 0;
-  const startYear = years.length ? years[0] : 0;
+  const startYear = years[0] ?? 0;
   const isCurrent = /present/i.test(period);
 
   return { isCurrent, latestYear, startYear };
@@ -264,7 +264,7 @@ export type PortfolioProject = ExperienceProject & {
   clientSlug: string;
   role: string;
   timeframe: string;
-  tools: string[];
+  tools: readonly string[];
 };
 
 export const portfolioProjects: PortfolioProject[] = experienceEntries.flatMap(

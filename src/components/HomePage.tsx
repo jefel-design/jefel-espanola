@@ -5,11 +5,13 @@ import { SkillsSection } from "./SkillsSection";
 
 export function HomePage() {
   return (
-    <div className="one-page-portfolio">
-      <HomeHero />
-      <ExperienceSection />
-      <SkillsSection />
-      {/* Education and Awards are temporarily hidden; their components are kept for later. */}
+    <div className="home-page">
+      <main className="home-page-content">
+        <HomeHero />
+        <ExperienceSection />
+        <SkillsSection />
+        {/* Education and Awards are temporarily hidden; their components are kept for later. */}
+      </main>
       <ContactSection />
     </div>
   );

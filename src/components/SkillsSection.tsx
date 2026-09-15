@@ -1,4 +1,4 @@
-import { type ElementType, useState } from "react";
+import type { ComponentType, SVGProps } from "react";
 import {
   BookOpen,
   Languages,
@@ -6,8 +6,8 @@ import {
   Puzzle,
   RefreshCw,
 } from "lucide-react";
-import { RevealOnScroll } from "./RevealOnScroll";
-import { SectionHeading } from "./SectionHeading";
+import { ExpandableSection } from "./ExpandableSection";
+import { skillGroups, type SkillGroup, type SkillIconName } from "../data/skills";
 import {
   AdobeAfterEffectsSimpleIcon,
   AdobeIllustratorSimpleIcon,
@@ -27,120 +27,50 @@ import {
   WordPressSimpleIcon,
 } from "./SimpleBrandIcons";
 
-type Skill = {
-  name: string;
-  icon: ElementType;
-};
-
-type SkillSection = {
-  title: string;
-  items: Skill[];
-};
-
-const sections: SkillSection[] = [
-  {
-    title: "Design",
-    items: [
-      { name: "Figma", icon: FigmaSimpleIcon },
-      { name: "Adobe Photoshop", icon: AdobePhotoshopSimpleIcon },
-      { name: "Adobe Illustrator", icon: AdobeIllustratorSimpleIcon },
-      { name: "Adobe InDesign", icon: AdobeInDesignSimpleIcon },
-    ],
-  },
-  {
-    title: "Development",
-    items: [
-      { name: "HTML5", icon: Html5SimpleIcon },
-      { name: "CSS3", icon: Css3SimpleIcon },
-      { name: "JavaScript", icon: JavaScriptSimpleIcon },
-      { name: "React", icon: ReactSimpleIcon },
-      { name: "GitHub", icon: GitHubSimpleIcon },
-      { name: "Tailwind CSS", icon: TailwindCssSimpleIcon },
-      { name: "Vite", icon: ViteSimpleIcon },
-      { name: "TypeScript", icon: TypeScriptSimpleIcon },
-    ],
-  },
-  {
-    title: "CMS & Web",
-    items: [
-      { name: "WordPress", icon: WordPressSimpleIcon },
-      { name: "Elementor", icon: ElementorSimpleIcon },
-    ],
-  },
-  {
-    title: "Video",
-    items: [
-      { name: "Adobe Premiere Pro", icon: AdobePremiereProSimpleIcon },
-      { name: "Adobe After Effects", icon: AdobeAfterEffectsSimpleIcon },
-    ],
-  },
-  {
-    title: "Professional",
-    items: [
-      { name: "Problem Solving", icon: Puzzle },
-      { name: "Communication", icon: MessagesSquare },
-      { name: "Adaptability", icon: RefreshCw },
-      { name: "Self-Learning", icon: BookOpen },
-    ],
-  },
-  {
-    title: "Languages",
-    items: [
-      { name: "Tagalog", icon: Languages },
-      { name: "English", icon: Languages },
-      { name: "Cebuano", icon: Languages },
-    ],
-  },
-];
+const skillIcons = {
+  figma: FigmaSimpleIcon,
+  adobePhotoshop: AdobePhotoshopSimpleIcon,
+  adobeIllustrator: AdobeIllustratorSimpleIcon,
+  adobeInDesign: AdobeInDesignSimpleIcon,
+  html5: Html5SimpleIcon,
+  css3: Css3SimpleIcon,
+  javaScript: JavaScriptSimpleIcon,
+  react: ReactSimpleIcon,
+  gitHub: GitHubSimpleIcon,
+  tailwindCss: TailwindCssSimpleIcon,
+  vite: ViteSimpleIcon,
+  typeScript: TypeScriptSimpleIcon,
+  wordPress: WordPressSimpleIcon,
+  elementor: ElementorSimpleIcon,
+  adobePremierePro: AdobePremiereProSimpleIcon,
+  adobeAfterEffects: AdobeAfterEffectsSimpleIcon,
+  puzzle: Puzzle,
+  messagesSquare: MessagesSquare,
+  refreshCw: RefreshCw,
+  bookOpen: BookOpen,
+  languages: Languages,
+} satisfies Record<SkillIconName, ComponentType<SVGProps<SVGSVGElement>>>;
 
 export function SkillsSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [primarySection, ...additionalSections] = sections;
-
   return (
-    <section id="skills" className="content-section">
-      <div className="section-container">
-        <RevealOnScroll>
-          <SectionHeading
-            title="Skills"
-            isExpanded={isExpanded}
-            controls="skills-additional-content"
-            onToggle={() => setIsExpanded((current) => !current)}
-          />
-        </RevealOnScroll>
-
-        <RevealOnScroll delayMs={120}>
-          <div className="section-card-list">
-            <SkillRow section={primarySection} />
-          </div>
-        </RevealOnScroll>
-
-        <div
-          id="skills-additional-content"
-          className={`expandable-panel ${isExpanded ? "is-visible" : ""}`}
-          aria-hidden={!isExpanded}
-        >
-          <div className="expandable-panel-inner">
-            <div className="section-card-list">
-              {additionalSections.map((section) => (
-                <SkillRow key={section.title} section={section} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ExpandableSection
+      id="skills"
+      title="Skills"
+      items={skillGroups}
+      getKey={(group) => group.title}
+      renderItem={(group) => <SkillRow group={group} />}
+    />
   );
 }
 
-function SkillRow({ section }: { section: SkillSection }) {
+function SkillRow({ group }: { group: SkillGroup }) {
   return (
     <div className="skill-row">
-      <h3 className="skill-category">{section.title}</h3>
+      <h3 className="skill-category">{group.title}</h3>
 
-      <ul className="skill-item-list" aria-label={`${section.title} skills`}>
-        {section.items.map((item) => {
-          const Icon = item.icon;
+      <ul role="list" className="skill-item-list" aria-label={`${group.title} skills`}>
+        {group.items.map((item) => {
+          const Icon = skillIcons[item.icon];
 
           return (
             <li key={item.name} className="skill-item">

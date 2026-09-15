@@ -5,7 +5,7 @@ type ResumeEntryProps = {
   subtitle: string;
   date: string;
   logo: ReactNode;
-  details: string[];
+  details: readonly string[];
 };
 
 export function ResumeEntry({

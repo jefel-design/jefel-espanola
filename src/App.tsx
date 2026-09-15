@@ -15,7 +15,7 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (location.hash) {
-      const target = document.querySelector(location.hash);
+      const target = document.getElementById(location.hash.slice(1));
 
       if (target) {
         target.scrollIntoView();
@@ -34,14 +34,12 @@ function App() {
     <BrowserRouter>
       <RouteSeo />
       <ScrollToTop />
-      <div className="portfolio-shell min-h-screen font-sans">
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/projects/:projectSlug" element={<ProjectPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
+      <div className="site-layout">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects/:projectSlug" element={<ProjectPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );

@@ -22,11 +22,11 @@ export function ProjectPage() {
   }
 
   return (
-    <article className="project-page min-h-screen">
+    <main className="project-page min-h-screen">
       <div className="page-container">
         <div className="project-page-nav">
           <Link to="/#work" className="section-back-link slide-fade-up">
-            <ArrowLeft size={18} strokeWidth={1.75} />
+            <ArrowLeft aria-hidden="true" size={18} strokeWidth={1.75} />
             <span>Back to work</span>
           </Link>
 
@@ -69,6 +69,6 @@ export function ProjectPage() {
           <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.75} />
         </a>
       </div>
-    </article>
+    </main>
   );
 }

@@ -35,7 +35,7 @@ function upsertCanonical(href: string) {
 }
 
 function upsertJsonLd(id: string, data: Record<string, unknown>) {
-  let element = document.getElementById(id) as HTMLScriptElement | null;
+  let element = document.querySelector<HTMLScriptElement>(`script#${id}`);
 
   if (!element) {
     element = document.createElement("script");

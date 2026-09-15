@@ -14,6 +14,10 @@ export const defaultSeoImage = seoConfig.defaultImage;
 export const defaultSeoImageAlt = seoConfig.defaultImageAlt;
 export const routeSeo: RouteSeo[] = seoConfig.routes;
 
+const homeSeo = routeSeo.find((route) => route.path === "/");
+if (!homeSeo) throw new Error("SEO configuration must include the home route.");
+const defaultRouteSeo: RouteSeo = homeSeo;
+
 export function normalizePath(pathname: string) {
   if (pathname === "/") {
     return "/";
@@ -26,7 +30,7 @@ export function getSeoForPath(pathname: string) {
   const normalizedPath = normalizePath(pathname);
   return (
     routeSeo.find((item) => item.path === normalizedPath) ??
-    routeSeo.find((item) => item.path === "/")!
+    defaultRouteSeo
   );
 }
 

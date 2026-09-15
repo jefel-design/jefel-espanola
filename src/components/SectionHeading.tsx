@@ -1,48 +1,49 @@
 import { ChevronDown } from "lucide-react";
+import { cn } from "../lib/utils";
 
 type SectionHeadingProps = {
+  id?: string;
   title: string;
   description?: string;
-  isExpanded?: boolean;
-  controls?: string;
-  onToggle?: () => void;
+  toggle?: {
+    isExpanded: boolean;
+    controls: string;
+    onToggle: () => void;
+  };
 };
 
 export function SectionHeading({
+  id,
   title,
   description,
-  isExpanded,
-  controls,
-  onToggle,
+  toggle,
 }: SectionHeadingProps) {
-  const isExpandable =
-    typeof isExpanded === "boolean" && Boolean(controls && onToggle);
-
   return (
     <div
-      className={`section-heading ${isExpandable ? "section-heading--expandable" : ""}`}
+      className={cn("section-heading", toggle && "section-heading--expandable")}
     >
       <div>
-        <h2 className="section-heading-title">{title}</h2>
+        <h2 id={id} className="section-heading-title">{title}</h2>
         {description && (
           <p className="section-heading-description">{description}</p>
         )}
       </div>
 
-      {isExpandable && (
+      {toggle && (
         <button
           type="button"
           className="section-toggle"
-          aria-expanded={isExpanded}
-          aria-controls={controls}
-          onClick={onToggle}
+          aria-label={`${toggle.isExpanded ? "See less" : "See more"} ${title.toLowerCase()}`}
+          aria-expanded={toggle.isExpanded}
+          aria-controls={toggle.controls}
+          onClick={toggle.onToggle}
         >
-          <span>{isExpanded ? "See less" : "See more"}</span>
+          <span>{toggle.isExpanded ? "See less" : "See more"}</span>
           <ChevronDown
             aria-hidden="true"
             size={14}
             strokeWidth={1.75}
-            className={`section-toggle-icon ${isExpanded ? "is-expanded" : ""}`}
+            className={cn("section-toggle-icon", toggle.isExpanded && "is-expanded")}
           />
         </button>
       )}
